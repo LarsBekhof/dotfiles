@@ -1,0 +1,27 @@
+[global]
+	browser = chromium
+	font = monospace 13
+	format = "<b>%a</b>\n%s\n%b"
+	geometry = "500x10-20+40"
+	horizontal_padding = 10
+	padding = 10
+	transparency = 0
+	word_wrap = yes
+
+[frame]
+	width = 0
+
+[urgency_low]
+	background = "#1b1918"
+	foreground = "#b8afad"
+	timeout = 10
+
+[urgency_normal]
+	background = "#1b1918"
+	foreground = "#b8afad"
+	timeout = 10
+
+[urgency_critical]
+	background = "#1b1918"
+	foreground = "#b8afad"
+	timeout = 10

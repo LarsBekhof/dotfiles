@@ -1,5 +1,5 @@
 [options]
-font = monospace 11
+font = xos4 Terminus Bold 16
 
 browser = chromium
 

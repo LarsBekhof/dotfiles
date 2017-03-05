@@ -1,6 +1,6 @@
 [global]
 	browser = chromium
-	font = monospace 13
+	font = xos4 Terminus Bold 16
 	format = "<b>%a</b>\n%s\n%b"
 	geometry = "500x10-20+40"
 	horizontal_padding = 10

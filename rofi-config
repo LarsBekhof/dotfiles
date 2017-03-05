@@ -6,6 +6,6 @@ rofi.color-window: argb:dd1b1918, argb:01b1918, argb:01b1918
 rofi.color-normal: argb:01b1918, #b8afad, argb:01b1918, argb:01b1918, #ffffff
 rofi.color-active: argb:01b1918, #b8afad, argb:01b1918, argb:01b1918, #ffffff
 rofi.color-urgent: argb:01b1918, #b8afad, argb:01b1918, argb:01b1918, #ffffff
-rofi.width: 100
+rofi.width: 100d
 rofi.padding: 600
-rofi.font: monospace 18
+rofi.font: xos4 Terminus Bold 24

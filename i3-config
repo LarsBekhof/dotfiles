@@ -161,8 +161,8 @@ exec --no-startup-id feh --bg-scale ~/Images/Backgrounds/disposableLeftXO.png
 exec --no-startup-id compton -b
 
 # set other keys
-bindsym XF86AudioLowerVolume exec amixer set Master 10- on
-bindsym XF86AudioRaiseVolume exec amixer set Master 10+ on
-# brightness key don't work yet :(
-bindsym XF86BrightnessDown exec
-bindsym XF86BrightnessUp exec
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 10- on
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 10+ on
+bindsym XF86AudioMute exec --no-startup-id amixer set Master off
+bindsym XF86MonBrightnessDown exec --no-startup-id lux -s 10%
+bindsym XF86MonBrightnessUp exec --no-startup-id lux -a 10%

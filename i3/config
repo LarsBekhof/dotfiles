@@ -124,8 +124,9 @@ bar {
 
 # set settings
 exec --no-startup-id xset r rate 250 40
-exec --no-startup-id xinput set-prop 12 274 1
-exec --no-startup-id xinput set-prop 12 284 1
+exec --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 1
+exec --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1
+exec --no-startup-id setxkbmap -model pc104 -layout us -variant alt-intl
 
 # start apps
 exec --no-startup-id feh --bg-scale ~/Images/Backgrounds/disposableLeftXO.png

@@ -1,6 +1,6 @@
 [global]
 	browser = chromium
-	font = xos4 Terminus Bold 16
+	font = Roboto Mono for Powerline 14
 	format = "<b>%a</b>\n%s\n%b"
 	geometry = "500x10-20+40"
 	horizontal_padding = 10
@@ -12,16 +12,16 @@
 	width = 0
 
 [urgency_low]
-	background = "#1b1918"
-	foreground = "#b8afad"
+	background = "#1d1f21"
+	foreground = "#c5c8c6"
 	timeout = 10
 
 [urgency_normal]
-	background = "#1b1918"
-	foreground = "#b8afad"
+	background = "#1d1f21"
+	foreground = "#c5c8c6"
 	timeout = 10
 
 [urgency_critical]
-	background = "#1b1918"
-	foreground = "#b8afad"
+	background = "#1d1f21"
+	foreground = "#c5c8c6"
 	timeout = 10

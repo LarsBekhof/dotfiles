@@ -99,10 +99,10 @@ bindsym $mod+r mode "resize"
 
 # window visual settings
 # type                          border  background      text    indicator
-client.focused                  #1b1918 #1b1918         #b8afad #1b1918
-client.focused_inactive         #1b1918 #1b1918         #5e5958 #1b1918
-client.unfocused                #1b1918 #1b1918         #5e5958 #1b1918
-client.urgent			#1b1918 #1b1918		#5e5958 #1b1918
+client.focused                  #1d1f21 #1d1f21         #81a2be #1b1918
+client.focused_inactive         #1d1f21 #1d1f21         #c5c8c6 #1b1918
+client.unfocused                #1d1f21 #1d1f21         #c5c8c6 #1b1918
+client.urgent			#1d1f21 #1d1f21		#c5c8c6 #1b1918
 
 # Start i3bar to display a workspace bar
 bar {
@@ -110,15 +110,13 @@ bar {
         position bottom
         colors {
                 # Whole color settings
-                background #1b1918
-                statusline #b8afad
-                separator  #666666
+                background #1d1f21
 
                 # type                  border  background      text
-                focused_workspace       #1b1918 #1b1918         #b8afad
-                active_workspace        #1b1918 #1b1918         #5e5958
-                inactive_workspace      #1b1918 #1b1918         #5e5958
-                urgent_workspace	#1b1918	#1b1918		#5e5958
+                focused_workspace       #1d1f21 #1d1f21         #81a2be
+                active_workspace        #1d1f21 #1d1f21         #c5c8c6
+                inactive_workspace      #1d1f21 #1d1f21         #c5c8c6
+                urgent_workspace	#1d1f21	#1d1f21		#c5c8c6
         }
 }
 
@@ -126,6 +124,7 @@ bar {
 exec --no-startup-id xset r rate 250 40
 exec --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 1
 exec --no-startup-id xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1
+exec --no-startup-id xinput set-prop 'Magic Mouse ' 'libinput Natural Scrolling Enabled' 1
 exec --no-startup-id setxkbmap -model pc104 -layout us -variant alt-intl
 
 # start apps

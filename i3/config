@@ -41,6 +41,9 @@ bindsym $mod+space focus mode_toggle
 # open empty window
 bindsym $mod+o open
 
+# lock screen
+bindsym $mod+Shift+l exec i3lock-fancy
+
 # workspace variables
 set $w1 1
 set $w2 2

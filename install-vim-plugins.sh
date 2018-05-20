@@ -23,5 +23,5 @@ git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/bundle/typesc
 # vim-js-pretty-template install
 git clone https://github.com/Quramy/vim-js-pretty-template.git ~/.vim/bundle/vim-js-pretty-template
 
-# nerd commenter install
-git clone https://github.com/scrooloose/nerdcommenter.git ~/.vim/bundle/nerdcommenter
+# vim-commentray install
+git clone git://github.com/tpope/vim-commentary.git ~/.vim/bundle/vim-commentary

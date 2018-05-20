@@ -55,3 +55,4 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " On startup
 autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd w

@@ -14,3 +14,9 @@
 - Terminal emulator: termite
 - Text editor: vim
 - Torrent client: deluge-console
+- Compositor: compton
+- Notifications: dunst
+- Sound controls: pavucontrol
+- Blue light filter: redshift
+- i3bar: i3blocks
+- Lock: i3lock

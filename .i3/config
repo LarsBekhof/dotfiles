@@ -200,8 +200,9 @@ for_window[class="^."] border pixel 2
 bindsym $mod+m exec pavucontrol
 bindsym $mod+o exec redshift -O 4000 -b 0.6:0.6
 bindsym $mod+Shift+o exec redshift -x
-bindsym --release Print exec scrot -u ~/Pictures/$(date '+%d-%m-%Y_%H:%M:%S').jpg
+bindsym --release Print exec scrot -u ~/Pictures/Screenshots/$(date '+%d-%m-%Y_%H:%M:%S').jpg
 
 # Start applications
 exec --no-startup-id compton -b -f
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id dunst

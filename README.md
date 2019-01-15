@@ -13,3 +13,4 @@
 - Music player: moc
 - Terminal emulator: termite
 - Text editor: vim
+- Torrent client: deluge-console

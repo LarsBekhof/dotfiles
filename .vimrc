@@ -58,7 +58,7 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 let NERDTreeShowLineNumbers=1
 
 " Key bindings
-map zs :! ag -r ""
+map zs :! ag -r ""<Left>
 
 " On startup
 autocmd VimEnter * NERDTree

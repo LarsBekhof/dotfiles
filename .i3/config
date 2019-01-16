@@ -197,12 +197,14 @@ bar {
 for_window[class="^."] border pixel 2
 
 # Custom binds
+bindsym --whole-window --border $mod+button4 exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+1 i3blocks
+bindsym --whole-window --border $mod+button5 exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+1 i3blocks
 bindsym $mod+m exec pavucontrol
 bindsym $mod+o exec redshift -O 4000 -b 0.6:0.6
 bindsym $mod+Shift+o exec redshift -x
 bindsym --release Print exec scrot -u ~/Pictures/Screenshots/$(date '+%d-%m-%Y_%H:%M:%S').jpg
 
-# Start applications
+# Start applications     
 exec --no-startup-id compton -b -f
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id dunst
+exec --no-startup-id duns     t

@@ -11,7 +11,7 @@
 - Set background: nitrogen
 - Theming: lxappearance
 - Music player: moc
-- Terminal emulator: termite
+- Terminal emulator: rxvt-unicode
 - Text editor: vim
 - Torrent client: deluge-console
 - Compositor: compton

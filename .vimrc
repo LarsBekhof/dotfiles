@@ -12,6 +12,7 @@ set tm=500
 set ttyfast
 set undolevels=1000
 set noswapfile
+set mouse=a
 
 " Color and fonts
 syntax enable
@@ -38,6 +39,7 @@ set expandtab
 set list
 set listchars=tab:▸\ ,eol:¬
 set copyindent
+set breakindent
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -58,7 +60,7 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 let NERDTreeShowLineNumbers=1
 
 " Key bindings
-map zs :! ag -r ""<Left>
+map zs :! ag -i --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=.git ""<Left>
 
 " On startup
 autocmd VimEnter * NERDTree

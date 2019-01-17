@@ -1,0 +1,42 @@
+URxvt.font: xft:Roboto Mono for Powerline:size=11
+
+URxvt.scrollBar:    false
+URxvt.cursorBlink:  true
+
+URxvt.foreground:   #c5c8c6
+URxvt.depth:        32
+URxvt.background:   [80]#1d1f21
+URxvt.cursorColor:  #c5c8c6
+URxvt.colorBD:      #c5c8c6
+
+! black
+URxvt.color0:       #1d1f21
+URxvt.color8:       #969896
+
+! red
+URxvt.color1:       #cc342b
+URxvt.color9:       #cc342b
+
+! green
+URxvt.color2:       #198844
+URxvt.color10:      #198844
+
+! yellow
+URxvt.color3:       #fba922
+URxvt.color11:      #fba922
+
+! blue
+URxvt.color4:       #3971ed
+URxvt.color12:      #3971ed
+
+! magenta
+URxvt.color5:       #a36ac7
+URxvt.color13:      #a36ac7
+
+! cyan
+URxvt.color6:       #3971ed
+URxvt.color14:      #3971ed
+
+! white
+URxvt.color7:       #c5c8c6
+URxvt.color15:      #ffffff

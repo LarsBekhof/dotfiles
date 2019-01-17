@@ -3,7 +3,7 @@ ln -sf $(pwd)/.jshintrc ~/
 ln -sf $(pwd)/.i3 ~/
 ln -sf $(pwd)/.i3blocks.conf ~/
 ln -sf $(pwd)/.xinitrc ~/
+ln -sf $(pwd)/.Xresources ~/
 ln -sf $(pwd)/dunst ~/.config/
 ln -sf $(pwd)/rofi ~/.config/
-ln -sf $(pwd)/termite ~/.config/
 ln -sf $(pwd)/ranger ~/.config/

@@ -205,6 +205,6 @@ bindsym $mod+Shift+o exec redshift -x
 bindsym --release Print exec scrot -u ~/Pictures/Screenshots/$(date '+%d-%m-%Y_%H:%M:%S').jpg
 
 # Start applications     
-exec --no-startup-id compton -b -f
+exec --no-startup-id compton -bf
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id duns     t

@@ -12,7 +12,6 @@ set tm=500
 set ttyfast
 set undolevels=1000
 set noswapfile
-set mouse=a
 
 " Color and fonts
 syntax enable

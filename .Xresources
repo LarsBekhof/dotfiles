@@ -1,6 +1,7 @@
 URxvt.font: xft:Roboto Mono for Powerline:size=11
 
 URxvt.scrollBar:    false
+URxvt.saveLines:    5000
 URxvt.cursorBlink:  true
 
 URxvt.foreground:   #c5c8c6

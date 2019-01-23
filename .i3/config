@@ -11,7 +11,7 @@ font pango:"Roboto Mono for Powerline" 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -202,7 +202,7 @@ bindsym --whole-window --border $mod+button5 exec pactl set-sink-volume @DEFAULT
 bindsym $mod+m exec pavucontrol
 bindsym $mod+o exec redshift -O 4000 -b 0.6:0.6
 bindsym $mod+Shift+o exec redshift -x
-bindsym --release Print exec scrot -u ~/Pictures/Screenshots/$(date '+%d-%m-%Y_%H:%M:%S').jpg
+bindsym --release Print exec screenshot
 
 # Start applications     
 exec --no-startup-id compton -bf

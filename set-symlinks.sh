@@ -6,4 +6,4 @@ ln -sf $(pwd)/.xinitrc ~/
 ln -sf $(pwd)/.Xresources ~/
 ln -sf $(pwd)/dunst ~/.config/
 ln -sf $(pwd)/rofi ~/.config/
-ln -sf $(pwd)/vifmrc ~/.vifm/
+ln -sf $(pwd)/.vifm ~/

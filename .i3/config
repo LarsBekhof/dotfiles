@@ -21,7 +21,7 @@ bindsym $mod+l exec i3lock -c 2d303b
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -theme ~/.config/rofi/Arc-Dark -p "run:"'
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu_run -fn 'Roboto Mono for Powerline-11' -nb '#2d303b' -nf '#c4cbd4' -sb '#4084d6' -sf '#f9f9f9'"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 10 -w 200 -y 26 -fn 'Roboto Mono for Powerline-11' -nb '#2d303b' -nf '#c4cbd4' -sb '#4084d6' -sf '#f9f9f9'"
 
 # change focus
 bindsym $mod+Left focus left

@@ -8,9 +8,6 @@ git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 # delimitMate install
 git clone https://github.com/Raimondi/delimitMate.git ~/.vim/bundle/delimitMate
 
-# nerdtree install
-git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
-
 # powerline install
 git clone https://github.com/powerline/powerline.git ~/.vim/bundle/powerline
 

@@ -55,12 +55,8 @@ let g:syntastic_loc_list_height=3
 " Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
-" NERDTree
-let NERDTreeShowLineNumbers=1
-
 " Key bindings
 map zs :! ag -i --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=.git ""<Left>
 
 " On startup
-autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd w

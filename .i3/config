@@ -20,8 +20,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+l exec i3lock -c 2d303b
 
 # start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -theme ~/.config/rofi/Arc-Dark -p "run:"'
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 10 -w 200 -y 26 -fn 'Roboto Mono for Powerline-11' -nb '#2d303b' -nf '#c4cbd4' -sb '#4084d6' -sf '#f9f9f9'"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu_run -i -fn 'Roboto Mono for Powerline-11' -nb '#2d303b' -nf '#c4cbd4' -sb '#4084d6' -sf '#f9f9f9'"
 
 # change focus
 bindsym $mod+Left focus left
@@ -138,7 +137,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec dprompt "Do you want to logout?" "i3-msg exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

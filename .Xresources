@@ -6,7 +6,7 @@ URxvt.cursorBlink:  true
 
 URxvt.foreground:   #c5c8c6
 URxvt.depth:        32
-URxvt.background:   [100]#1d1f21
+URxvt.background:   [85]#1d1f21
 URxvt.cursorColor:  #c5c8c6
 URxvt.colorBD:      #c5c8c6
 

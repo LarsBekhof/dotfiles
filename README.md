@@ -7,7 +7,7 @@
 - Image viewer: sxiv
 - Video player: mpv
 - Calculator: bc
-- File browser: ranger
+- File browser: vifm
 - Set background: nitrogen
 - Theming: lxappearance
 - Music player: moc

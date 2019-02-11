@@ -25,3 +25,6 @@ git clone git://github.com/tpope/vim-commentary.git ~/.vim/bundle/vim-commentary
 
 # vim-blade install
 git clone git://github.com/jwalton512/vim-blade.git ~/.vim/bundle/vim-blade
+
+# vue syntax
+git clone https://github.com/posva/vim-vue.git ~/.vim/bundle/vim-vue

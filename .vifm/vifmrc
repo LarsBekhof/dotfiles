@@ -1,2 +1,4 @@
 set relativenumber
 only
+
+map aa :!sxiv * & disown<CR>

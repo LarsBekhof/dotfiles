@@ -1,6 +1,10 @@
 # You can edit this file by hand, but it's recommended not to do that.
 
 # Marks:
+'k
+	/home/lars/Code/my-node-test/src/templates
+	..
+1549115352
 
 # Bookmarks:
 
@@ -35,3 +39,25 @@ t/home/lars/.local/share/vifm/Trash/000_24-01-2019_11:45:13.mp3
 	/home/lars/Music/audio-recordings/24-01-2019_11:45:13.mp3
 t/home/lars/.local/share/vifm/Trash/000_24-01-2019_11:46:10.mp3
 	/home/lars/Music/audio-recordings/24-01-2019_11:46:10.mp3
+t/home/lars/.local/share/vifm/Trash/000_24-01-2019_21:54:15.jpg
+	/home/lars/Pictures/Screenshots/24-01-2019_21:54:15.jpg
+t/home/lars/.local/share/vifm/Trash/000_main.js
+	/home/lars/Code/my-node-test/main.js
+t/home/lars/.local/share/vifm/Trash/000_server.js
+	/home/lars/Code/my-node-test/src/server.js
+t/home/lars/.local/share/vifm/Trash/001_main.js
+	/home/lars/Code/my-node-test/lib/main.js
+t/home/lars/.local/share/vifm/Trash/000_lib
+	/home/lars/Code/my-node-test/lib
+t/home/lars/.local/share/vifm/Trash/000_web
+	/home/lars/Code/my-node-test/src/routing/web
+t/home/lars/.local/share/vifm/Trash/000_Discrete_Mathematics_with_Applications.pdf
+	/home/lars/Downloads/Discrete_Mathematics_with_Applications.pdf
+t/home/lars/.local/share/vifm/Trash/000_html
+	/home/lars/Code/my-node-test/src/public/html
+t/home/lars/.local/share/vifm/Trash/000_auth
+	/home/lars/Code/my-node-test/src/controllers/auth
+t/home/lars/.local/share/vifm/Trash/000_auth-dao.js
+	/home/lars/Code/my-node-test/src/daos/auth-dao.js
+t/home/lars/.local/share/vifm/Trash/000_test.html
+	/home/lars/Code/my-node-test/src/public/test.html

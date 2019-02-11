@@ -20,7 +20,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+l exec i3lock -c 2d303b
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu_run -i -fn 'Roboto Mono for Powerline-11' -nb '#2d303b' -nf '#c4cbd4' -sb '#4084d6' -sf '#f9f9f9'"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'Roboto Mono for Powerline-11'"
+bindsym $mod+s exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu_run -i -fn 'Roboto Mono for Powerline-11'"
 
 # change focus
 bindsym $mod+Left focus left
@@ -43,8 +44,7 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# change container layout (tabbed, toggle split)
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -82,8 +82,13 @@ bindsym $mod+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $d1 "DP-1" # Left
-set $d2 "HDMI-1" # Right
+# Home
+# set $d1 "DP-1" # Left
+# set $d2 "HDMI-1" # Right
+
+# Peakfijn
+set $d1 "HDMI-1" # Top
+set $d2 "eDP-1" # Bottom
 
 set $ws1 "1"
 set $ws2 "2"
@@ -153,6 +158,11 @@ mode "resize" {
         bindsym Up          resize shrink height 10 px or 10 ppt
         bindsym Right       resize grow width 10 px or 10 ppt
 
+        bindsym h        resize shrink width 1 px or 1 ppt
+        bindsym j        resize grow height 1 px or 1 ppt
+        bindsym k          resize shrink height 1 px or 1 ppt
+        bindsym l       resize grow width 1 px or 1 ppt
+
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -201,11 +211,11 @@ for_window[class="^."] border pixel 2
 bindsym --whole-window --border $mod+button4 exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+1 i3blocks
 bindsym --whole-window --border $mod+button5 exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+1 i3blocks
 bindsym $mod+m exec pavucontrol
-bindsym $mod+o exec redshift -O 4000 -b 0.6:0.6
+bindsym $mod+o exec redshift -O 5000 -b 0.7:0.7
 bindsym $mod+Shift+o exec redshift -x
 bindsym --release Print exec screenshot
 
 # Start applications     
-exec --no-startup-id compton -bf
+exec --no-startup-id compton -b
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc

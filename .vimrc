@@ -57,6 +57,7 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " Key bindings
 map zs :! ag -i --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=.git ""<Left>
+map zx :TabVifm<CR>
 
 " On startup
 autocmd VimEnter * wincmd w

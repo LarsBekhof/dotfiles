@@ -5,8 +5,8 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 # ctrlp install
 git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 
-# delimitMate install
-git clone https://github.com/Raimondi/delimitMate.git ~/.vim/bundle/delimitMate
+# auto-pairs install
+git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
 
 # powerline install
 git clone https://github.com/powerline/powerline.git ~/.vim/bundle/powerline

@@ -65,3 +65,35 @@ t/home/lars/.local/share/vifm/Trash/000_DataGrip-2018.3.2
 	/home/lars/Downloads/DataGrip-2018.3.2
 t/home/lars/.local/share/vifm/Trash/000_archlinux-2019.01.01-x86_64.iso
 	/home/lars/Downloads/archlinux-2019.01.01-x86_64.iso
+t/home/lars/.local/share/vifm/Trash/000_create.blade.php
+	/home/lars/Code/forecit-app/resources/views/admin/users/create.blade.php
+t/home/lars/.local/share/vifm/Trash/000_kiwi.svg
+	/home/lars/Code/forecit-app/resources/images/icon-glyphs/kiwi.svg
+t/home/lars/.local/share/vifm/Trash/000_users.svg
+	/home/lars/Code/forecit-app/resources/images/icon-glyphs/users.svg
+t/home/lars/.local/share/vifm/Trash/000_users.js
+	/home/lars/Code/forecit-app/resources/js/icons/users.js
+t/home/lars/.local/share/vifm/Trash/001_create.blade.php
+	/home/lars/Code/forecit-app/resources/views/users/create.blade.php
+t/home/lars/.local/share/vifm/Trash/000_users
+	/home/lars/Code/forecit-app/resources/views/users
+t/home/lars/.local/share/vifm/Trash/001_users
+	/home/lars/Code/forecit-app/resources/views/user-management/users
+t/home/lars/.local/share/vifm/Trash/000_roles
+	/home/lars/Code/forecit-app/resources/views/user-management/roles
+t/home/lars/.local/share/vifm/Trash/000_Emoji - Wikipedia.html
+	/home/lars/Documents/Emoji - Wikipedia.html
+t/home/lars/.local/share/vifm/Trash/000_bookmarks_2_2_19.html
+	/home/lars/Documents/bookmarks_2_2_19.html
+t/home/lars/.local/share/vifm/Trash/000_dme-script.txt
+	/home/lars/Documents/dme-script.txt
+t/home/lars/.local/share/vifm/Trash/000_fore-c-it-0.3.0.mwb.bak
+	/home/lars/Documents/fore-c-it-0.3.0.mwb.bak
+t/home/lars/.local/share/vifm/Trash/000_RoleController.php
+	/home/lars/Code/forecit-app/app/Http/Controllers/User/RoleController.php
+t/home/lars/.local/share/vifm/Trash/000_Role.php
+	/home/lars/Code/forecit-app/app/Role.php
+t/home/lars/.local/share/vifm/Trash/000_;
+	/home/lars/Code/forecit-app/;
+t/home/lars/.local/share/vifm/Trash/000_OrderShipped.php
+	/home/lars/Code/forecit-app/app/Mail/OrderShipped.php

@@ -97,3 +97,13 @@ t/home/lars/.local/share/vifm/Trash/000_;
 	/home/lars/Code/forecit-app/;
 t/home/lars/.local/share/vifm/Trash/000_OrderShipped.php
 	/home/lars/Code/forecit-app/app/Mail/OrderShipped.php
+t/home/lars/.local/share/vifm/Trash/000_'
+	/home/lars/Code/forecit-app/'
+t/home/lars/.local/share/vifm/Trash/000_company-admin.php
+	/home/lars/Code/forecit-app/app/Http/Middleware/company-admin.php
+t/home/lars/.local/share/vifm/Trash/000_2019_02_15_153613_role_chapters.php
+	/home/lars/Code/forecit-app/database/migrations/2019_02_15_153613_role_chapters.php
+t/home/lars/.local/share/vifm/Trash/000_RoleChapter.php
+	/home/lars/Code/forecit-app/app/RoleChapter.php
+t/home/lars/.local/share/vifm/Trash/000_2019_02_15_153745_create_role_chapters_table.php
+	/home/lars/Code/forecit-app/database/migrations/2019_02_15_153745_create_role_chapters_table.php

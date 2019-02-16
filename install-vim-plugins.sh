@@ -3,7 +3,7 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 # ctrlp install
-git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
+git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 
 # auto-pairs install
 git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
@@ -26,5 +26,8 @@ git clone git://github.com/tpope/vim-commentary.git ~/.vim/bundle/vim-commentary
 # vim-blade install
 git clone git://github.com/jwalton512/vim-blade.git ~/.vim/bundle/vim-blade
 
-# vue syntax
+# vue-syntax install
 git clone https://github.com/posva/vim-vue.git ~/.vim/bundle/vim-vue
+
+# vim-ags install
+git clone https://github.com/gabesoft/vim-ags.git ~/.vim/bundle/vim-ags

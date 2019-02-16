@@ -41,22 +41,14 @@ set copyindent
 set breakindent
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_quiet_messages={}
-let g:syntastic_loc_list_height=3
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
 
 " Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " Key bindings
-map zs :! ag -i --ignore-dir=vendor --ignore-dir=node_modules --ignore-dir=.git ""<Left>
 map zx :TabVifm<CR>
 
 " On startup

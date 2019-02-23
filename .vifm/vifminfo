@@ -107,3 +107,25 @@ t/home/lars/.local/share/vifm/Trash/000_RoleChapter.php
 	/home/lars/Code/forecit-app/app/RoleChapter.php
 t/home/lars/.local/share/vifm/Trash/000_2019_02_15_153745_create_role_chapters_table.php
 	/home/lars/Code/forecit-app/database/migrations/2019_02_15_153745_create_role_chapters_table.php
+t/home/lars/.local/share/vifm/Trash/000_name
+	/home/lars/Code/forecit-app/name
+t/home/lars/.local/share/vifm/Trash/000_ModelHasRoleFactory.php
+	/home/lars/Code/forecit-app/database/factories/ModelHasRoleFactory.php
+t/home/lars/.local/share/vifm/Trash/000_confirm.vue
+	/home/lars/Code/forecit-app/resources/js/components/helper/confirm.vue
+t/home/lars/.local/share/vifm/Trash/000_user-management
+	/home/lars/Code/forecit-app/resources/js/components/user-management
+t/home/lars/.local/share/vifm/Trash/000_401.blade.php
+	/home/lars/Code/forecit-app/resources/views/errors/401.blade.php
+t/home/lars/.local/share/vifm/Trash/000_HasChapterAccess.php
+	/home/lars/Code/forecit-app/app/Http/Middleware/HasChapterAccess.php
+t/home/lars/.local/share/vifm/Trash/000_ChapterPolicy.php
+	/home/lars/Code/forecit-app/app/Policies/ChapterPolicy.php
+t/home/lars/.local/share/vifm/Trash/000_StoreChaptersTest.php
+	/home/lars/Code/forecit-app/tests/Feature/Onboarding/StoreChaptersTest.php
+t/home/lars/.local/share/vifm/Trash/000_config.backup
+	/home/lars/Code/dotfiles/.i3/config.backup
+t/home/lars/.local/share/vifm/Trash/000_\
+	/home/lars/.config/i3/\
+t/home/lars/.local/share/vifm/Trash/000_config
+	/home/lars/.config/i3/config

@@ -1,4 +1,5 @@
 {
 	"sub": true,
-	"shadow": true
+	"shadow": true,
+	"esversion": 6
 }

@@ -31,3 +31,6 @@ git clone https://github.com/posva/vim-vue.git ~/.vim/bundle/vim-vue
 
 # vim-ags install
 git clone https://github.com/gabesoft/vim-ags.git ~/.vim/bundle/vim-ags
+
+# NERDTree install
+git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree

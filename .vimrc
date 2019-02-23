@@ -34,11 +34,17 @@ set tabstop=4
 set softtabstop=4
 set smartindent
 set shiftwidth=4
-" set expandtab
+set expandtab
 set list
 set listchars=tab:▸\ ,eol:¬
 set copyindent
 set breakindent
+
+" Disable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 " Syntastic
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -48,8 +54,10 @@ let g:ctrlp_max_depth=40
 " Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
-" Key bindings
-map zx :TabVifm<CR>
+" NERDTree
+set modifiable
+let NERDTreeShowLineNumbers=1
 
 " On startup
-autocmd VimEnter * wincmd w
+autocmd VimEnter * NERDTree
+autocmd BufWinEnter * NERDTreeMirror

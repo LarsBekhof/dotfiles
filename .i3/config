@@ -208,7 +208,11 @@ for_window[class="^."] border pixel 2
 bindsym --whole-window --border $mod+button4 exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+1 i3blocks
 bindsym --whole-window --border $mod+button5 exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+1 i3blocks
 bindsym $mod+m exec pavucontrol
-bindsym $mod+o exec redshift -O 5000 -b 0.7:0.7
+# Turn down redness
+bindsym $mod+o exec redshift -O 5500
+# Turn down brightness
+bindsym $mod+p exec redshift -O 6000 -b 0.8:0.8
+# Reset redshift
 bindsym $mod+Shift+o exec redshift -x
 bindsym --release Print exec screenshot
 

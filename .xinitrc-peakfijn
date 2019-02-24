@@ -1,6 +1,6 @@
 #!/bin/sh
 
-xrdb -merge ~/.Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 xrandr --output HDMI1 --above eDP1 --auto --primary --output eDP1 --auto
 

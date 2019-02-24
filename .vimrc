@@ -34,9 +34,10 @@ set tabstop=4
 set softtabstop=4
 set smartindent
 set shiftwidth=4
-set expandtab
+" set expandtab
 set list
-set listchars=tab:▸\ ,eol:¬
+" set listchars=tab:▸\ ,eol:¬,trail:·
+set listchars=eol:¬,tab:▸\ ,trail:·
 set copyindent
 set breakindent
 
@@ -57,6 +58,8 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " NERDTree
 set modifiable
 let NERDTreeShowLineNumbers=1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 " On startup
 autocmd VimEnter * NERDTree

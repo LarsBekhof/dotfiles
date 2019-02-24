@@ -1,7 +1,11 @@
-ln -sf $(pwd)/.vimrc ~/
-ln -sf $(pwd)/.jshintrc ~/
-ln -sf $(pwd)/.i3 ~/
-ln -sf $(pwd)/.i3blocks.conf ~/
-ln -sf $(pwd)/.xinitrc ~/
-ln -sf $(pwd)/.Xresources ~/
-ln -sf $(pwd)/dunst ~/.config/
+#!/bin/bash
+
+SOURCE_DIR=/home/lars/Code/dotfiles
+
+ln -sf $SOURCE_DIR/.vimrc ~/
+ln -sf $SOURCE_DIR/.jshintrc ~/
+ln -sf $SOURCE_DIR/.i3 ~/
+ln -sf $SOURCE_DIR/.i3blocks.conf ~/
+ln -sf $SOURCE_DIR/.xinitrc ~/
+ln -sf $SOURCE_DIR/.Xdefaults ~/
+ln -sf $SOURCE_DIR/dunst ~/.config/

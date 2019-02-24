@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# ctrlp install
+cd ~/.vim/bundle/ctrlp.vim/
+git pull
+
+# auto-pairs install
+cd ~/.vim/bundle/auto-pairs
+git pull
+
+# powerline install
+cd ~/.vim/bundle/powerline
+git pull
+
+# syntastic install
+cd ~/.vim/bundle/syntastic
+git pull
+
+# typescript-vim install
+cd ~/.vim/bundle/typescript-vim
+git pull
+
+# vim-js-pretty-template install
+cd ~/.vim/bundle/vim-js-pretty-template
+git pull
+
+# vim-commentray install
+cd ~/.vim/bundle/vim-commentary
+git pull
+
+# vim-blade install
+cd ~/.vim/bundle/vim-blade
+git pull
+
+# vue-syntax install
+cd ~/.vim/bundle/vim-vue
+git pull
+
+# vim-ags install
+cd ~/.vim/bundle/vim-ags
+git pull
+
+# NERDTree install
+cd ~/.vim/bundle/nerdtree
+git pull

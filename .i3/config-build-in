@@ -23,7 +23,7 @@ bindsym $mod+Return exec xterm
 bindsym $mod+Shift+q kill
 
 # lock the screen
-bindsym $mod+l exec i3lock -c 2d303b
+bindsym $mod+c exec i3lock -c 2d303b
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'Roboto Mono for Powerline-11'"
@@ -43,7 +43,7 @@ bindsym $mod+Shift+$right move right
 
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v

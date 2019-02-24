@@ -1,7 +1,5 @@
 #!/bin/sh
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-
 xrandr --output DP1 --left-of HDMI1 --auto --output HDMI1 --auto --primary --output eDP1 --off
 
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 # Enable tapping

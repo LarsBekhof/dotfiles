@@ -1,7 +1,5 @@
 #!/bin/sh
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-
 xrandr --output eDP1 --auto --primary
 
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 # Enable tapping

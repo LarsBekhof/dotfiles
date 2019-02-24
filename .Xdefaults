@@ -1,11 +1,12 @@
-/* For more config info: https://wiki.archlinux.org/index.php/Xterm#Installation */
+/* For more config info: https://wikiarchlinuxorg/index.php/Xterm#Installation */
 
 /* Xterm specific settings */
-XTerm.termName: xterm-256color
-XTerm.vt100.faceName: xft:Roboto Mono for Powerline:size=11
-XTerm.vt100.locale: true
-XTerm.vt100.saveLines: 1000
-XTerm.vt100.selectToClipboard: true
+XTermtermName: xterm-256color
+XTerm*faceName: xft:Roboto Mono for Powerline:size=11
+XTerm*locale: true
+XTerm*saveLines: 10000
+XTerm*selectToClipboard: true
+XTerm*fullscreen: never
 
 /* X application colors */
 *foreground: #c5c8c6

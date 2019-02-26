@@ -63,4 +63,5 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 " On startup
 autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd w
 autocmd BufWinEnter * NERDTreeMirror

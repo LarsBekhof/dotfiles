@@ -9,3 +9,4 @@ ln -sf $SOURCE_DIR/.i3blocks.conf ~/
 ln -sf $SOURCE_DIR/.xinitrc ~/
 ln -sf $SOURCE_DIR/.Xdefaults ~/
 ln -sf $SOURCE_DIR/dunst ~/.config/
+ln -sf $SOURCE_DIR/.zshrc ~/

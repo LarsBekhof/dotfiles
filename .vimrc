@@ -61,6 +61,10 @@ let NERDTreeShowLineNumbers=1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
+" Keybindings
+map <F1> <Esc>
+imap <F1> <Esc>
+
 " On startup
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd w

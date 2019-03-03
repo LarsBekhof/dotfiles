@@ -4,6 +4,7 @@ export PATH=$PATH:/usr/local/go/bin
 
 # Aliases
 alias ses="switch-env-sh"
+alias ags="ag --silent"
 
 # Path oh-my-zsh
 export ZSH="/home/lars/.oh-my-zsh"

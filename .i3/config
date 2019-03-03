@@ -35,6 +35,8 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
+focus_follows_mouse no
+
 # move focused window
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
@@ -88,8 +90,8 @@ bindsym $mod+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $d1 "HDMI1" # Top
-set $d2 "eDP1" # Bottom
+set $d1 "DP1" # Left
+set $d2 "HDMI1" # Right
 
 set $ws1 "1"
 set $ws2 "2"

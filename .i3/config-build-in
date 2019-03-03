@@ -29,11 +29,15 @@ bindsym $mod+c exec i3lock -c 2d303b
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'Roboto Mono for Powerline-11'"
 bindsym $mod+s exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu_run -i -fn 'Roboto Mono for Powerline-11'"
 
+
+
 # change focus
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
+
+focus_follows_mouse no
 
 # move focused window
 bindsym $mod+Shift+$left move left

@@ -1,10 +1,12 @@
 # Set path
 export PATH=$HOME/Code/scripts:$PATH
 export PATH=$PATH:/usr/local/go/bin
+export $HOME/.config/composer/vendor/bin
 
 # Aliases
 alias ses="switch-env-sh"
 alias ags="ag --silent"
+alias du="du -h"
 
 # Path oh-my-zsh
 export ZSH="/home/lars/.oh-my-zsh"

@@ -8,6 +8,7 @@ alias ses="switch-env-sh"
 alias ags="ag --silent"
 alias du="du -h"
 alias pa="php artisan"
+alias c="clear"
 
 # Path oh-my-zsh
 export ZSH="/home/lars/.oh-my-zsh"

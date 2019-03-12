@@ -9,9 +9,13 @@ alias ags="ag --silent"
 alias du="du -h"
 alias pa="php artisan"
 alias c="clear"
+alias jd=". /home/lars/Code/scripts/jd"
 
 # Path oh-my-zsh
 export ZSH="/home/lars/.oh-my-zsh"
+
+# Make fzf find hidden files
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # Zsh theme
 ZSH_THEME="agnoster"

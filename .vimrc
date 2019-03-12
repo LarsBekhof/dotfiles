@@ -60,6 +60,7 @@ set modifiable
 let NERDTreeShowLineNumbers=1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeWinSize=50
 
 " Keybindings
 map <F1> <Esc>

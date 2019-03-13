@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# ctrlp install
-cd ~/.vim/bundle/ctrlp.vim/
-git pull
-
 # auto-pairs install
 cd ~/.vim/bundle/auto-pairs
 git pull

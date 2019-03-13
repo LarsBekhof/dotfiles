@@ -22,9 +22,9 @@ ZSH_THEME="agnoster"
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  gitfast,
-  docker,
-  web-search,
+  gitfast
+  docker
+  web-search
   sudo
 )
 

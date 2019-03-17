@@ -33,3 +33,6 @@ git clone https://github.com/gabesoft/vim-ags.git ~/.vim/bundle/vim-ags
 
 # NERDTree install
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+
+# ctrp install
+git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim

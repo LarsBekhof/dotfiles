@@ -48,9 +48,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 " Syntastic
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_max_files=0
-let g:ctrlp_max_depth=40
+let g:syntastic_javascript_checkers=['eslint']
 
 " Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim

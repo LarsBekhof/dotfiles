@@ -43,3 +43,11 @@ git pull
 # ctrp install
 cd ~/.vim/bundle/ctrlp.vim
 git pull
+
+# scss syntax install
+cd ~/.vim/bundle/scss-syntax
+git pull
+
+# react syntax install
+cd ~/.vim/bundle/vim-jsx
+git pull

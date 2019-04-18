@@ -30,10 +30,10 @@ set laststatus=2
 set showcmd
 
 " Text, tab and indent
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set smartindent
-set shiftwidth=4
+set shiftwidth=2
 " set expandtab
 set list
 " set listchars=tab:▸\ ,eol:¬,trail:·

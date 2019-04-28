@@ -5,7 +5,7 @@ export PATH=$HOME/.composer/vendor/bin:$PATH
 
 # Aliases
 alias ses="switch-env-sh"
-alias ags="ag --silent"
+alias ags="ag --silent --hidden"
 alias du="du -h"
 alias pa="php artisan"
 alias c="clear"
@@ -27,6 +27,13 @@ plugins=(
   docker
   web-search
   sudo
+  composer
+  debian
+  docker
+  node
+  npm
+  systemd
+  vi-mode
 )
 
 # Zsh source directory

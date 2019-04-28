@@ -56,6 +56,7 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " NERDTree
 set modifiable
 let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeWinSize=35
@@ -66,7 +67,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 endif
 
 " Keybindings

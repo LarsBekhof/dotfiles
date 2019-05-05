@@ -8,7 +8,6 @@ alias ses="switch-env-sh"
 alias ags="ag --silent --hidden"
 alias du="du -h"
 alias pa="php artisan"
-alias c="clear"
 alias jd=". /home/lars/Code/scripts/jd"
 alias up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 

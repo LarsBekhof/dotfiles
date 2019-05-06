@@ -37,12 +37,6 @@ bindsym $mod+$right focus right
 
 focus_follows_mouse no
 
-# move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-
 # split in horizontal orientation
 bindsym $mod+b split h
 

@@ -51,3 +51,7 @@ git pull
 # react syntax install
 cd ~/.vim/bundle/vim-jsx
 git pull
+
+# ale install
+cd ~/.vim/bundle/ale
+git pull

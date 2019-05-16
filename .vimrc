@@ -47,9 +47,6 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-" Syntastic
-let g:syntastic_javascript_checkers=['eslint']
-
 " Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 

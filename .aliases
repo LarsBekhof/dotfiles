@@ -1,6 +1,10 @@
+#!/bin/zsh
+
+AG="ag --silent --hidden"
+
 alias se="switch-env"
 alias ags="$AG"
-alias agf="$AG -g ''"
+alias agf="$AG -g"
 alias du="du -h"
 alias pa="php artisan"
 alias up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"

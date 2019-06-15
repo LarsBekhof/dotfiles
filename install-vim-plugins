@@ -31,9 +31,6 @@ git clone https://github.com/gabesoft/vim-ags.git ~/.vim/bundle/vim-ags
 # NERDTree install
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
-# ctrp install
-git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
-
 # scss syntax install
 git clone https://github.com/cakebaker/scss-syntax.vim ~/.vim/bundle/scss-syntax
 
@@ -42,3 +39,6 @@ git clone https://github.com/mxw/vim-jsx.git ~/.vim/bundle/vim-jsx
 
 # ale install
 git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale
+
+# fzf
+git clone https://github.com/junegunn/fzf.vim.git ~/.vim/bundle/fzf

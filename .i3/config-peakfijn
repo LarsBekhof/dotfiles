@@ -216,6 +216,8 @@ bindsym $mod+p exec redshift -O 6000 -b 0.8:0.8
 # Reset redshift
 bindsym $mod+Shift+o exec redshift -x
 bindsym --release Print exec screenshot
+# Display setup
+# xrandr --output eDP1 --auto --output --auto --primary
 
 # Start applications     
 exec --no-startup-id compton -b

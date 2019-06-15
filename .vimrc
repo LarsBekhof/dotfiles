@@ -61,6 +61,8 @@ let g:NERDTreeWinSize=35
 
 " fzf
 set rtp+=~/.fzf
+map <C-p> :FZF<CR>
+imap <C-p> :FZF<CR>
 
 " Keybindings
 map <F1> <Esc>

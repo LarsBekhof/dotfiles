@@ -2,7 +2,6 @@
 
 AG="ag --silent --hidden"
 
-alias se="switch-env"
 alias ags="$AG"
 alias agf="$AG -g"
 alias du="du -h"

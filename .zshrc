@@ -3,22 +3,22 @@ export PATH=$HOME/Code/scripts:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$HOME/.composer/vendor/bin:$PATH
 
+AG="ag --silent --hidden"
+
 # Aliases
-alias ses="switch-env-sh"
-alias ags="ag --silent --hidden"
-alias du="du -h"
-alias pa="php artisan"
-alias jd=". /home/lars/Code/scripts/jd"
-alias up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
+source ~/.aliases
 
 # Path oh-my-zsh
 export ZSH="/home/lars/.oh-my-zsh"
 
 # Make fzf find hidden files
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND="$AG -g ''"
 
 # Zsh theme
 ZSH_THEME="agnoster"
+
+# Default terminal
+export TERMINAL=st
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(

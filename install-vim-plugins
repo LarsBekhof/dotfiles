@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Pathogen install
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-# auto-pairs install
-git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
+# surround install
+git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/surround
 
 # powerline install
 git clone https://github.com/powerline/powerline.git ~/.vim/bundle/powerline

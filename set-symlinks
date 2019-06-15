@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 SOURCE_DIR=/home/lars/Code/dotfiles
 
@@ -11,3 +11,5 @@ ln -sf $SOURCE_DIR/.Xdefaults ~/
 ln -sf $SOURCE_DIR/dunst ~/.config/
 ln -sf $SOURCE_DIR/.zshrc ~/
 ln -sf $SOURCE_DIR/.zshrc /root/
+ln -sf $SOURCE_DIR/.aliases ~/
+ln -sf $SOURCE_DIR/.aliases /root/

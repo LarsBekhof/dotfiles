@@ -12,6 +12,7 @@ set tm=500
 set ttyfast
 set undolevels=1000
 set noswapfile
+set scrolloff=3
 
 " Color and fonts
 syntax enable
@@ -30,10 +31,10 @@ set laststatus=2
 set showcmd
 
 " Text, tab and indent
-set tabstop=2
-set softtabstop=2
+set tabstop=4
+set softtabstop=4
 set smartindent
-set shiftwidth=2
+set shiftwidth=4
 " set expandtab
 set list
 " set listchars=tab:▸\ ,eol:¬,trail:·

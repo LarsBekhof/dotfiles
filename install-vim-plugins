@@ -39,6 +39,3 @@ git clone https://github.com/mxw/vim-jsx.git ~/.vim/bundle/vim-jsx
 
 # ale install
 git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale
-
-# fzf
-git clone https://github.com/junegunn/fzf.vim.git ~/.vim/bundle/fzf

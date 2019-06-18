@@ -63,6 +63,7 @@ let g:NERDTreeWinSize=35
 set rtp+=~/.fzf
 map <C-p> :FZF<CR>
 imap <C-p> :FZF<CR>
+map <C-a> :Ags ""<left>
 
 " Keybindings
 map <F1> <Esc>

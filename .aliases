@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-AG="ag --silent --hidden"
+AG="ag --silent --hidden -p ~/.ignore"
 
 alias ags="$AG"
 alias agf="$AG -g"
@@ -10,3 +10,4 @@ alias up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 alias ofzf='xdg-open "$(fzf)"'
 alias dmenu='dmenu -i -fn "Roboto Mono for Powerline-11"'
 alias i3e="i3-msg exit"
+alias o="xdg-open"

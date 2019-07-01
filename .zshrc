@@ -3,6 +3,7 @@ export PATH=/opt:$PATH
 export PATH=$HOME/Code/scripts:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$HOME/.composer/vendor/bin:$PATH
+export PATH=$HOME/.local/.npm-global/:$PATH
 
 # Aliases
 source ~/.aliases

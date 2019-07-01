@@ -19,6 +19,7 @@ syntax enable
 set t_Co=256
 hi NonText ctermfg=7
 hi SpecialKey ctermfg=7
+colo darkblue
 
 " Interface
 set number
@@ -35,7 +36,6 @@ set tabstop=4
 set softtabstop=4
 set smartindent
 set shiftwidth=4
-" set expandtab
 set list
 " set listchars=tab:▸\ ,eol:¬,trail:·
 set listchars=eol:¬,tab:▸\ ,trail:·
@@ -57,13 +57,23 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeWinSize=35
+let g:NERDTreeWinSize=45
 
 " fzf
 set rtp+=~/.fzf
 map <C-p> :FZF<CR>
 imap <C-p> :FZF<CR>
 map <C-a> :Ags ""<left>
+
+" Ale
+let b:ale_linters = ['eslint', 'php -l']
+
+" Signify
+let g:signify_vcs_list = ['git']
+highlight DiffAdd ctermfg=2 ctermbg=0
+highlight DiffChange ctermfg=3 ctermbg=0
+highlight DiffDelete ctermfg=1 ctermbg=0
+highlight clear SignColumn
 
 " Keybindings
 map <F1> <Esc>

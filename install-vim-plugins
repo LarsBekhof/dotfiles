@@ -37,8 +37,8 @@ git clone https://github.com/cakebaker/scss-syntax.vim ~/.vim/bundle/scss-syntax
 # react syntax install
 git clone https://github.com/mxw/vim-jsx.git ~/.vim/bundle/vim-jsx
 
-# ale install
-git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale
+# syntastic install
+git clone --depth=1 https://github.com/vim-syntastic/syntastic.git ~/.vim/bundle/syntastic
 
 # Signify
 git clone git@github.com:mhinz/vim-signify.git ~/.vim/bundle/signify

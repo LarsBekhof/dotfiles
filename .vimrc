@@ -65,8 +65,15 @@ map <C-p> :FZF<CR>
 imap <C-p> :FZF<CR>
 map <C-a> :Ags ""<left>
 
-" Ale
-let b:ale_linters = ['eslint', 'php -l']
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Signify
 let g:signify_vcs_list = ['git']

@@ -1,21 +1,29 @@
 # How to use
 1. Change the screen set up and mouse settings in .xinitrc
-2. Run `sh ./install-vim-plugins.sh`
-3. Run `sh ./set-symlinks.sh`
+2. Run `./install-vim-plugins.sh`
+3. Run `./set-symlinks.sh`
+4. Run `./update-vim-plugins.sh`
 
 # Applications to use with i3
-- Image viewer: sxiv
-- Video player: mpv
-- Calculator: bc
-- Set background: nitrogen
-- Theming: lxappearance
-- Music player: moc
-- Terminal emulator: rxvt-unicode
-- Text editor: vim
-- Torrent client: deluge-console
-- Compositor: compton
-- Notifications: dunst
-- Sound controls: pavucontrol
-- Blue light filter: redshift
-- i3bar: i3blocks
-- Lock: i3lock
+- Application launcher:	dmenu
+- Grep alternative:		ag
+- Fuzzy finder:			fzf
+- Image viewer:			sxiv
+- Video player:			mpv
+- Calculator:			bc
+- Set background:		nitrogen
+- Theming:				lxappearance
+- GTK theme:			Arc-Dark
+- Icon theme:			Paper
+- Mouse cursor:			Paper
+- Music player:			moc
+- Terminal emulator:	st
+- Text editor:			vim
+- Torrent client:		deluge-console
+- Compositor:			compton
+- Notifications:		dunst
+- Sound controls:		pavucontrol
+- Blue light filter:	redshift
+- i3bar:				i3blocks
+- Lock:					i3lock
+- Browser:				Firefox

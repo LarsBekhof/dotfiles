@@ -11,7 +11,9 @@ source ~/.aliases
 # Path oh-my-zsh
 export ZSH="/home/lars/.oh-my-zsh"
 
+# Set env variables
 AG="ag --silent --hidden -p ~/.ignore"
+DISPLAY=:0.0
 
 # Make fzf find hidden files
 export FZF_DEFAULT_COMMAND="$AG -g ''"

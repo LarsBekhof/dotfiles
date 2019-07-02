@@ -12,3 +12,4 @@ alias dmenu='dmenu -i -fn "Roboto Mono for Powerline-11"'
 alias i3e="i3-msg exit"
 alias o="xdg-open"
 alias lsp="stat -c '%a %n'"
+alias od=". od"

@@ -1,3 +1,6 @@
+# Aliases
+source ~/.aliases
+
 # Set path
 export PATH=/opt:$PATH
 export PATH=$HOME/Code/scripts:$PATH
@@ -5,38 +8,32 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.local/.npm-global/:$PATH
 
-# Aliases
-source ~/.aliases
-
 # Path oh-my-zsh
 export ZSH="/home/lars/.oh-my-zsh"
 
-# Set env variables
-AG="ag --silent --hidden -p ~/.ignore"
-DISPLAY=:0.0
-
+# Make ag a little more user friendly and fast
+export AG="ag --silent --hidden -p ~/.ignore"
+# Set the display
+export DISPLAY=:0.0
 # Make fzf find hidden files
 export FZF_DEFAULT_COMMAND="$AG -g ''"
+# Default terminal
+export TERMINAL=st
+# Default editor
+export EDITOR=vim
 
 # Zsh theme
 ZSH_THEME="agnoster"
-
-# Default terminal
-export TERMINAL=st
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   gitfast
   docker
+  docker-compose
   web-search
-  sudo
   composer
-  debian
-  docker
-  node
-  npm
-  systemd
   vi-mode
+  jsontools
 )
 
 # Zsh source directory

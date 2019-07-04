@@ -7,9 +7,6 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 # surround install
 git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/surround
 
-# powerline install
-git clone https://github.com/powerline/powerline.git ~/.vim/bundle/powerline
-
 # typescript-vim install
 git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/bundle/typescript-vim
 
@@ -49,3 +46,14 @@ git clone https://github.com/editorconfig/editorconfig-vim.git ~/.vim/bundle/edi
 # vim-javascript
 git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript
 
+# procvim.vim
+ git clone https://github.com/Shougo/vimproc.vim.git ~/.vim/bundle/vimproc.vim
+ pushd ~/.vim/bundle/vimproc.vim
+ make
+ popd
+
+# tsuquyomi
+git clone https://github.com/Quramy/tsuquyomi.git ~/.vim/bundle/tsuquyomi
+
+# airline
+git clone https://github.com/vim-airline/vim-airline.git ~/.vim/bundle/vim-airline

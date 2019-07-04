@@ -48,9 +48,6 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-" Powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-
 " NERDTree
 set modifiable
 let NERDTreeShowLineNumbers=1
@@ -74,6 +71,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height = 5
 
 let g:syntastic_javascript_checkers = ['eslint']
 
@@ -84,9 +82,22 @@ highlight DiffChange ctermfg=3 ctermbg=0
 highlight DiffDelete ctermfg=1 ctermbg=0
 highlight clear SignColumn
 
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_x=''
+let g:airline_section_y=''
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
+let g:airline_theme='powerlineish'
+let g:Powerline_symbols = 'fancy'
+
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
+vmap <C-c> "+y
+
+" Fix backspace in insert mode
+set backspace=indent,eol,start
 
 " On startup
 autocmd VimEnter * NERDTree

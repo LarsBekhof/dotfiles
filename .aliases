@@ -3,7 +3,6 @@
 AG="ag --silent --hidden -p ~/.ignore"
 
 alias ags="$AG"
-alias agf="$AG -g --only-matching"
 alias du="du -h"
 alias pa="php artisan"
 alias up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"

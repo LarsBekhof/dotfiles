@@ -13,6 +13,7 @@ set ttyfast
 set undolevels=1000
 set noswapfile
 set scrolloff=3
+set ignorecase
 
 " Color and fonts
 syntax enable
@@ -83,18 +84,22 @@ highlight DiffDelete ctermfg=1 ctermbg=0
 highlight clear SignColumn
 
 " Airline
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_x=''
 let g:airline_section_y=''
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_theme='powerlineish'
 let g:Powerline_symbols = 'fancy'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#show_splits = 0
 
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
 vmap <C-c> "+y
+map <C-k> :!eslintl %<CR>
 
 " Fix backspace in insert mode
 set backspace=indent,eol,start

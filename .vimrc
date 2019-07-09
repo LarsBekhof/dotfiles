@@ -63,20 +63,20 @@ set rtp+=~/.fzf
 let g:fzf_tags_command = 'ctag-gen'
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_loc_list_height=5
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_check_on_open=1
+" let g:syntastic_check_on_wq=0
+" let g:syntastic_loc_list_height=5
 
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_javascript_eslint_exe = 'eslintl'
-let g:syntastic_typescript_checkers=['eslint']
-let g:syntastic_typescript_eslint_exe = 'eslintl'
+" let g:syntastic_javascript_checkers=['eslint']
+" let g:syntastic_javascript_eslint_exe = 'eslintl'
+" let g:syntastic_typescript_checkers=['eslint']
+" let g:syntastic_typescript_eslint_exe = 'eslintl'
 
 " Signify
 let g:signify_vcs_list = ['git']
@@ -98,6 +98,11 @@ let g:airline#extensions#tabline#show_tab_type=0
 let g:airline#extensions#tabline#show_splits=0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#tabline#show_close_button=0
+
+" Ale
+let g:ale_linters_ignore=['jshint']
+let g:ale_typescript_eslint_executable='eslintl'
+let g:ale_javascript_eslint_executable='eslintl'
 
 " Keybindings
 map <F1> <Esc>

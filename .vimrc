@@ -74,6 +74,9 @@ let g:syntastic_check_on_wq=0
 let g:syntastic_loc_list_height=5
 
 let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_exe = 'eslintl'
+let g:syntastic_typescript_checkers=['eslint']
+let g:syntastic_typescript_eslint_exe = 'eslintl'
 
 " Signify
 let g:signify_vcs_list = ['git']

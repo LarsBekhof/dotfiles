@@ -101,7 +101,7 @@ map <F1> <Esc>
 imap <F1> <Esc>
 vmap <C-c> "+y
 map <Tab> :NERDTreeToggle<CR>
-map <C-k> :!eslintl %<CR>
+map <C-k> :Runcmd eslintl #<CR>
 map <C-p> :Files<CR>
 map <C-a> :Ag<CR>
 map <C-o> :Tags<CR>
@@ -113,3 +113,12 @@ set backspace=indent,eol,start
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd w
 autocmd BufWinEnter * NERDTreeMirror
+
+fun! Runcmd(cmd)
+	silent! exe "noautocmd botright pedit ".a:cmd
+	noautocmd wincmd P
+	set buftype=nofile
+	exe "noautocmd r! ".a:cmd
+	noautocmd wincmd p
+endfun
+com! -nargs=1 Runcmd :call Runcmd("<args>")

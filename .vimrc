@@ -59,9 +59,6 @@ let g:NERDTreeWinSize=45
 
 " fzf
 set rtp+=~/.fzf
-map <C-p> :FZF<CR>
-imap <C-p> :FZF<CR>
-map <C-a> :Ag<CR>
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -100,6 +97,8 @@ map <F1> <Esc>
 imap <F1> <Esc>
 vmap <C-c> "+y
 map <C-k> :!eslintl %<CR>
+map <C-p> :Files<CR>
+map <C-a> :Ag<CR>
 
 " Fix backspace in insert mode
 set backspace=indent,eol,start

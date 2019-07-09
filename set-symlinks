@@ -2,13 +2,16 @@
 
 mkdir $HOME/.config
 
-ln -sf $HOME/.vimrc $HOME
-ln -sf $HOME/.jshintrc $HOME
-ln -sf $HOME/.i3 $HOME
-ln -sf $HOME/.i3blocks.conf $HOME
-ln -sf $HOME/.Xdefaults $HOME
-ln -sf $HOME/dunst $HOME/.config
-ln -sf $HOME/.zshrc $HOME
-ln -sf $HOME/.zshrc /root
-ln -sf $HOME/.aliases $HOME
-ln -sf $HOME/.aliases /root
+SOURCE_DIR=/home/lars/Code/dotfiles
+
+ln -sf $SOURCE_DIR/.vimrc ~/
+ln -sf $SOURCE_DIR/.jshintrc ~/
+ln -sf $SOURCE_DIR/.i3 ~/
+ln -sf $SOURCE_DIR/.i3blocks.conf ~/
+ln -sf $SOURCE_DIR/.Xdefaults ~/
+ln -sf $SOURCE_DIR/dunst ~/.config/
+ln -sf $SOURCE_DIR/.zshrc ~/
+sudo ln -sf $SOURCE_DIR/.zshrc /root/
+ln -sf $SOURCE_DIR/.aliases ~/
+sudo ln -sf $SOURCE_DIR/.aliases /root/
+ln -sf $SOURCE_DIR/.ctags ~/

@@ -13,8 +13,6 @@ export ZSH="/home/lars/.oh-my-zsh"
 
 # Make ag a little more user friendly and fast
 export AG="ag --silent --hidden -p ~/.ignore"
-# Set the display
-export DISPLAY=:0.0
 # Make fzf find hidden files
 export FZF_DEFAULT_COMMAND="$AG -g ''"
 # Default terminal

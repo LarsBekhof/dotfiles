@@ -61,7 +61,7 @@ let g:NERDTreeWinSize=45
 set rtp+=~/.fzf
 map <C-p> :FZF<CR>
 imap <C-p> :FZF<CR>
-map <C-a> :Ags ""<left>
+map <C-a> :Ag<CR>
 
 " Syntastic
 set statusline+=%#warningmsg#

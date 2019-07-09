@@ -53,8 +53,9 @@ noremap <Right> <Nop>
 set modifiable
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
+let NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeDirArrowExpandable='▸'
+let g:NERDTreeDirArrowCollapsible='▾'
 let g:NERDTreeWinSize=45
 
 " fzf
@@ -67,12 +68,12 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_loc_list_height=5
 
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers=['eslint']
 
 " Signify
 let g:signify_vcs_list = ['git']
@@ -84,14 +85,16 @@ highlight clear SignColumn
 " Airline
 let g:airline_section_x=''
 let g:airline_section_y=''
-let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
+let g:airline_powerline_fonts=1
+let g:airline_skip_empty_sections=1
 let g:airline_theme='powerlineish'
-let g:Powerline_symbols = 'fancy'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#show_splits = 0
+let g:Powerline_symbols='fancy'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#tab_nr_type=1
+let g:airline#extensions#tabline#show_tab_type=0
+let g:airline#extensions#tabline#show_splits=0
+let g:airline#extensions#tabline#show_buffers=0
+let g:airline#extensions#tabline#show_close_button=0
 
 " Keybindings
 map <F1> <Esc>
@@ -101,7 +104,7 @@ map <Tab> :NERDTreeToggle<CR>
 map <C-k> :!eslintl %<CR>
 map <C-p> :Files<CR>
 map <C-a> :Ag<CR>
-map <C-S-p> :Tags<CR>
+map <C-o> :Tags<CR>
 
 " Fix backspace in insert mode
 set backspace=indent,eol,start

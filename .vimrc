@@ -14,6 +14,7 @@ set undolevels=1000
 set noswapfile
 set scrolloff=3
 set ignorecase
+set mouse=v
 
 " Color and fonts
 syntax enable
@@ -38,7 +39,6 @@ set softtabstop=4
 set smartindent
 set shiftwidth=4
 set list
-" set listchars=tab:▸\ ,eol:¬,trail:·
 set listchars=eol:¬,tab:▸\ ,trail:·
 set copyindent
 set breakindent
@@ -62,22 +62,6 @@ let g:NERDTreeWinSize=45
 set rtp+=~/.fzf
 let g:fzf_tags_command = 'ctag-gen'
 
-" Syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_check_on_open=1
-" let g:syntastic_check_on_wq=0
-" let g:syntastic_loc_list_height=5
-
-" let g:syntastic_javascript_checkers=['eslint']
-" let g:syntastic_javascript_eslint_exe = 'eslintl'
-" let g:syntastic_typescript_checkers=['eslint']
-" let g:syntastic_typescript_eslint_exe = 'eslintl'
-
 " Signify
 let g:signify_vcs_list = ['git']
 highlight DiffAdd ctermfg=2 ctermbg=0
@@ -98,18 +82,35 @@ let g:airline#extensions#tabline#show_tab_type=0
 let g:airline#extensions#tabline#show_splits=0
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#tabline#show_close_button=0
+let g:airline#extensions#ale#enabled=1
+let airline#extensions#ale#error_symbol='🛑'
+let airline#extensions#ale#warning_symbol='⚠️'
+let airline#extensions#ale#open_lnum_symbo='📋'
 
 " Ale
 let g:ale_linters_ignore=['jshint']
 let g:ale_typescript_eslint_executable='eslintl'
 let g:ale_javascript_eslint_executable='eslintl'
+let g:ale_open_list=1
+let g:ale_lint_delay=0
+let g:ale_set_highlights=0
+let g:ale_list_window_size=5
+let g:ale_lint_on_text_changed='never'
+let g:ale_echo_msg_format='%s'
+let g:ale_sign_error = '🛑'
+let g:ale_sign_info = 'ℹ️'
+let g:ale_sign_style_error = '🛑'
+let g:ale_sign_style_warning = '⚠️'
+let g:ale_sign_warning = '⚠️'
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
 vmap <C-c> "+y
 map <Tab> :NERDTreeToggle<CR>
-map <C-k> :Runcmd eslintl #<CR>
+noremap <silent> <C-k> :call ALEToggleList()<CR>
 map <C-p> :Files<CR>
 map <C-a> :Ag<CR>
 map <C-o> :Tags<CR>
@@ -118,15 +119,15 @@ map <C-o> :Tags<CR>
 set backspace=indent,eol,start
 
 " On startup
-autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd w
-autocmd BufWinEnter * NERDTreeMirror
 
-fun! Runcmd(cmd)
-	silent! exe "noautocmd botright pedit ".a:cmd
-	noautocmd wincmd P
-	set buftype=nofile
-	exe "noautocmd r! ".a:cmd
-	noautocmd wincmd p
-endfun
-com! -nargs=1 Runcmd :call Runcmd("<args>")
+" Toggle ALE quick list
+function! ALEToggleList()
+	if exists("g:loclist")
+		lclose
+		unlet g:loclist
+	else
+		lopen 5
+		let g:loclist = bufnr("$")
+	endif
+endfunction

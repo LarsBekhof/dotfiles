@@ -15,3 +15,4 @@ sudo ln -sf $SOURCE_DIR/.zshrc /root/
 ln -sf $SOURCE_DIR/.aliases ~/
 sudo ln -sf $SOURCE_DIR/.aliases /root/
 ln -sf $SOURCE_DIR/.ctags ~/
+ln -sf $SOURCE_DIR/termite ~/.config/

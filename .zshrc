@@ -16,7 +16,7 @@ export AG="ag --silent --hidden -p ~/.ignore"
 # Make fzf find hidden files
 export FZF_DEFAULT_COMMAND="$AG -g ''"
 # Default terminal
-export TERMINAL=st
+export TERMINAL=termite
 # Default editor
 export EDITOR=vim
 

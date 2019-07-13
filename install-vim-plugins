@@ -12,6 +12,7 @@ git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/bundle/typesc
 
 # vim-js-pretty-template install
 git clone https://github.com/Quramy/vim-js-pretty-template.git ~/.vim/bundle/vim-js-pretty-template
+
 # vim-commentray install
 git clone git://github.com/tpope/vim-commentary.git ~/.vim/bundle/vim-commentary
 
@@ -21,8 +22,8 @@ git clone git://github.com/jwalton512/vim-blade.git ~/.vim/bundle/vim-blade
 # scss syntax install
 git clone https://github.com/cakebaker/scss-syntax.vim ~/.vim/bundle/scss-syntax
 
-# react syntax install
-git clone https://github.com/mxw/vim-jsx.git ~/.vim/bundle/vim-jsx
+# vim-jsx-pretty install
+git clone https://github.com/MaxMEllon/vim-jsx-pretty.git ~/.vim/bundle/vim-jsx-pretty
 
 # ale install
 git clone git@github.com:w0rp/ale.git ~/.vim/bundle/ale

@@ -49,15 +49,6 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-" NERDTree
-set modifiable
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1
-let NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeDirArrowExpandable='▸'
-let g:NERDTreeDirArrowCollapsible='▾'
-let g:NERDTreeWinSize=45
-
 " fzf
 set rtp+=~/.fzf
 let g:fzf_tags_command = 'ctag-gen'
@@ -105,11 +96,19 @@ let g:ale_sign_warning = '⚠️'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
+" netrw
+let g:netrw_liststyle=3
+let g:netrw_browse_split=4
+let g:netrw_winsize=25
+let g:netrw_altv=1
+let g:netrw_keepdir=0
+let g:netrw_banner=0
+
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
 vmap <C-c> "+y
-map <Tab> :NERDTreeToggle<CR>
+map <Tab> :Lexplore<CR>
 noremap <silent> <C-k> :call ALEToggleList()<CR>
 map <C-p> :Files<CR>
 map <C-a> :Ag<CR>

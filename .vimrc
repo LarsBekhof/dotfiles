@@ -5,6 +5,7 @@ execute pathogen#infect()
 set history=1000
 set lazyredraw
 filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 set noerrorbells
 set novisualbell
 set t_vb=
@@ -13,7 +14,6 @@ set ttyfast
 set undolevels=1000
 set noswapfile
 set scrolloff=3
-set ignorecase
 set mouse=v
 set clipboard^=unnamed,unnamedplus
 
@@ -52,7 +52,7 @@ noremap <Right> <Nop>
 
 " fzf
 set rtp+=~/.fzf
-let g:fzf_tags_command = 'ctag-gen'
+let g:fzf_tags_command='ctag-gen'
 
 " Signify
 let g:signify_vcs_list = ['git']
@@ -83,7 +83,6 @@ let airline#extensions#ale#open_lnum_symbo='📋'
 let g:ale_linters_ignore=['jshint']
 let g:ale_typescript_eslint_executable='eslintl'
 let g:ale_javascript_eslint_executable='eslintl'
-let g:ale_open_list=1
 let g:ale_lint_delay=0
 let g:ale_set_highlights=0
 let g:ale_list_window_size=5
@@ -100,11 +99,15 @@ highlight clear ALEWarningSign
 " netrw
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
-let g:netrw_winsize=25
+let g:netrw_winsize=-35
 let g:netrw_altv=1
-let g:netrw_keepdir=0
+let g:netrw_keepdir=1
 let g:netrw_banner=0
-let g:NetrwIsOpen=0
+let g:netrw_preview=1
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Lexplore
+augroup END
 
 " Keybindings
 map <F1> <Esc>
@@ -113,7 +116,6 @@ map <Tab> :Lexplore<CR>
 noremap <silent> <C-k> :call ALEToggleList()<CR>
 map <C-p> :Files<CR>
 map <C-a> :Ag<CR>
-map <C-o> :Tags<CR>
 
 " Fix backspace in insert mode
 set backspace=indent,eol,start

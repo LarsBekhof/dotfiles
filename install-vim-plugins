@@ -41,3 +41,9 @@ git clone https://github.com/vim-airline/vim-airline.git ~/.vim/bundle/vim-airli
 
 # vim-fugitive
 git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+
+# vim-vingar
+git clone https://github.com/tpope/vim-vinegar.git ~/.vim/bundle/vim-vingar
+
+# fzf-vim
+git clone https://github.com/junegunn/fzf.vim.git ~/.vim/bundle/fzf-vim

@@ -16,6 +16,7 @@ set noswapfile
 set scrolloff=3
 set mouse=v
 set clipboard^=unnamed,unnamedplus
+set shellcmdflag=-ic
 
 " Color and fonts
 syntax enable
@@ -114,8 +115,11 @@ map <F1> <Esc>
 imap <F1> <Esc>
 map <Tab> :Lexplore<CR>
 noremap <silent> <C-k> :call ALEToggleList()<CR>
-map <C-p> :Files<CR>
+map <C-p> :FZF<CR>
 map <C-a> :Ag<CR>
+
+" Commands
+command! CtagsGen !ctags-gen
 
 " Fix backspace in insert mode
 set backspace=indent,eol,start

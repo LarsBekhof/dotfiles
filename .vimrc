@@ -17,6 +17,15 @@ set scrolloff=3
 set mouse=v
 set clipboard^=unnamed,unnamedplus
 set shellcmdflag=-ic
+set t_vb=
+set tm=500
+set ttyfast
+set undolevels=1000
+set noswapfile
+set scrolloff=3
+set mouse=v
+set clipboard^=unnamed,unnamedplus
+set shellcmdflag=-ic
 
 " Color and fonts
 syntax enable
@@ -105,21 +114,15 @@ let g:netrw_altv=1
 let g:netrw_keepdir=1
 let g:netrw_banner=0
 let g:netrw_preview=1
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Lexplore
-augroup END
+autocmd VimEnter * :Lexplore
 
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
 map <Tab> :Lexplore<CR>
 noremap <silent> <C-k> :call ALEToggleList()<CR>
-map <C-p> :FZF<CR>
+map <C-p> :Files<CR>
 map <C-a> :Ag<CR>
-
-" Commands
-command! CtagsGen !ctags-gen
 
 " Fix backspace in insert mode
 set backspace=indent,eol,start

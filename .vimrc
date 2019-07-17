@@ -16,7 +16,6 @@ set noswapfile
 set scrolloff=3
 set mouse=v
 set clipboard^=unnamed,unnamedplus
-set shellcmdflag=-ic
 set t_vb=
 set tm=500
 set ttyfast
@@ -25,7 +24,7 @@ set noswapfile
 set scrolloff=3
 set mouse=v
 set clipboard^=unnamed,unnamedplus
-set shellcmdflag=-ic
+set bufhidden=wipe
 
 " Color and fonts
 syntax enable
@@ -79,15 +78,13 @@ let g:airline_skip_empty_sections=1
 let g:airline_theme='powerlineish'
 let g:Powerline_symbols='fancy'
 let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#tab_nr_type=1
-let g:airline#extensions#tabline#show_tab_type=0
-let g:airline#extensions#tabline#show_splits=0
-let g:airline#extensions#tabline#show_buffers=0
+let g:airline#extensions#tabline#show_tabs=0
 let g:airline#extensions#tabline#show_close_button=0
 let g:airline#extensions#ale#enabled=1
 let airline#extensions#ale#error_symbol='🛑'
 let airline#extensions#ale#warning_symbol='⚠️'
 let airline#extensions#ale#open_lnum_symbo='📋'
+let g:airline#extensions#tabline#keymap_ignored_filetypes = ['netrw']
 
 " Ale
 let g:ale_linters_ignore=['jshint']
@@ -109,20 +106,26 @@ highlight clear ALEWarningSign
 " netrw
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
-let g:netrw_winsize=-35
 let g:netrw_altv=1
 let g:netrw_keepdir=1
 let g:netrw_banner=0
 let g:netrw_preview=1
-autocmd VimEnter * :Lexplore
+let g:netrw_winsize=-35
+let g:netrw_bufsettings='noma nomod nu nobl nowrap ro'
+autocmd VimEnter * Lex
+autocmd WinLeave NetrwTreeListing vertical res35
 
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
-map <Tab> :Lexplore<CR>
-noremap <silent> <C-k> :call ALEToggleList()<CR>
+map <Tab> :Lex<CR>
+map <silent> <C-k> :call ALEToggleList()<CR>
 map <C-p> :Files<CR>
 map <C-a> :Ag<CR>
+map <C-l> :Buffers<CR>
+map gn :bn<CR>
+map gp :bp<CR>
+map gd :bd<CR>:q<CR>
 
 " Fix backspace in insert mode
 set backspace=indent,eol,start

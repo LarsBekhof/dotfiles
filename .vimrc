@@ -137,6 +137,9 @@ autocmd FileType javascript map <buffer> <C-o>L Oconsole.log();<Esc>F(
 " TypeScript bindings
 autocmd FileType typescript map <buffer> <C-o>l oconsole.log();<Esc>F(
 autocmd FileType typescript map <buffer> <C-o>L Oconsole.log();<Esc>F(
+" PHP binding (actually some PHP but mostly Laravel)
+autocmd FileType php map <buffer> <C-o>l oLog::debug();<Esc>F(
+autocmd FileType php map <buffer> <C-o>L OLog::debug();<Esc>F(
 
 " Commands
 command! MakeTags !ctags-gen

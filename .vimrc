@@ -84,7 +84,7 @@ let g:airline#extensions#tabline#show_close_button=0
 let g:airline#extensions#ale#enabled=1
 let airline#extensions#ale#error_symbol='🛑'
 let airline#extensions#ale#warning_symbol='⚠️'
-let airline#extensions#ale#open_lnum_symbo='📋'
+let airline#extensions#ale#open_lnum_symbol='📋'
 let g:airline#extensions#tabline#keymap_ignored_filetypes = ['netrw']
 
 " Ale
@@ -137,7 +137,7 @@ autocmd FileType javascript map <buffer> <C-o>L Oconsole.log();<Esc>F(
 " TypeScript bindings
 autocmd FileType typescript map <buffer> <C-o>l oconsole.log();<Esc>F(
 autocmd FileType typescript map <buffer> <C-o>L Oconsole.log();<Esc>F(
-" PHP binding (actually some PHP but mostly Laravel)
+" PHP bindings (actually some PHP but mostly Laravel)
 autocmd FileType php map <buffer> <C-o>l oLog::debug();<Esc>F(
 autocmd FileType php map <buffer> <C-o>L OLog::debug();<Esc>F(
 

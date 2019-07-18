@@ -128,8 +128,8 @@ map gn :bn<CR>
 map gp :bp<CR>
 map gd :bd<CR>
 " Netrw bindings
-autocmd FileType netrw noremap <buffer> gn :bn<CR>
-autocmd FileType netrw noremap <buffer> gp :bp<CR>
+autocmd FileType netrw noremap <buffer> gn <C-w>l:bn<CR>
+autocmd FileType netrw noremap <buffer> gp <C-w>l:bp<CR>
 autocmd FileType netrw noremap <buffer> gd :bd<CR>
 " JavaScript bindings
 autocmd FileType javascript map <buffer> <C-o>l oconsole.log();<Esc>F(

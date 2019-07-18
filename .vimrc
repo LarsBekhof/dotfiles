@@ -89,8 +89,8 @@ let g:airline#extensions#tabline#keymap_ignored_filetypes = ['netrw']
 
 " Ale
 let g:ale_linters_ignore=['jshint']
-let g:ale_typescript_eslint_executable='eslintl'
-let g:ale_javascript_eslint_executable='eslintl'
+let g:ale_typescript_eslint_executable='esl'
+let g:ale_javascript_eslint_executable='esl'
 let g:ale_lint_delay=0
 let g:ale_set_highlights=0
 let g:ale_list_window_size=5

@@ -97,11 +97,13 @@ let g:ale_list_window_size=5
 let g:ale_lint_on_text_changed='never'
 let g:ale_echo_msg_format='%s'
 let g:ale_sign_error = '🛑'
-let g:ale_sign_info = 'ℹ️'
 let g:ale_sign_style_error = '🛑'
-let g:ale_sign_style_warning = '⚠️'
+let g:ale_sign_info = 'ℹ️'
+let g:ale_sign_style_info = 'ℹ️'
 let g:ale_sign_warning = '⚠️'
+let g:ale_sign_style_warning = '⚠️'
 highlight clear ALEErrorSign
+highlight clear ALEInfoSign
 highlight clear ALEWarningSign
 
 " netrw

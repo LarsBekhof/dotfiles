@@ -15,7 +15,6 @@ set undolevels=1000
 set noswapfile
 set scrolloff=3
 set mouse=v
-set clipboard^=unnamed,unnamedplus
 set t_vb=
 set tm=500
 set ttyfast
@@ -23,8 +22,10 @@ set undolevels=1000
 set noswapfile
 set scrolloff=3
 set mouse=v
-set clipboard^=unnamed,unnamedplus
+set clipboard^=unnamedplus
 set bufhidden=wipe
+set shellcmdflag=-ic
+set noto
 
 " Color and fonts
 syntax enable
@@ -125,7 +126,18 @@ map <C-a> :Ag<CR>
 map <C-l> :Buffers<CR>
 map gn :bn<CR>
 map gp :bp<CR>
-map gd :bd<CR>:q<CR>
+map gd :bd<CR>
+" Netrw bindings
+autocmd FileType netrw noremap <buffer> gd :bd<CR>
+" JavaScript bindings
+autocmd FileType javascript map <buffer> <C-o>l oconsole.log();<Esc>F(
+autocmd FileType javascript map <buffer> <C-o>L Oconsole.log();<Esc>F(
+" TypeScript bindings
+autocmd FileType typescript map <buffer> <C-o>l oconsole.log();<Esc>F(
+autocmd FileType typescript map <buffer> <C-o>L Oconsole.log();<Esc>F(
+
+" Commands
+command! MakeTags !ctags-gen
 
 " Fix backspace in insert mode
 set backspace=indent,eol,start

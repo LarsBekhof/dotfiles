@@ -210,6 +210,8 @@ for_window[class="^."] border pixel 2
 bindsym --whole-window --border $mod+button4 exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+1 i3blocks
 bindsym --whole-window --border $mod+button5 exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+1 i3blocks
 bindsym $mod+m exec pavucontrol
+bindsym XF86MonBrightnessUp exec backlightctl
+bindsym XF86MonBrightnessDown exec backlightctl
 # Turn down redness
 bindsym $mod+o exec redshift -O 5500
 # Turn down brightness

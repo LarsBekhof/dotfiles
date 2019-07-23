@@ -37,4 +37,4 @@ plugins=(
 # Zsh source directory
 source $ZSH/oh-my-zsh.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/Code/apps/fzf.zsh ] && source ~/Code/apps/fzf.zsh

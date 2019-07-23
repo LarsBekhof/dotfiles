@@ -213,8 +213,8 @@ bindsym $mod+m exec pavucontrol
 bindsym $mod+o exec redshift -O 5500
 # Turn down brightness
 bindsym $mod+p exec redshift -O 6000 -b 0.8:0.8
-bindsym XF86MonBrightnessUp exec backlightctl
-bindsym XF86MonBrightnessDown exec backlightctl
+bindsym XF86MonBrightnessUp exec backlightctl up 10
+bindsym XF86MonBrightnessDown exec backlightctl down 10
 # Reset redshift
 bindsym $mod+Shift+o exec redshift -x
 bindsym --release Print exec screenshot

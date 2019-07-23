@@ -25,7 +25,7 @@ set mouse=v
 set clipboard^=unnamedplus
 set bufhidden=wipe
 set shellcmdflag=-ic
-set noto
+" set noto
 
 " Color and fonts
 syntax enable

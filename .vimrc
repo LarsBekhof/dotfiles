@@ -61,7 +61,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 " fzf
-set rtp+=~/.fzf
+set rtp+=~/Code/apps/fzf
 let g:fzf_tags_command='ctag-gen'
 
 " Signify

@@ -115,6 +115,7 @@ let g:netrw_banner=0
 let g:netrw_preview=1
 let g:netrw_winsize=-35
 let g:netrw_bufsettings='noma nomod nu nobl nowrap ro'
+let g:netrw_fastbrowse=0
 autocmd VimEnter * Lex
 autocmd WinLeave NetrwTreeListing vertical res35
 

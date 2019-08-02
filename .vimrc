@@ -107,22 +107,27 @@ highlight clear ALEInfoSign
 highlight clear ALEWarningSign
 
 " netrw
-let g:netrw_liststyle=3
-let g:netrw_browse_split=4
-let g:netrw_altv=1
-let g:netrw_keepdir=1
-let g:netrw_banner=0
-let g:netrw_preview=1
-let g:netrw_winsize=-35
-let g:netrw_bufsettings='noma nomod nu nobl nowrap ro'
-let g:netrw_fastbrowse=0
-autocmd VimEnter * Lex
-autocmd WinLeave NetrwTreeListing vertical res35
+" let g:netrw_liststyle=3
+" let g:netrw_browse_split=4
+" let g:netrw_altv=1
+" let g:netrw_keepdir=1
+" let g:netrw_banner=0
+" let g:netrw_preview=1
+" let g:netrw_winsize=-35
+" let g:netrw_bufsettings='noma nomod nu nobl nowrap ro'
+" let g:netrw_fastbrowse=0
+" autocmd VimEnter * Lex
+" autocmd WinLeave NetrwTreeListing vertical res35
+
+" NERDTree
+autocmd VimEnter * NERDTree
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1
+let NERDTreeWinSize=40
 
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
-map <Tab> :Lex<CR>
 map <silent> <C-k> :call ALEToggleList()<CR>
 map <C-p> :Files<CR>
 map <C-a> :Ag<CR>
@@ -131,9 +136,11 @@ map gn :bn<CR>
 map gp :bp<CR>
 map gd :bd<CR>
 " Netrw bindings
-autocmd FileType netrw noremap <buffer> gn <C-w>l:bn<CR>
-autocmd FileType netrw noremap <buffer> gp <C-w>l:bp<CR>
-autocmd FileType netrw noremap <buffer> gd :bd<CR>
+" autocmd FileType netrw noremap <buffer> gn <C-w>l:bn<CR>
+" autocmd FileType netrw noremap <buffer> gp <C-w>l:bp<CR>
+" autocmd FileType netrw noremap <buffer> gd :bd<CR>
+" NERDTree bindings
+map <Tab> :NERDTreeToggle<CR>
 " JavaScript bindings
 autocmd FileType javascript map <buffer> <C-o>l oconsole.log();<Esc>F(
 autocmd FileType javascript map <buffer> <C-o>L Oconsole.log();<Esc>F(

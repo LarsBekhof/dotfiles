@@ -11,21 +11,22 @@ set novisualbell
 set t_vb=
 set tm=500
 set ttyfast
-set undolevels=1000
 set noswapfile
 set scrolloff=3
 set mouse=v
 set t_vb=
 set tm=500
 set ttyfast
-set undolevels=1000
 set noswapfile
 set scrolloff=3
 set mouse=v
 set clipboard^=unnamedplus
 set bufhidden=wipe
 set shellcmdflag=-ic
-" set noto
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+set undoreload=10000
 
 " Color and fonts
 syntax enable
@@ -50,7 +51,7 @@ set softtabstop=4
 set smartindent
 set shiftwidth=4
 set list
-set listchars=eol:¬,tab:▸\ ,trail:·
+set listchars=tab:▸\ ,trail:·
 set copyindent
 set breakindent
 
@@ -109,21 +110,21 @@ highlight clear ALEWarningSign
 " NERDTree
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
-let NERDTreeWinSize=35
-autocmd VimEnter * NERDTree
+let NERDTreeWinSize=10000 " Just maximize this
+let NERDTreeQuitOnOpen=1
 
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
 map <silent> <C-k> :call ALEToggleList()<CR>
-map <C-p> :Files<CR>
+map <C-p> :NERDTreeClose<CR>:Files<CR>
 map <C-a> :Ag<CR>
 map <C-l> :Buffers<CR>
-map gn :bn<CR>
-map gp :bp<CR>
-map gd :bd<CR>:bn<CR>
+map gn :NERDTreeClose<CR>:bn<CR>
+map gp :NERDTreeClose<CR>:bp<CR>
+map gd :NERDTreeClose<CR>:bd<CR>
 " NERDTree bindings
-map <Tab> :NERDTreeToggle<CR>:vertical res35<CR>
+map <Tab> :NERDTreeToggle<CR>
 " JavaScript bindings
 autocmd FileType javascript map <buffer> <C-o>l oconsole.log();<Esc>F(
 autocmd FileType javascript map <buffer> <C-o>L Oconsole.log();<Esc>F(

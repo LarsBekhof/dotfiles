@@ -91,8 +91,7 @@ bindsym $mod+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $d1 "HDMI1" # Right
-set $d2 "DP1" # Left
+set $d1 "DP-1"
 
 set $ws1 "1"
 set $ws2 "2"
@@ -107,15 +106,15 @@ set $ws10 "10"
 
 # bind workpaces to output(s)
 workspace $ws1 output $d1
-workspace $ws2 output $d2
+workspace $ws2 output $d1
 workspace $ws3 output $d1
-workspace $ws4 output $d2
+workspace $ws4 output $d1
 workspace $ws5 output $d1
-workspace $ws6 output $d2
+workspace $ws6 output $d1
 workspace $ws7 output $d1
-workspace $ws8 output $d2
+workspace $ws8 output $d1
 workspace $ws9 output $d1
-workspace $ws10 output $d2
+workspace $ws10 output $d1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1

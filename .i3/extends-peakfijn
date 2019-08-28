@@ -1,0 +1,19 @@
+# Define displays
+set $d1 "DP-1" # Top
+set $d2 "eDP-1" # Bottom
+
+# bind workpaces to output(s)
+workspace $ws1 output $d1
+workspace $ws2 output $d2
+workspace $ws3 output $d1
+workspace $ws4 output $d2
+workspace $ws5 output $d1
+workspace $ws6 output $d2
+workspace $ws7 output $d1
+workspace $ws8 output $d2
+workspace $ws9 output $d1
+workspace $ws10 output $d2
+
+# Configure xrandr
+exec --no-startup-id set-displays peakfijn
+exec --no-startup-id peakfijn-startup

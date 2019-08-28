@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-mkdir $HOME/.config
+mkdir ~/.config
 
 SOURCE_DIR=/home/lars/Code/dotfiles
 

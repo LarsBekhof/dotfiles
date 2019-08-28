@@ -1,0 +1,17 @@
+# Define displays
+set $d1 "eDP1"
+
+# bind workpaces to output(s)
+workspace $ws1 output $d1
+workspace $ws2 output $d1
+workspace $ws3 output $d1
+workspace $ws4 output $d1
+workspace $ws5 output $d1
+workspace $ws6 output $d1
+workspace $ws7 output $d1
+workspace $ws8 output $d1
+workspace $ws9 output $d1
+workspace $ws10 output $d1
+
+# Configure xrandr
+exec --no-startup-id set-displays build-in

@@ -1,18 +1,16 @@
-#!/bin/zsh
+#!/bin/sh
 
 mkdir ~/.config
 
-SOURCE_DIR=/home/lars/Code/dotfiles
-
-ln -sf $SOURCE_DIR/.vimrc ~/
-ln -sf $SOURCE_DIR/.jshintrc ~/
-ln -sf $SOURCE_DIR/.i3 ~/
-ln -sf $SOURCE_DIR/.i3blocks.conf ~/
-ln -sf $SOURCE_DIR/.Xdefaults ~/
-ln -sf $SOURCE_DIR/dunst ~/.config/
-ln -sf $SOURCE_DIR/.zshrc ~/
-sudo ln -sf $SOURCE_DIR/.zshrc /root/
-ln -sf $SOURCE_DIR/.aliases ~/
-sudo ln -sf $SOURCE_DIR/.aliases /root/
-ln -sf $SOURCE_DIR/.ctags ~/
-ln -sf $SOURCE_DIR/termite ~/.config/
+ln -sf .vimrc ~/
+ln -sf .jshintrc ~/
+ln -sf .i3 ~/
+ln -sf .i3blocks.conf ~/
+ln -sf .Xdefaults ~/
+ln -sf dunst ~/.config/
+ln -sf .zshrc ~/
+sudo ln -sf .zshrc /root/
+ln -sf .aliases ~/
+sudo ln -sf .aliases /root/
+ln -sf .ctags ~/
+ln -sf termite ~/.config/

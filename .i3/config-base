@@ -211,3 +211,5 @@ exec --no-startup-id compton -b
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id docker start portainer
+
+# Environment specific settings are appended here

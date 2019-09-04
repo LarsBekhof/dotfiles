@@ -194,6 +194,7 @@ for_window[class="^."] border pixel 2
 # Custom binds
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+1 i3blocks
 bindsym $mod+m exec switch-audio-output
 bindsym XF86MonBrightnessUp exec backlightctl up 10
 bindsym XF86MonBrightnessDown exec backlightctl down 10

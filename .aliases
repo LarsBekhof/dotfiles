@@ -1,7 +1,9 @@
-#!/bin/zsh
+#!/bin/sh
 
+# Constants
 AG="ag --silent --hidden -p ~/.ignore"
 
+# Aliases
 alias ags="$AG"
 alias agf="$AG -g"
 alias du="du -h"

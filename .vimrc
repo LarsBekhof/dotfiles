@@ -6,6 +6,7 @@ set history=1000
 set lazyredraw
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+" set completeopt-=preview
 set noerrorbells
 set novisualbell
 set t_vb=
@@ -119,9 +120,9 @@ map <silent> <C-k> :call ALEToggleList()<CR>
 map <C-p> :NERDTreeClose<CR>:Files<CR>
 map <C-a> :Ag<CR>
 map <C-l> :Buffers<CR>
-map gn :NERDTreeClose<CR>:bn<CR>
-map gp :NERDTreeClose<CR>:bp<CR>
-map gd :NERDTreeClose<CR>:bd<CR>
+map gn :NERDTreeClose<CR>:w<CR>:bn<CR>
+map gp :NERDTreeClose<CR>:w<CR>:bp<CR>
+map gd :NERDTreeClose<CR>:w<CR>:bd<CR>
 " NERDTree bindings
 map <Tab> :NERDTreeToggle<CR>
 " JavaScript bindings

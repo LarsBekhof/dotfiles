@@ -6,7 +6,7 @@ set history=1000
 set lazyredraw
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-" set completeopt-=preview
+set completeopt-=preview
 set noerrorbells
 set novisualbell
 set t_vb=
@@ -23,11 +23,11 @@ set scrolloff=3
 set mouse=v
 set clipboard^=unnamedplus
 set bufhidden=wipe
-set shellcmdflag=-ic
 set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
+set autoread
 
 " Color and fonts
 syntax enable
@@ -103,6 +103,8 @@ let g:ale_sign_info = 'ℹ️'
 let g:ale_sign_style_info = 'ℹ️'
 let g:ale_sign_warning = '⚠️'
 let g:ale_sign_style_warning = '⚠️'
+let g:ale_fix_on_save = 1
+let b:ale_fixers = ['prettier', 'eslint']
 highlight clear ALEErrorSign
 highlight clear ALEInfoSign
 highlight clear ALEWarningSign

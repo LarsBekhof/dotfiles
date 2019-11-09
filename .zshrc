@@ -7,6 +7,7 @@ export PATH=$HOME/Code/scripts:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.local/.npm-global/:$PATH
+export PATH=$HOME/.node_modules/bin:$PATH
 
 # Path oh-my-zsh
 export ZSH="/home/lars/.oh-my-zsh"

@@ -89,9 +89,6 @@ let airline#extensions#ale#open_lnum_symbol='📋'
 let g:airline#extensions#tabline#keymap_ignored_filetypes = ['netrw']
 
 " Ale
-let g:ale_linters_ignore=['jshint']
-let g:ale_typescript_eslint_executable='esl'
-let g:ale_javascript_eslint_executable='esl'
 let g:ale_lint_delay=0
 let g:ale_set_highlights=0
 let g:ale_list_window_size=5
@@ -103,8 +100,11 @@ let g:ale_sign_info = 'ℹ️'
 let g:ale_sign_style_info = 'ℹ️'
 let g:ale_sign_warning = '⚠️'
 let g:ale_sign_style_warning = '⚠️'
-let g:ale_fix_on_save = 1
-let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'eslint'],
+\}
 highlight clear ALEErrorSign
 highlight clear ALEInfoSign
 highlight clear ALEWarningSign
@@ -125,20 +125,7 @@ map <C-l> :Buffers<CR>
 map gn :NERDTreeClose<CR>:w<CR>:bn<CR>
 map gp :NERDTreeClose<CR>:w<CR>:bp<CR>
 map gd :NERDTreeClose<CR>:w<CR>:bd<CR>
-" NERDTree bindings
 map <Tab> :NERDTreeToggle<CR>
-" JavaScript bindings
-autocmd FileType javascript map <buffer> <C-o>l oconsole.log();<Esc>F(
-autocmd FileType javascript map <buffer> <C-o>L Oconsole.log();<Esc>F(
-" TypeScript bindings
-autocmd FileType typescript map <buffer> <C-o>l oconsole.log();<Esc>F(
-autocmd FileType typescript map <buffer> <C-o>L Oconsole.log();<Esc>F(
-" PHP bindings (actually some PHP but mostly Laravel)
-autocmd FileType php map <buffer> <C-o>l oLog::debug();<Esc>F(
-autocmd FileType php map <buffer> <C-o>L OLog::debug();<Esc>F(
-
-" Commands
-command! MakeTags !ctags-gen
 
 " Fix backspace in insert mode
 set backspace=indent,eol,start

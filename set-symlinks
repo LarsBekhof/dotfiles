@@ -3,15 +3,13 @@
 mkdir ~/.config
 
 ln -sf .vimrc ~/
-ln -sf .jshintrc ~/
 ln -sf .i3 ~/
 ln -sf .i3blocks.conf ~/
-ln -sf .Xdefaults ~/
 ln -sf .zshrc ~/
 ln -sf .aliases ~/
 ln -sf .xinitrc ~/
 ln -sf dunst ~/.config/
 ln -sf termite ~/.config/
+ln -sf .ctags ~/
 sudo ln -sf .zshrc /root/
 sudo ln -sf .aliases /root/
-ln -sf .ctags ~/

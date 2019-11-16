@@ -29,6 +29,9 @@ set undolevels=1000
 set undoreload=10000
 set autoread
 
+" Autocmd
+autocmd BufWritePost *.ts,*.js,*.tsx,*.jsx,*.php silent! !ctags &
+
 " Color and fonts
 syntax enable
 set t_Co=256
@@ -64,7 +67,6 @@ noremap <Right> <Nop>
 
 " fzf
 set rtp+=~/Code/apps/fzf
-let g:fzf_tags_command='ctag-gen'
 
 " Signify
 let g:signify_vcs_list = ['git']

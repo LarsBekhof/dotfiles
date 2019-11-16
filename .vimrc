@@ -100,6 +100,11 @@ let g:ale_sign_info = 'ℹ️'
 let g:ale_sign_style_info = 'ℹ️'
 let g:ale_sign_warning = '⚠️'
 let g:ale_sign_style_warning = '⚠️'
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint', 'tslint'],
+\}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],

@@ -6,7 +6,6 @@ export PATH=/opt:$PATH
 export PATH=$HOME/Code/scripts:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$HOME/.composer/vendor/bin:$PATH
-export PATH=$HOME/.local/.npm-global/:$PATH
 export PATH=$HOME/.node_modules/bin:$PATH
 
 # Path oh-my-zsh
@@ -33,6 +32,7 @@ plugins=(
   composer
   vi-mode
   jsontools
+  npm
 )
 
 # Zsh source directory

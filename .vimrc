@@ -88,7 +88,6 @@ let g:airline#extensions#ale#enabled=1
 let airline#extensions#ale#error_symbol='🛑'
 let airline#extensions#ale#warning_symbol='⚠️'
 let airline#extensions#ale#open_lnum_symbol='📋'
-let g:airline#extensions#tabline#keymap_ignored_filetypes = ['netrw']
 
 " Ale
 let g:ale_lint_delay=0
@@ -96,22 +95,13 @@ let g:ale_set_highlights=0
 let g:ale_list_window_size=5
 let g:ale_lint_on_text_changed='never'
 let g:ale_echo_msg_format='%s'
-let g:ale_sign_error = '🛑'
-let g:ale_sign_style_error = '🛑'
-let g:ale_sign_info = 'ℹ️'
-let g:ale_sign_style_info = 'ℹ️'
-let g:ale_sign_warning = '⚠️'
-let g:ale_sign_style_warning = '⚠️'
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint', 'tslint'],
-\}
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier', 'eslint'],
-\   'typescript': ['prettier', 'eslint'],
-\}
+let g:ale_sign_error='🛑'
+let g:ale_sign_style_error='🛑'
+let g:ale_sign_info='ℹ️'
+let g:ale_sign_style_info='ℹ️'
+let g:ale_sign_warning='⚠️'
+let g:ale_sign_style_warning='⚠️'
+let g:ale_fix_on_save=1
 highlight clear ALEErrorSign
 highlight clear ALEInfoSign
 highlight clear ALEWarningSign
@@ -119,7 +109,7 @@ highlight clear ALEWarningSign
 " NERDTree
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
-let NERDTreeWinSize=10000 " Just maximize this
+let NERDTreeWinSize=50
 let NERDTreeQuitOnOpen=1
 
 " Keybindings

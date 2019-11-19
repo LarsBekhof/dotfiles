@@ -4,6 +4,7 @@
 --exclude=node_modules
 --exclude=vendor
 --exclude=dist
+--exclude=build
 
 --langdef=typescript
 --langmap=typescript:.ts.tsx

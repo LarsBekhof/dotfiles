@@ -1,6 +1,3 @@
-" Start pathogen plugin manager
-execute pathogen#infect()
-
 " General
 set history=1000
 set lazyredraw
@@ -31,13 +28,13 @@ set autoread
 
 " Autocmd
 autocmd BufWritePost *.ts,*.js,*.tsx,*.jsx,*.php silent! !ctags &
+autocmd VimEnter * :Vexplore
 
 " Color and fonts
 syntax enable
 set t_Co=256
 hi NonText ctermfg=7
 hi SpecialKey ctermfg=7
-colo darkblue
 
 " Interface
 set number
@@ -63,77 +60,13 @@ set breakindent
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
-noremap <Right> <Nop>
 
-" fzf
-set rtp+=~/Code/apps/fzf
-
-" Signify
-let g:signify_vcs_list = ['git']
-highlight DiffAdd ctermfg=2 ctermbg=0
-highlight DiffChange ctermfg=3 ctermbg=0
-highlight DiffDelete ctermfg=1 ctermbg=0
-highlight clear SignColumn
-
-" Airline
-let g:airline_section_x=''
-let g:airline_section_y=''
-let g:airline_powerline_fonts=1
-let g:airline_skip_empty_sections=1
-let g:Powerline_symbols='fancy'
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#show_tabs=0
-let g:airline#extensions#tabline#show_close_button=0
-let g:airline#extensions#ale#enabled=1
-let airline#extensions#ale#error_symbol='🛑'
-let airline#extensions#ale#warning_symbol='⚠️'
-let airline#extensions#ale#open_lnum_symbol='📋'
-
-" Ale
-let g:ale_lint_delay=0
-let g:ale_set_highlights=0
-let g:ale_list_window_size=5
-let g:ale_lint_on_text_changed='never'
-let g:ale_echo_msg_format='%s'
-let g:ale_sign_error='🛑'
-let g:ale_sign_style_error='🛑'
-let g:ale_sign_info='ℹ️'
-let g:ale_sign_style_info='ℹ️'
-let g:ale_sign_warning='⚠️'
-let g:ale_sign_style_warning='⚠️'
-let g:ale_fix_on_save=1
-highlight clear ALEErrorSign
-highlight clear ALEInfoSign
-highlight clear ALEWarningSign
-
-" NERDTree
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1
-let NERDTreeWinSize=50
-let NERDTreeQuitOnOpen=1
+" Netrw
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_winsize=25
+let g:netrw_liststyle=3
 
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
-map <silent> <C-k> :call ALEToggleList()<CR>
-map <C-p> :NERDTreeClose<CR>:Files<CR>
-map <C-a> :Ag<CR>
-map <C-l> :Buffers<CR>
-map gn :NERDTreeClose<CR>:w<CR>:bn<CR>
-map gp :NERDTreeClose<CR>:w<CR>:bp<CR>
-map gd :NERDTreeClose<CR>:w<CR>:bd<CR>
-map <Tab> :NERDTreeToggle<CR>
-
-" Fix backspace in insert mode
-set backspace=indent,eol,start
-
-" Toggle ALE quick list
-function! ALEToggleList()
-	if exists("g:loclist")
-		lclose
-		unlet g:loclist
-	else
-		lopen 5
-		let g:loclist = bufnr("$")
-	endif
-endfunction

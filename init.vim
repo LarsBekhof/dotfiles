@@ -93,6 +93,7 @@ imap <F1> <Esc>
 " File movement
 map <C-p> :Files<CR>
 map <Tab> :NERDTreeToggle<CR>
+map <C-]> :YcmC GoToType<CR>
 " File management
 map <C-c> :!touch %:p:h/
 map <C-m> :!mv % %:p:h/

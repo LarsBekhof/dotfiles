@@ -1,11 +1,6 @@
 #!/bin/sh
 
-# Constants
-AG="ag --silent --hidden -p ~/.ignore"
-
 # Aliases
-alias ags="$AG"
-alias agf="$AG -g"
 alias du="du -h"
 alias pa="php artisan"
 alias up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
@@ -16,3 +11,4 @@ alias o="xdg-open"
 alias lsp="stat -c '%a %n' *"
 alias pa-restart="pulseaudio -k && pulseaudio --start"
 alias untar="tar -xavf"
+alias composer="php $HOME/.local/share/composer.phar"

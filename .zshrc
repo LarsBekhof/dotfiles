@@ -3,6 +3,7 @@ source ~/.aliases
 
 # Set path
 export PATH=$HOME/Code/scripts:$PATH
+export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
 export PATH=/usr/lib/dart/bin:$PATH
 export PATH=$HOME/.pub-cache/bin:$PATH
@@ -11,10 +12,8 @@ export PATH=$HOME/.local/bin:$PATH
 # Path oh-my-zsh
 export ZSH="/home/lars/.oh-my-zsh"
 
-# Make ag a little more user friendly and fast
-export AG="ag --silent --hidden -p ~/.ignore"
 # Make fzf find hidden files
-export FZF_DEFAULT_COMMAND="$AG -g ''"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file ~/.ignore"
 # Default editor
 export EDITOR=vim
 

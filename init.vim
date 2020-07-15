@@ -7,6 +7,7 @@ Plug 'dense-analysis/ale'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'ycm-core/YouCompleteMe'
 
@@ -95,9 +96,6 @@ map <C-p> :Files<CR>
 map <C-a> :Rg<CR>
 map <Tab> :NERDTreeToggle<CR>
 map <C-]> :YcmC GoToType<CR>
-" File management
-map <C-c> :!touch %:p:h/
-map <C-m> :!mv % %:p:h/
 " Buffer
 map gb :bp<CR>
 map gn :bn<CR>

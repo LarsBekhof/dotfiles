@@ -13,7 +13,7 @@ export PATH=$HOME/.local/bin:$PATH
 export ZSH="/home/lars/.oh-my-zsh"
 
 # Make fzf find hidden files
-export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file ~/.ignore"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file ~/.ignore --no-ignore-vcs"
 # Default editor
 export EDITOR=vim
 

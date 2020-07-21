@@ -112,6 +112,10 @@ endif
 
 set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
+" Print relative line numbers
+
+set relativenumber
+
 " ------------------------------------------------------------------------------
 
 " :mark mark /full/directory/path [filename]

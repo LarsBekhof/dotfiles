@@ -17,6 +17,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'moll/vim-bbye'
 
 Plug 'preservim/nerdtree'
+
+Plug 'vifm/vifm.vim'
 call plug#end()
 
 " General
@@ -94,7 +96,7 @@ imap <F1> <Esc>
 " File movement
 map <C-p> :Files<CR>
 map <C-a> :Rg<CR>
-map <Tab> :NERDTreeToggle<CR>
+map <Tab> :EditVifm<CR>
 map <C-]> :YcmC GoToType<CR>
 " Buffer
 map gb :bp<CR>

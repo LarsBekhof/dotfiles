@@ -345,6 +345,10 @@ filextype */
         \ {View in thunar}
         \ Thunar %f &,
 
+" All other file types
+filetype * xdg-open
+fileviewer *
+
 " Syntax highlighting in preview
 "
 " Explicitly set highlight type for some extensions
@@ -464,8 +468,7 @@ nnoremap <f8> :delete<cr>
 " Close vifm
 nnoremap <Tab> :q<cr>
 
-" Open with only one panel
-only
+vsplit
 
 " ------------------------------------------------------------------------------
 

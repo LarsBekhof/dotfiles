@@ -16,8 +16,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'moll/vim-bbye'
 
-Plug 'preservim/nerdtree'
-
 Plug 'vifm/vifm.vim'
 call plug#end()
 

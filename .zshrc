@@ -25,7 +25,6 @@ plugins=(
   gitfast
   docker
   docker-compose
-  web-search
   composer
   vi-mode
   jsontools

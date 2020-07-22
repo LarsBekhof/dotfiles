@@ -9,7 +9,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
-Plug 'ycm-core/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -88,6 +88,20 @@ highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 highlight clear SignColumn
 
+" Coc
+let g:coc_global_extensions = [
+	\ 'coc-json',
+	\ 'coc-tsserver',
+	\ 'coc-phpls',
+	\ 'coc-python',
+	\ 'coc-eslint',
+	\ 'coc-prettier',
+	\ 'coc-pairs',
+	\ 'coc-css',
+	\ 'coc-html',
+	\ 'coc-vetur',
+\ ]
+
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
@@ -95,7 +109,7 @@ imap <F1> <Esc>
 map <C-p> :Files<CR>
 map <C-a> :Rg<CR>
 map <Tab> :EditVifm<CR>
-map <C-]> :YcmC GoToType<CR>
+map <C-]> :call CocActionAsync('jumpDefinition', 'drop')<CR>
 " Buffer
 map gb :bp<CR>
 map gn :bn<CR>

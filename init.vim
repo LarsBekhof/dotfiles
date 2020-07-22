@@ -8,6 +8,7 @@ Plug 'dense-analysis/ale'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'posva/vim-vue'
 
 Plug 'ycm-core/YouCompleteMe'
 

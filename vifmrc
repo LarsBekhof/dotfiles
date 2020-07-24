@@ -110,6 +110,12 @@ command! vgrep vim "+grep %a"
 command! reload :write | restart
 
 " ------------------------------------------------------------------------------
+"
+" Image preview
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+    \ kitty icat --silent --place %pwx%ph@%pxx%py %c
+    \ %pc
+    \ kitty icat --silent --clear
 
 " Open files with xdg
 filetype * xdg-open

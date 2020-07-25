@@ -21,27 +21,22 @@ Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " General
-set history=1000
 set lazyredraw
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-set completeopt-=preview
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
+set belloff=all
 set ttyfast
 set noswapfile
 set scrolloff=3
 set mouse=v
 set clipboard^=unnamedplus
 set bufhidden=wipe
+set nohidden
+set history=1000
 set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
 set autoread
-set nohidden
 
 " Color and fonts
 syntax enable

@@ -43,9 +43,6 @@ set undoreload=10000
 set autoread
 set nohidden
 
-" Autocmd
-autocmd BufWritePost *.ts,*.js,*.tsx,*.jsx,*.php silent! !ctags &
-
 " Color and fonts
 syntax enable
 set t_Co=256

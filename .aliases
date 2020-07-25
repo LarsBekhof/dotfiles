@@ -8,3 +8,6 @@ alias o="xdg-open" # Open a file
 alias lsp="stat -c '%a %n' *" # Print the numeric access rights to all objects in a folder
 alias pa-restart="pulseaudio -k && pulseaudio --start" # Restart pulseaudio
 alias untar="tar -xavf" # Extract tar files based on their file extension
+alias mine="sudo chown $USER:$USER" # Make a object yours
+alias localip='ip addr show | sed -n "/\(wl.\+\|en.\+\)state UP/,/valid_lft/p" | rg inet | rg -o "([0-9]{1,3}\.*){4}" | head -n 1' # Print ip of your machine on the local network
+alias git-acp='git add -A && git commit -m "no message" && git push' # Git add, commit and push

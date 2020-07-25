@@ -94,7 +94,6 @@ highlight clear ALEInfoSign
 highlight clear ALEWarningSign
 highlight clear SignColumn
 
-
 " Coc
 let g:coc_global_extensions = [
 	\ 'coc-json',

@@ -1,12 +1,10 @@
 #!/bin/sh
 
 # Aliases
-alias du="du -h"
-alias pa="php artisan"
-alias up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
-alias ofzf='xdg-open "$(fzf)"'
-alias o="xdg-open"
-alias lsp="stat -c '%a %n' *"
-alias pa-restart="pulseaudio -k && pulseaudio --start"
-alias untar="tar -xavf"
-alias composer="php $HOME/.local/share/composer.phar"
+alias du="du -h" # Always show sizes in a human readable format
+alias up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y" # Upgrade and clean
+alias ofzf='xdg-open "$(fzf)"' # Search for a file and open it
+alias o="xdg-open" # Open a file
+alias lsp="stat -c '%a %n' *" # Print the numeric access rights to all objects in a folder
+alias pa-restart="pulseaudio -k && pulseaudio --start" # Restart pulseaudio
+alias untar="tar -xavf" # Extract tar files based on their file extension

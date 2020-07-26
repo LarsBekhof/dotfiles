@@ -33,7 +33,7 @@ set bufhidden=wipe
 set nohidden
 set history=1000
 set undofile
-set undodir=$HOME/.vim/undo
+set undodir=$HOME/.config/nvim/undo
 set undolevels=1000
 set undoreload=10000
 set autoread

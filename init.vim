@@ -18,6 +18,8 @@ Plug 'moll/vim-bbye'
 Plug 'vifm/vifm.vim'
 
 Plug 'editorconfig/editorconfig-vim'
+
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " General
@@ -37,6 +39,7 @@ set undodir=$HOME/.config/nvim/undo
 set undolevels=1000
 set undoreload=10000
 set autoread
+set updatetime=100
 
 " Color and fonts
 syntax enable
@@ -82,6 +85,11 @@ highlight clear ALEErrorSign
 highlight clear ALEInfoSign
 highlight clear ALEWarningSign
 highlight clear SignColumn
+
+" Git gutter
+highlight GitGutterAdd ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
 
 " Coc
 let g:coc_global_extensions = [

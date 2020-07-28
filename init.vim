@@ -99,11 +99,12 @@ let g:coc_global_extensions = [
 map <F1> <Esc>
 imap <F1> <Esc>
 " File movement
-nmap <C-p> :Files<CR>
-nmap <C-a> :Rg<CR>
-nmap <Tab> :EditVifm<CR>
-nmap <C-]> :call CocActionAsync('jumpDefinition', 'drop')<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-a> :Rg<CR>
+nnoremap <Tab> :EditVifm<CR>
+nnoremap <C-]> :call CocActionAsync('jumpDefinition', 'drop')<CR>
 " Buffer
-nmap gb :bp<CR>
-nmap gn :bn<CR>
-nmap cb :Bdelete<CR>
+nnoremap gb :bp<CR>
+nnoremap gn :bn<CR>
+nnoremap cb :Bdelete<CR>
+nnoremap gs :vert sb%<CR>

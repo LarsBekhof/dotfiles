@@ -21,8 +21,9 @@ Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " General
-set lazyredraw
 filetype plugin on
+set shell=zsh\ -i
+set lazyredraw
 set belloff=all
 set ttyfast
 set noswapfile
@@ -30,7 +31,6 @@ set scrolloff=3
 set mouse=v
 set clipboard^=unnamedplus
 set bufhidden=wipe
-set nohidden
 set history=1000
 set undofile
 set undodir=$HOME/.vim/undo
@@ -40,7 +40,6 @@ set autoread
 
 " Color and fonts
 syntax enable
-set t_Co=256
 hi NonText ctermfg=7
 hi SpecialKey ctermfg=7
 
@@ -51,8 +50,6 @@ set wildmenu
 set showmatch
 set incsearch
 set hlsearch
-set laststatus=2
-set showcmd
 
 " Text, tab and indent
 set tabstop=4

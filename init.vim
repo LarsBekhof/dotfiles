@@ -116,3 +116,16 @@ nnoremap gb :bp<CR>
 nnoremap gn :bn<CR>
 nnoremap cb :Bdelete<CR>
 nnoremap gs :vert sb%<CR>
+
+" Comment lines
+function! ToggleComment(comment_char)
+	if getline(".") =~ "^" . a:comment_char
+		execute ".s/^" . a:comment_char . "//g"
+	else
+		execute ".s/^/" . a:comment_char . "/g"
+	endif
+endfunction
+
+autocmd FileType vim nnoremap <buffer> gc :call ToggleComment('"')<CR>
+autocmd FileType javascript,typescript nnoremap <buffer> gc :call ToggleComment("\\/\\/")<CR>
+autocmd FileType php nnoremap <buffer> gc :call ToggleComment('#')<CR>

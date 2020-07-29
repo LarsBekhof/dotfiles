@@ -128,4 +128,4 @@ endfunction
 
 autocmd FileType vim nnoremap <buffer> gc :call ToggleComment('"')<CR>
 autocmd FileType javascript,typescript nnoremap <buffer> gc :call ToggleComment("\\/\\/")<CR>
-autocmd FileType php,sh,zsh,bash,markdown nnoremap <buffer> gc :call ToggleComment('#')<CR>
+autocmd FileType php,sh,zsh,bash,markdown nnoremap <buffer> gc :call ToggleComment("#")<CR>

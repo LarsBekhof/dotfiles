@@ -118,7 +118,7 @@ fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
     \ kitty icat --silent --clear
 
 " Syntax highlighting
-fileviewer *.html,*.go,*.css,*.js,*.ts,*.php,*.json,*.yml,*.jsx,*.tsx highlight -O xterm256 %c
+fileviewer *.html,*.go,*.css,*.js,*.ts,*.php,*.json,*.yml,*.jsx,*.tsx,*.md highlight -O xterm256 %c
 
 " Open files with xdg
 filetype * xdg-open

@@ -7,6 +7,7 @@ export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
 export PATH=$HOME/.pub-cache/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=/usr/lib/jvm/jdk-14.0.2/bin:$PATH
 
 # Path oh-my-zsh
 export ZSH="/home/lars/.oh-my-zsh"

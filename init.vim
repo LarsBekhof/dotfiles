@@ -22,6 +22,10 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'tpope/vim-commentary'
+
+Plug 'chrisbra/csv.vim'
+
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " General

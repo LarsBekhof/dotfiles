@@ -12,3 +12,4 @@ alias mine="sudo chown $USER:$USER" # Make a object yours
 alias localip='ip addr show | sed -n "/\(wl.\+\|en.\+\)state UP/,/valid_lft/p" | rg inet | rg -o "([0-9]{1,3}\.*){4}" | head -n 1' # Print ip of your machine on the local network
 alias git-acp='git add -A && git commit -m "no message" && git pull && git push' # Git add, commit, pull and push because sometimes I can't be bothered
 alias mine="sudo chown $USER:$USER"
+alias gafzf="git add $(git status -s | cut -c 4- | fzf -m)"

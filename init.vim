@@ -50,7 +50,7 @@ set updatetime=100
 
 " Color and fonts
 set background=dark
-colorscheme gruvbox8
+colorscheme gruvbox8_hard
 let g:gruvbox_transp_bg=1
 syntax enable
 highlight clear SignColumn

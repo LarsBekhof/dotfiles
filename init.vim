@@ -3,7 +3,6 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'pangloss/vim-javascript'
@@ -26,6 +25,8 @@ Plug 'tpope/vim-commentary'
 Plug 'chrisbra/csv.vim'
 
 Plug 'tpope/vim-fugitive'
+
+Plug 'lifepillar/vim-gruvbox8'
 call plug#end()
 
 " General
@@ -48,9 +49,11 @@ set autoread
 set updatetime=100
 
 " Color and fonts
+set background=dark
+colorscheme gruvbox8
+let g:gruvbox_transp_bg=1
 syntax enable
-hi NonText ctermfg=7
-hi SpecialKey ctermfg=7
+highlight clear SignColumn
 
 " Interface
 set number
@@ -80,18 +83,6 @@ noremap <Right> <Nop>
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
-" ALE
-let g:ale_sign_error='🔴'
-let g:ale_sign_info='🔵'
-let g:ale_sign_warning='🟡'
-highlight ALEError ctermbg=none cterm=underline
-highlight ALEInfo ctermbg=none cterm=underline
-highlight ALEWarning ctermbg=none cterm=underline
-highlight clear ALEErrorSign
-highlight clear ALEInfoSign
-highlight clear ALEWarningSign
-highlight clear SignColumn
-
 " Git gutter
 highlight GitGutterAdd ctermfg=2
 highlight GitGutterChange ctermfg=3
@@ -108,6 +99,10 @@ let g:coc_global_extensions = [
 	\ 'coc-html',
 	\ 'coc-vetur',
 \ ]
+highlight clear CocErrorSign
+highlight clear CocWarningSign
+highlight clear CocInfoSign
+highlight clear CocHintSign
 
 " Keybindings
 map <F1> <Esc>

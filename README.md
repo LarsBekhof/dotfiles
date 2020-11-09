@@ -3,4 +3,5 @@
 2. Install oh-my-zsh by running `sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 3. Download and install this font https://github.com/powerline/fonts/blob/master/UbuntuMono/Ubuntu%20Mono%20derivative%20Powerline.ttf
 4. Execute `./link` this creates symbolic links for all the files.
-5. Take a look at the .zshrc file and adjust the paths according to your needs.
+5. Install vim-plug https://github.com/junegunn/vim-plug
+6. Take a look at the .zshrc file and adjust the paths according to your needs.

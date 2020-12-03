@@ -49,6 +49,8 @@ set undolevels=1000
 set undoreload=10000
 set autoread
 set updatetime=100
+set ignorecase
+set smartcase
 
 " Color and fonts
 set background=dark

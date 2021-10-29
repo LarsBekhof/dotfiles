@@ -10,6 +10,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'posva/vim-vue'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'jwalton512/vim-blade'
+Plug 'jxnblk/vim-mdx-js'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -103,11 +105,17 @@ let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ 'coc-html',
 	\ 'coc-vetur',
+	\ 'coc-eslint',
 \ ]
 highlight clear CocErrorSign
 highlight clear CocWarningSign
 highlight clear CocInfoSign
 highlight clear CocHintSign
+
+augroup postcss_ft
+	au!
+	autocmd BufNewFile,BufRead *.postcss   set syntax=css
+augroup END
 
 " Keybindings
 map <F1> <Esc>

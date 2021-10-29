@@ -12,3 +12,11 @@ alias mine="sudo chown $USER:$USER" # Make a object yours
 alias localip='ip addr show | sed -n "/\(wl.\+\|en.\+\)state UP/,/valid_lft/p" | rg inet | rg -o "([0-9]{1,3}\.*){4}" | head -n 1' # Print ip of your machine on the local network
 alias git-acp='git add -A && git commit -m "no message" && git pull && git push' # Git add, commit, pull and push because sometimes I can't be bothered
 alias mine="sudo chown $USER:$USER"
+
+# Docker
+alias dstart='docker start $(docker ps --all --filter status=exited --format "{{.Names}}" | fzf -m)'
+alias dstop='docker stop $(docker ps --format "{{.Names}}" | fzf -m)'
+alias drestart='docker restart $(docker ps --format "{{.Names}}" | fzf -m)'
+alias drm='docker rm $(docker ps --all --format "{{.Names}}" | fzf -m)'
+alias dexec='docker exec -it $(docker ps --format "{{.Names}}" | fzf) bash'
+alias dlogs='docker logs -f $(docker ps --all --format "{{.Names}}" | fzf)'

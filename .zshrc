@@ -39,10 +39,3 @@ plugins=(
 
 # Zsh source directory
 source $ZSH/oh-my-zsh.sh
-
-open-mr() {
-  project=${PWD##*/}
-  branch=$(git rev-parse --abbrev-ref HEAD)
-  url="https://git.getoaky.com/oaky/${project}/-/merge_requests/new?merge_request%5Bsource_branch%5D=${branch}"
-  xdg-open "${url}"
-}

@@ -1,6 +1,5 @@
 " Plugins
 call plug#begin()
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -35,7 +34,6 @@ call plug#end()
 
 " General
 filetype plugin on
-set shell=zsh\ -i
 set lazyredraw
 set belloff=all
 set ttyfast

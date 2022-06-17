@@ -4,3 +4,4 @@
 3. Add the SSH key to your [GitHub profile](https://github.com/settings/ssh/new)
 4. Clone this repository `git clone git@github.com:LarsBekhof/dotfiles.git`
 5. Run `sh ./init` to setup everything
+6. Open neovim and run `PlugInstall`

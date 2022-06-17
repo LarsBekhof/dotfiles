@@ -1,7 +1,6 @@
-# Installation on Ubuntu 20.04
-1. Install all the dependencies with `sudo apt install zsh neovim kitty imagemagick vifm ripgrep nodejs npm docker.io docker-compose fzf highlight` 
-2. Install oh-my-zsh by running `sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-3. Download and install this font https://github.com/powerline/fonts/blob/master/UbuntuMono/Ubuntu%20Mono%20derivative%20Powerline.ttf
-4. Execute `./link` this creates symbolic links for all the files.
-5. Install vim-plug https://github.com/junegunn/vim-plug
-6. Take a look at the .zshrc file and adjust the paths according to your needs.
+# Installation
+1. Install git
+2. Setup a SSH key `ssh-keygen -t ed25519 -C "<your email>"`
+3. Add the SSH key to your [GitHub profile](https://github.com/settings/ssh/new)
+4. Clone this repository `git clone git@github.com:LarsBekhof/dotfiles.git`
+5. Run `sh ./init` to setup everything

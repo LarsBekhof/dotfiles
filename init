@@ -4,7 +4,14 @@
 if command -v apt
 then
 	sudo apt update && sudo apt upgrade
-	sudo apt install -y curl zsh fzf neovim vifm kitty
+	sudo apt install -y curl zsh fzf neovim vifm kitty fonts-powerline ripgrep
+fi
+
+# Install all needed packages fot systems with apt as their package manager
+if command -v dnf
+then
+	sudo apt update && sudo apt upgrade
+	sudo apt install -y curl zsh fzf neovim vifm kitty fonts-powerline ripgrep highlight
 fi
 
 # Install oh-my-zsh if itsn't not installed

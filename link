@@ -1,8 +1,0 @@
-#!/bin/sh
-
-ln -sf $(pwd)/.aliases ~/
-ln -sf $(pwd)/.zshrc ~/
-ln -sf $(pwd)/.ignore ~/
-ln -sf $(pwd)/init.vim ~/.config/nvim/
-ln -sf $(pwd)/kitty.conf ~/.config/kitty/
-ln -sf $(pwd)/vifmrc ~/.config/vifm/

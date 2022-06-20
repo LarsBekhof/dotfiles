@@ -1,5 +1,6 @@
 " Plugins
 call plug#begin()
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

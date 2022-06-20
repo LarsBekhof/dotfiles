@@ -4,20 +4,21 @@
 if command -v apt
 then
 	sudo apt update && sudo apt upgrade
-	sudo apt install -y curl zsh fzf neovim vifm kitty fonts-powerline ripgrep
+	sudo apt install -y curl zsh fzf neovim vifm kitty fonts-powerline ripgrep nodejs npm
 fi
 
 # Install all needed packages fot systems with apt as their package manager
 if command -v dnf
 then
-	echo "dnf is not supported yet"
-	exit 1
+	sudo dnf upgrade -y
+	sudo dnf install -y curl zsh fzf neovim vifm kitty powerline-fonts ripgrep nodejs npm util-linux-user
 fi
 
 # Install oh-my-zsh if itsn't not installed
-if ! test -f ~/.zshrc
+if [ ! -d ~/.oh-my-zsh ]
 then
-	sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	rm ~/.zshrc
 fi
 
 # Create all the needed directories for the config files

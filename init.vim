@@ -2,16 +2,11 @@
 call plug#begin()
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'posva/vim-vue'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'jwalton512/vim-blade'
-Plug 'jxnblk/vim-mdx-js'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSInstall all'}
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -24,7 +19,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 
 Plug 'chrisbra/csv.vim'
 
@@ -35,6 +30,7 @@ call plug#end()
 
 " General
 filetype plugin on
+let mapleader=","
 set lazyredraw
 set belloff=all
 set ttyfast
@@ -55,8 +51,8 @@ set smartcase
 
 " Color and fonts
 set background=dark
-colorscheme gruvbox8_hard
 let g:gruvbox_transp_bg=1
+colorscheme gruvbox8_hard
 syntax enable
 highlight clear SignColumn
 
@@ -98,7 +94,7 @@ highlight GitGutterDelete ctermfg=1
 let g:coc_global_extensions = [
 	\ 'coc-json',
 	\ 'coc-tsserver',
-	\ 'coc-phpls',
+	\ '@yaegassy/coc-intelephense',
 	\ 'coc-python',
 	\ 'coc-pairs',
 	\ 'coc-css',
@@ -112,6 +108,24 @@ highlight clear CocWarningSign
 highlight clear CocInfoSign
 highlight clear CocHintSign
 
+" tree-sitter
+lua << EOF
+vim.cmd [[set runtimepath+=.]]
+vim.cmd [[runtime! plugin/plenary.vim]]
+vim.cmd [[runtime! plugin/nvim-treesitter.lua]]
+
+vim.cmd [[au BufRead,BufNewFile *.conf set filetype=hocon]]
+vim.cmd [[au BufRead,BufNewFile *.gleam set filetype=gleam]]
+
+vim.o.swapfile = false
+vim.bo.swapfile = false
+
+require("nvim-treesitter.configs").setup {
+  indent = { enable = true },
+  highlight = { enable = true },
+}
+EOF
+
 augroup postcss_ft
 	au!
 	autocmd BufNewFile,BufRead *.postcss   set syntax=css
@@ -120,6 +134,7 @@ augroup END
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
+nmap <C-f> :CocFzfList actions<CR>
 " File movement
 nnoremap <C-p> :Files<CR>
 nnoremap <C-a> :Rg<CR>

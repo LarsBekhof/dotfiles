@@ -94,7 +94,7 @@ highlight GitGutterDelete ctermfg=1
 let g:coc_global_extensions = [
 	\ 'coc-json',
 	\ 'coc-tsserver',
-	\ 'coc-phpls',
+	\ '@yaegassy/coc-intelephense',
 	\ 'coc-python',
 	\ 'coc-pairs',
 	\ 'coc-css',

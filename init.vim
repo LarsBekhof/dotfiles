@@ -6,7 +6,7 @@ Plug 'antoinemadec/coc-fzf'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSInstall all'}
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -51,8 +51,8 @@ set smartcase
 
 " Color and fonts
 set background=dark
-colorscheme gruvbox8_hard
 let g:gruvbox_transp_bg=1
+colorscheme gruvbox8_hard
 syntax enable
 highlight clear SignColumn
 

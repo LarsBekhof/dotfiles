@@ -105,6 +105,7 @@ let g:coc_global_extensions = [
 	\ 'coc-html',
 	\ 'coc-vetur',
 	\ 'coc-eslint',
+	\ 'coc-rust-analyzer',
 \ ]
 highlight clear CocErrorSign
 highlight clear CocWarningSign

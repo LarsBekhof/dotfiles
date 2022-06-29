@@ -2,16 +2,11 @@
 call plug#begin()
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'posva/vim-vue'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'jwalton512/vim-blade'
-Plug 'jxnblk/vim-mdx-js'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -24,7 +19,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 
 Plug 'chrisbra/csv.vim'
 
@@ -35,6 +30,7 @@ call plug#end()
 
 " General
 filetype plugin on
+let mapleader=","
 set lazyredraw
 set belloff=all
 set ttyfast
@@ -119,6 +115,7 @@ augroup END
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
+nmap <C-f> :CocFzfList actions<CR>
 " File movement
 nnoremap <C-p> :Files<CR>
 nnoremap <C-a> :Rg<CR>

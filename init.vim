@@ -73,6 +73,7 @@ set list
 set listchars=tab:▸\ ,trail:·
 set copyindent
 set breakindent
+setlocal autoindent
 
 " Disable arrow keys
 noremap <Up> <Nop>

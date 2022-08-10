@@ -20,3 +20,6 @@ alias drm='docker rm $(docker ps --all --format "{{.Names}}" | fzf -m)'
 alias dexec='docker exec -it $(docker ps --format "{{.Names}}" | fzf) bash'
 alias dlogs='docker logs -f $(docker ps --all --format "{{.Names}}" | fzf)'
 alias vim='nvim'
+
+# Staging
+alias gt='firefox --new-tab $(echo "https://dashboard-accp-1.staging.dev.getoaky.com\nhttps://onboarding-accp-1.staging.dev.getoaky.com/\nhttps://app-accp-1.staging.dev.getoaky.com\nhttps://multi-property-accp-1.staging.dev.getoaky.com\nhttps://api-accp-1.staging.dev.getoaky.com/adminpanel/login\nhttps://dashboardv2-accp-1.staging.dev.getoaky.com\nhttps://ui-kit-accp-1.staging.dev.getoaky.com" | fzf)'

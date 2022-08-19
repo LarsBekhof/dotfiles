@@ -100,10 +100,10 @@ let g:coc_global_extensions = [
 	\ 'coc-pairs',
 	\ 'coc-css',
 	\ 'coc-html',
-	\ 'coc-vetur',
 	\ 'coc-eslint',
 	\ 'coc-rust-analyzer',
 	\ 'coc-go',
+	\ '@yaegassy/coc-volar',
 \ ]
 highlight clear CocErrorSign
 highlight clear CocWarningSign

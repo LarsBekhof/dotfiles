@@ -18,7 +18,7 @@ alias vim='nvim'
 alias dstart='docker start $(docker ps --all --filter status=exited --format "{{.Names}}" | fzf -m)'
 alias dstop='docker stop $(docker ps --format "{{.Names}}" | fzf -m)'
 alias drestart='docker restart $(docker ps --format "{{.Names}}" | fzf -m)'
-alias drm='docker rm $(docker ps --all --format "{{.Names}}" | fzf -m)'
+alias dremove='docker rm $(docker ps --all --format "{{.Names}}" | fzf -m)'
 alias dexec='docker exec -it $(docker ps --format "{{.Names}}" | fzf) bash'
 alias dlogs='docker logs -f $(docker ps --all --format "{{.Names}}" | fzf)'
 

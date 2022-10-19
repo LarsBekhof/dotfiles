@@ -1,13 +1,13 @@
 " Plugins
 call plug#begin()
 " Install FZF so nvim can use it
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 " Adds commmands and shortcuts for FZF
 Plug 'junegunn/fzf.vim'
-" Use FZF for COC autocompletion
-Plug 'antoinemadec/coc-fzf'
 " Auto completion for installed languages (see g:coc_global_extensions for installed languages)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Use FZF for COC autocompletion
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
 " Provides syntax highlighting and indentation for all languages
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSInstall all'}

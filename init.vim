@@ -35,7 +35,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 
 " A nice gruvbox theme
-Plug 'lifepillar/vim-gruvbox8'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " General
@@ -62,10 +62,11 @@ set shell=zsh
 
 " Color and fonts
 set background=dark
-let g:gruvbox_transp_bg=1
-colorscheme gruvbox8_hard
+colorscheme gruvbox
+g:gruvbox_transparent_bg=1
 syntax enable
 highlight clear SignColumn
+autocmd VimEnter * hi Normal ctermbg=none
 
 " Interface
 set number
@@ -123,19 +124,10 @@ highlight clear CocHintSign
 
 " tree-sitter
 lua << EOF
-vim.cmd [[set runtimepath+=.]]
-vim.cmd [[runtime! plugin/plenary.vim]]
-vim.cmd [[runtime! plugin/nvim-treesitter.lua]]
-
-vim.cmd [[au BufRead,BufNewFile *.conf set filetype=hocon]]
-vim.cmd [[au BufRead,BufNewFile *.gleam set filetype=gleam]]
-
-vim.o.swapfile = false
-vim.bo.swapfile = false
-
-require("nvim-treesitter.configs").setup {
-  indent = { enable = true },
-  highlight = { enable = true },
+require'nvim-treesitter.configs'.setup {
+	auto_install = true,
+	indent = { enable = true },
+	highlight = { enable = true },
 }
 EOF
 

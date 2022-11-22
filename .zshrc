@@ -20,7 +20,7 @@ export ZSH="/home/lars/.oh-my-zsh"
 # Make fzf customization
 export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file ~/.ignore --no-ignore-vcs --no-messages"
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --null  | xargs -0 dirname | uniq"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --null --sort-files | xargs -0 dirname | sort -u"
 
 # Default editor
 export EDITOR=nvim

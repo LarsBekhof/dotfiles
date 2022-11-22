@@ -17,8 +17,11 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 # Path oh-my-zsh
 export ZSH="/home/lars/.oh-my-zsh"
 
-# Make fzf find hidden files
-export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file ~/.ignore --no-ignore-vcs"
+# Make fzf customization
+export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file ~/.ignore --no-ignore-vcs --no-messages"
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --null  | xargs -0 dirname | uniq"
+
 # Default editor
 export EDITOR=nvim
 

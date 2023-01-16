@@ -19,8 +19,15 @@ alias dstop='docker stop $(docker ps --format "{{.Names}}" | fzf -m)'
 alias drestart='docker restart $(docker ps --format "{{.Names}}" | fzf -m)'
 alias dremove='docker rm $(docker ps --filter status=exited --format "{{.Names}}" | fzf -m)'
 alias dexec='docker exec -it $(docker ps --format "{{.Names}}" | fzf) bash'
-alias dlogs='docker logs -f $(docker ps --all --format "{{.Names}}" | fzf)'
+alias dlogs='docker logs -f -n 100 $(docker ps --all --format "{{.Names}}" | fzf)'
 alias dkill='docker kill $(docker ps --format "{{.Names}}" | fzf -m)'
+
+# Kubernetes
+alias select-k8s-env='K8S_ENV=$(echo "accp-1\naccp-2\naccp-3\naccp-4\naccp-5\n" | fzf)'
+alias select-k8s-pod='select-k8s-env && K8S_POD=$(kubectl get po -n $K8S_ENV --no-headers -o custom-columns=":metadata.name" | fzf)'
+alias kube-get='select-k8s-env && kubectl get po -n $K8S_ENV'
+alias kube-exec='select-k8s-pod && kubectl exec -it $K8S_POD -n $K8S_ENV -- /bin/sh'
+alias kube-logs='select-k8s-pod && kubectl logs -n $K8S_ENV $K8S_POD'
 
 # Oaky
 alias gt='firefox --new-tab $(echo "https://dashboard-accp-1.staging.dev.getoaky.com\nhttps://onboarding-accp-1.staging.dev.getoaky.com/\nhttps://app-accp-1.staging.dev.getoaky.com\nhttps://multi-property-accp-1.staging.dev.getoaky.com\nhttps://api-accp-1.staging.dev.getoaky.com/adminpanel/login\nhttps://dashboardv2-accp-1.staging.dev.getoaky.com\nhttps://ui-kit-accp-1.staging.dev.getoaky.com" | fzf)'

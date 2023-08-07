@@ -47,7 +47,7 @@ set ttyfast
 set noswapfile
 set scrolloff=3
 set mouse=v
-set clipboard^=unnamedplus
+set clipboard+=unnamedplus
 set bufhidden=wipe
 set history=1000
 set undofile
@@ -135,6 +135,9 @@ augroup postcss_ft
 	au!
 	autocmd BufNewFile,BufRead *.postcss   set syntax=css
 augroup END
+
+" Commands
+command! -nargs=1 Phpunit execute("!" . getcwd() . "/vendor/bin/phpunit -- " . <f-args>)
 
 " Keybindings
 map <F1> <Esc>

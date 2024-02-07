@@ -8,11 +8,14 @@ alias pa-restart="pulseaudio -k && pulseaudio --start" # Restart pulseaudio
 alias untar="tar -xavf" # Extract tar files based on their file extension
 alias mine="sudo chown $USER:$USER" # Make a object yours
 alias localip='ip addr show | sed -n "/\(wl.\+\|en.\+\)state UP/,/valid_lft/p" | rg inet | rg -o "([0-9]{1,3}\.*){4}" | head -n 1' # Print ip of your machine on the local network
-alias git-acp='git add -A && git commit -m "no message" && git pull && git push' # Git add, commit, pull and push because sometimes I can't be bothered
 alias \?="rg alias /home/$USER/.aliases | head -n -1 | sed 's/^alias //'"
 
 alias vim='nvim'
 alias evim='vim ~/Code/dotfiles/init.vim'
+
+# Git
+alias git-acp='git add -A && git commit -m "no message" && git pull && git push' # Git add, commit, pull and push because sometimes I can't be bothered
+alias gc='git checkout $(git branch | fzf)'
 
 # Docker
 alias dstart='docker start $(docker ps --all --filter status=exited --format "{{.Names}}" | fzf -m)'
@@ -25,7 +28,7 @@ alias dkill='docker kill $(docker ps --format "{{.Names}}" | fzf -m)'
 alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}"'
 
 # Kubernetes
-alias select-aws='aws eks --region eu-central-1 update-kubeconfig --name $(echo "oaky-staging-2\noaky-production-v2" | fzf)'
+alias select-aws='aws eks update-kubeconfig --region eu-central-1 --name $(echo "oaky-staging-3\noaky-production-v3" | fzf)'
 alias select-k8s-env='K8S_ENV=$(echo "accp-1\naccp-2\naccp-3\naccp-4\naccp-5\n" | fzf)'
 alias select-k8s-pod='select-k8s-env && K8S_POD=$(kubectl get po -n $K8S_ENV --no-headers -o custom-columns=":metadata.name" | fzf)'
 alias kube-ps='select-k8s-env && kubectl get po -n $K8S_ENV'

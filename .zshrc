@@ -3,9 +3,6 @@
 # Aliases
 source ~/.aliases
 
-# Deno install location
-export DENO_INSTALL="/home/lars/.deno"
-
 # Set path
 export PATH=$HOME/Code/scripts:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH

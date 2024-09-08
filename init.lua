@@ -8,6 +8,7 @@ vim.opt.scrolloff = 3
 vim.opt.clipboard = "unnamedplus"
 vim.opt.history = 1000
 vim.opt.undofile = true
+vim.opt.mouse = ""
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -18,6 +19,12 @@ vim.keymap.set("n", "<leader>c", ":bdelete<CR>")
 vim.keymap.set("n", "<leader>n", ":bn<CR>")
 vim.keymap.set("n", "<leader>b", ":bp<CR>")
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, {})
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, {})
+
+vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
+vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
+vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
+vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
 
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 
@@ -75,6 +82,7 @@ require("lazy").setup{
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
     "nvim-telescope/telescope-ui-select.nvim",
+    "lewis6991/gitsigns.nvim",
 }
 
 -- colorscheme
@@ -109,7 +117,7 @@ cmp.setup{
 
 require("mason").setup {}
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "tsserver", "gopls", "phpactor", "volar" },
+    ensure_installed = { "lua_ls", "ts_ls", "gopls", "phpactor", "volar" },
 }
 require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler
@@ -211,3 +219,5 @@ telescope.setup({
 })
 
 require("telescope").load_extension("ui-select")
+
+require('gitsigns').setup()

@@ -1,7 +1,9 @@
 #!/bin/zsh
 
-# Aliases
-source ~/.aliases
+# Setup completions
+fpath=(~/.zsh-complete $fpath)
+autoload -U compinit
+compinit
 
 # Set path
 export PATH=$HOME/Code/scripts:$PATH
@@ -18,6 +20,8 @@ export ZSH="/home/lars/.oh-my-zsh"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file ~/.ignore --no-ignore-vcs --no-messages"
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --null --sort-files | xargs -0 dirname | sort -u"
+export FZF_DEFAULT_OPTS="--preview 'batcat\ --color=always\ {}' --preview-window hidden"
+
 
 # Default editor
 export EDITOR=nvim
@@ -27,7 +31,7 @@ ZSH_THEME="agnoster"
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  gitfast
+  git
   docker
   docker-compose
   composer
@@ -41,8 +45,7 @@ plugins=(
 # Zsh source directory
 source $ZSH/oh-my-zsh.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Aliases
+source ~/.aliases
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

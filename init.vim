@@ -2,7 +2,7 @@
 call plug#begin()
 " Install FZF so nvim can use it
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-" Adds commmands and shortcuts for FZF
+" Adds commands and shortcuts for FZF
 Plug 'junegunn/fzf.vim'
 " Auto completion for installed languages (see g:coc_global_extensions for installed languages)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -11,6 +11,7 @@ Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
 " Provides syntax highlighting and indentation for all languages
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSInstall all'}
+Plug 'findango/vim-mdx'
 
 " Provides file information at the bottom of the screen
 Plug 'vim-airline/vim-airline'
@@ -20,7 +21,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'moll/vim-bbye'
 
 " Open Vifm file manager in nvim
-Plug 'vifm/vifm.vim'
+Plug 'Vifm/vifm.vim'
 
 " Make vim honour editorconfig settings
 Plug 'editorconfig/editorconfig-vim'
@@ -35,7 +36,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 
 " A nice gruvbox theme
-Plug 'morhetz/gruvbox'
+Plug 'ellisonleao/gruvbox.nvim'
 call plug#end()
 
 " General
@@ -63,7 +64,6 @@ set shell=zsh
 " Color and fonts
 set background=dark
 colorscheme gruvbox
-g:gruvbox_transparent_bg=1
 syntax enable
 highlight clear SignColumn
 autocmd VimEnter * hi Normal ctermbg=none
@@ -98,6 +98,11 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline_theme='base16_gruvbox_dark_hard'
 
+" Fzf
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 1, 'relative': v:true } }
+let g:fzf_vim = {}
+let g:fzf_vim.preview_window = ['up,50%,nohidden', 'ctrl-/']
+
 " Git gutter
 highlight GitGutterAdd ctermfg=2
 highlight GitGutterChange ctermfg=3
@@ -116,11 +121,21 @@ let g:coc_global_extensions = [
 	\ 'coc-rust-analyzer',
 	\ 'coc-go',
 	\ '@yaegassy/coc-volar',
+	\ 'coc-spell-checker',
+	\ 'coc-vimlsp',
 \ ]
 highlight clear CocErrorSign
 highlight clear CocWarningSign
 highlight clear CocInfoSign
 highlight clear CocHintSign
+
+" Colorscheme
+lua << EOF
+require("gruvbox").setup {
+	transparent_mode = true,
+}
+vim.cmd("colorscheme gruvbox")
+EOF
 
 " tree-sitter
 lua << EOF
@@ -138,11 +153,12 @@ augroup END
 
 " Commands
 command! -nargs=1 Phpunit execute("!" . getcwd() . "/vendor/bin/phpunit -- " . <f-args>)
+command! Cp execute("!echo % | xclip -selection c")
 
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
-nmap <C-f> :CocFzfList actions<CR>
+nmap <C-f> <Plug>(coc-codeaction-selected)l
 " File movement
 nnoremap <C-p> :Files<CR>
 nnoremap <C-a> :Rg<CR>

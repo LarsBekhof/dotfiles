@@ -28,6 +28,10 @@ vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSig
 
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 
+if not table.unpack then
+    table.unpack = unpack
+end
+
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -170,6 +174,9 @@ require('lualine').setup{
 
 -- nvim-tree
 require("nvim-tree").setup{
+    git = {
+        ignore = false,
+    },
 	on_attach = function (bufnr)
 		local api = require "nvim-tree.api"
 

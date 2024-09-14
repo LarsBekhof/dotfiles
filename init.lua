@@ -9,12 +9,17 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.history = 1000
 vim.opt.undofile = true
 vim.opt.mouse = ""
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = "▸ ",
+    trail = "·",
+}
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 
-vim.keymap.set("n", "<Tab>", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<Tab>", ":Telescope file_browser<CR>")
 vim.keymap.set("n", "<leader>c", ":bdelete<CR>")
 vim.keymap.set("n", "<leader>n", ":bn<CR>")
 vim.keymap.set("n", "<leader>b", ":bp<CR>")
@@ -29,6 +34,7 @@ vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSig
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 
 if not table.unpack then
+    ---@diagnostic disable-next-line: deprecated
     table.unpack = unpack
 end
 
@@ -71,10 +77,6 @@ require("lazy").setup{
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
-		"nvim-tree/nvim-tree.lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-	{
 		'windwp/nvim-autopairs',
 		event = "InsertEnter",
 		config = true
@@ -86,6 +88,10 @@ require("lazy").setup{
 		dependencies = { 'nvim-lua/plenary.nvim' },
 	},
 	"nvim-telescope/telescope-ui-select.nvim",
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    },
 	"lewis6991/gitsigns.nvim",
 }
 
@@ -172,24 +178,6 @@ require('lualine').setup{
 	},
 }
 
--- nvim-tree
-require("nvim-tree").setup{
-    git = {
-        ignore = false,
-    },
-	on_attach = function (bufnr)
-		local api = require "nvim-tree.api"
-
-		local function opts(desc)
-			return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-		end
-
-		api.config.mappings.default_on_attach(bufnr)
-
-		vim.keymap.set("n", "<Tab>", ":NvimTreeToggle<CR>", opts("Close"))
-	end,
-}
-
 -- telescope.nvim
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
@@ -212,6 +200,11 @@ telescope.setup({
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown{},
 		},
+        file_browser = {
+            no_ignore = true,
+            hidden = { file_browser = true, folder_browser = true },
+            respect_gitignore = false,
+        },
 	},
 	defaults = {
 		-- `hidden = true` is not supported in text grep commands.
@@ -225,6 +218,7 @@ telescope.setup({
 	},
 })
 
-require("telescope").load_extension("ui-select")
+telescope.load_extension("ui-select")
+telescope.load_extension("file_browser")
 
 require('gitsigns').setup()

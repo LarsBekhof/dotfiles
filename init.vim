@@ -41,7 +41,7 @@ call plug#end()
 
 " General
 filetype plugin on
-let mapleader=","
+let mapleader=" "
 set lazyredraw
 set belloff=all
 set ttyfast
@@ -158,14 +158,15 @@ command! Cp execute("!echo % | xclip -selection c")
 " Keybindings
 map <F1> <Esc>
 imap <F1> <Esc>
-nmap <C-f> <Plug>(coc-codeaction-selected)l
+nmap <Leader>f <Plug>(coc-codeaction-selected)l
 " File movement
 nnoremap <C-p> :Files<CR>
 nnoremap <C-a> :Rg<CR>
 nnoremap <Tab> :EditVifm<CR>
 nnoremap <C-]> :call CocActionAsync('jumpDefinition', 'drop')<CR>
+nnoremap <Leader>p :Buffers<CR>
 " Buffer
-nnoremap gb :bp<CR>
-nnoremap gn :bn<CR>
-nnoremap cb :Bdelete<CR>
-nnoremap gs :vert sb%<CR>
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>d :Bdelete<CR>
+nnoremap <Leader>s :vert sb%<CR>

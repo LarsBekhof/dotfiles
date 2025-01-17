@@ -20,7 +20,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 
 vim.keymap.set("n", "<Tab>", ":Telescope file_browser<CR>")
-vim.keymap.set("n", "<leader>c", ":bdelete<CR>")
+vim.keymap.set("n", "<leader>q", ":Telescope buffers<CR>")
+vim.keymap.set("n", "<leader>c", ":bd<CR>")
 vim.keymap.set("n", "<leader>n", ":bn<CR>")
 vim.keymap.set("n", "<leader>b", ":bp<CR>")
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, {})
@@ -93,6 +94,17 @@ require("lazy").setup{
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
     },
     "lewis6991/gitsigns.nvim",
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "InsertEnter",
+        opts = {
+            bind = true,
+            handler_opts = {
+                border = "rounded",
+            },
+        },
+        config = function(_, opts) require'lsp_signature'.setup(opts) end
+    }
 }
 
 -- colorscheme
@@ -127,7 +139,7 @@ cmp.setup{
 
 require("mason").setup {}
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "ts_ls", "phpactor", "volar" },
+    ensure_installed = { "lua_ls", "ts_ls", "intelephense", "volar", "eslint" },
 }
 require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler
@@ -195,15 +207,29 @@ table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
 
+local fb_actions = telescope.extensions.file_browser.actions
+
 telescope.setup({
     extensions = {
         ["ui-select"] = {
-            require("telescope.themes").get_dropdown{},
+            require("telescope.themes").get_dropdown {
+                layout_config = {
+                    width = 120,
+                    height = 40,
+                },
+            },
         },
         file_browser = {
             no_ignore = true,
             hidden = { file_browser = true, folder_browser = true },
             respect_gitignore = false,
+            initial_mode = "normal",
+            mappings = {
+                ["n"] = {
+                    ["h"] = fb_actions.goto_parent_dir,
+                    ["l"] = fb_actions.change_cwd,
+                },
+            },
         },
     },
     defaults = {
@@ -222,3 +248,5 @@ telescope.load_extension("ui-select")
 telescope.load_extension("file_browser")
 
 require('gitsigns').setup()
+
+require "lsp_signature".setup()

@@ -9,12 +9,17 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.history = 1000
 vim.opt.undofile = true
 vim.opt.mouse = ""
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = "▸ ",
+    trail = "·",
+}
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 
-vim.keymap.set("n", "<Tab>", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<Tab>", ":Telescope file_browser<CR>")
 vim.keymap.set("n", "<leader>c", ":bdelete<CR>")
 vim.keymap.set("n", "<leader>n", ":bn<CR>")
 vim.keymap.set("n", "<leader>b", ":bp<CR>")
@@ -28,73 +33,78 @@ vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSig
 
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 
+if not table.unpack then
+    ---@diagnostic disable-next-line: deprecated
+    table.unpack = unpack
+end
+
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup{
-	{
-		"ellisonleao/gruvbox.nvim",
-		priority = 1000 ,
-		config = true,
-	},
-	"nvim-treesitter/nvim-treesitter",
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-cmdline",
-	"hrsh7th/nvim-cmp",
-	"JoosepAlviste/nvim-ts-context-commentstring",
-	{
-		"numToStr/Comment.nvim",
-		lazy = false,
-	},
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-	{
-		"nvim-tree/nvim-tree.lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-	{
-		'windwp/nvim-autopairs',
-		event = "InsertEnter",
-		config = true
-		-- use opts = {} for passing setup options
-		-- this is equalent to setup({}) function
-	},
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = { 'nvim-lua/plenary.nvim' },
-	},
-	"nvim-telescope/telescope-ui-select.nvim",
-	"lewis6991/gitsigns.nvim",
+    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000 ,
+        config = true,
+    },
+    "nvim-treesitter/nvim-treesitter",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/nvim-cmp",
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    {
+        "numToStr/Comment.nvim",
+        lazy = false,
+    },
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equalent to setup({}) function
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { 'nvim-lua/plenary.nvim' },
+    },
+    "nvim-telescope/telescope-ui-select.nvim",
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    },
+    "lewis6991/gitsigns.nvim",
 }
 
 -- colorscheme
 require("gruvbox").setup{
-	transparent_mode = true,
+    transparent_mode = true,
 }
 vim.cmd("colorscheme gruvbox")
 
 -- treesitter
 require("nvim-treesitter.configs").setup{
-	highlight = { enable = true },
-	indent = { enable = true },
+    highlight = { enable = true },
+    indent = { enable = true },
 }
 
 -- LSP
@@ -103,84 +113,69 @@ local lspconfig = require('lspconfig')
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 cmp.setup{
-	mapping = cmp.mapping.preset.insert({
-	}),
-	sources = cmp.config.sources(
-		{
-			{ name = "nvim_lsp" },
-		},
-		{
-			{ name = "buffer" },
-		}
-	),
+    mapping = cmp.mapping.preset.insert({
+    }),
+    sources = cmp.config.sources(
+        {
+            { name = "nvim_lsp" },
+        },
+        {
+            { name = "buffer" },
+        }
+    ),
 }
 
 require("mason").setup {}
 require("mason-lspconfig").setup {
-	ensure_installed = { "lua_ls", "ts_ls", "gopls", "phpactor", "volar" },
+    ensure_installed = { "lua_ls", "ts_ls", "phpactor", "volar" },
 }
 require("mason-lspconfig").setup_handlers {
-	-- The first entry (without a key) will be the default handler
-	-- and will be called for each installed server that doesn't have
-	-- a dedicated handler.
-	function (server_name) -- default handler (optional)
-		lspconfig[server_name].setup{
-			capabilities = lsp_capabilities,
-		}
-	end,
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function (server_name) -- default handler (optional)
+        lspconfig[server_name].setup{
+            capabilities = lsp_capabilities,
+        }
+    end,
 }
 
 lspconfig.volar.setup({
-	filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
-	init_options = {
-		vue = {
-			hybridMode = false,
-		},
-		typescript = {
-			tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
-		},
-	},
+    filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    init_options = {
+        vue = {
+            hybridMode = false,
+        },
+        typescript = {
+            tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+        },
+    },
 })
 
 -- Comment.nvim
 require("Comment").setup {
-	pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+    pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 }
 
 -- lualine.nvim
 require('lualine').setup{
-	sections = {
-		lualine_a = {'mode'},
-		lualine_b = {'branch', 'diff', 'diagnostics'},
-		lualine_c = {
-			{
-				'buffers',
-				buffers_color = {
-					-- Same values as the general color option can be used here.
-					active = 'lualine_a_normal',	 -- Color for active buffer.
-					inactive = 'lualine_c_inactive', -- Color for inactive buffer.
-				},
-			},
-		},
-		lualine_x = {'encoding', 'fileformat', 'filetype'},
-		lualine_y = {'progress'},
-		lualine_z = {'location'}
-	},
-}
-
--- nvim-tree
-require("nvim-tree").setup{
-	on_attach = function (bufnr)
-		local api = require "nvim-tree.api"
-
-		local function opts(desc)
-			return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-		end
-
-		api.config.mappings.default_on_attach(bufnr)
-
-		vim.keymap.set("n", "<Tab>", ":NvimTreeToggle<CR>", opts("Close"))
-	end,
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {
+            {
+                'buffers',
+                buffers_color = {
+                    -- Same values as the general color option can be used here.
+                    active = 'lualine_a_normal',     -- Color for active buffer.
+                    inactive = 'lualine_c_inactive', -- Color for inactive buffer.
+                },
+            },
+        },
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
+    },
 }
 
 -- telescope.nvim
@@ -201,23 +196,29 @@ table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
 
 telescope.setup({
-	extensions = {
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown{},
-		},
-	},
-	defaults = {
-		-- `hidden = true` is not supported in text grep commands.
-		vimgrep_arguments = vimgrep_arguments,
-	},
-	pickers = {
-		find_files = {
-			-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-		},
-	},
+    extensions = {
+        ["ui-select"] = {
+            require("telescope.themes").get_dropdown{},
+        },
+        file_browser = {
+            no_ignore = true,
+            hidden = { file_browser = true, folder_browser = true },
+            respect_gitignore = false,
+        },
+    },
+    defaults = {
+        -- `hidden = true` is not supported in text grep commands.
+        vimgrep_arguments = vimgrep_arguments,
+    },
+    pickers = {
+        find_files = {
+            -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
+    },
 })
 
-require("telescope").load_extension("ui-select")
+telescope.load_extension("ui-select")
+telescope.load_extension("file_browser")
 
 require('gitsigns').setup()

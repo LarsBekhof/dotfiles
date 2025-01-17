@@ -19,7 +19,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 
-vim.keymap.set("n", "<Tab>", ":Telescope file_browser<CR>")
+vim.keymap.set("n", "<Tab>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 vim.keymap.set("n", "<leader>q", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>c", ":bd<CR>")
 vim.keymap.set("n", "<leader>n", ":bn<CR>")
@@ -207,6 +207,7 @@ table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
 
+local actions = require("telescope.actions")
 local fb_actions = telescope.extensions.file_browser.actions
 
 telescope.setup({
@@ -240,6 +241,14 @@ telescope.setup({
         find_files = {
             -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
             find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
+        buffers = {
+            initial_mode = "normal",
+            mappings = {
+                ["n"] = {
+                    ["<leader>c"] = actions.delete_buffer
+                },
+            },
         },
     },
 })

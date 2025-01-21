@@ -20,6 +20,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 
 vim.keymap.set("n", "<Tab>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+vim.keymap.set('n', '<C-p>', ":Telescope find_files<CR>")
+vim.keymap.set('n', '<C-a>', ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>q", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>c", ":bd<CR>")
 vim.keymap.set("n", "<leader>n", ":bn<CR>")
@@ -191,10 +193,6 @@ require('lualine').setup{
 }
 
 -- telescope.nvim
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<C-a>', builtin.live_grep, {})
-
 local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
 

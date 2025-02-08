@@ -14,6 +14,7 @@ vim.opt.listchars = {
     tab = "▸ ",
     trail = "·",
 }
+vim.opt.cursorline = true
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -106,7 +107,7 @@ require("lazy").setup{
             },
         },
         config = function(_, opts) require'lsp_signature'.setup(opts) end
-    }
+    },
 }
 
 -- colorscheme
@@ -141,7 +142,7 @@ cmp.setup{
 
 require("mason").setup {}
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "ts_ls", "intelephense", "volar", "eslint" },
+    ensure_installed = { "lua_ls", "ts_ls", "intelephense", "volar", "eslint", "typos_lsp" },
 }
 require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler

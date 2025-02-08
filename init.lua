@@ -142,7 +142,7 @@ cmp.setup{
 
 require("mason").setup {}
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "ts_ls", "intelephense", "volar", "eslint", "typos_lsp" },
+    ensure_installed = { "lua_ls", "ts_ls", "intelephense", "volar", "eslint", "typos_lsp", "tailwindcss" },
 }
 require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler

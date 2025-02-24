@@ -1,10 +1,5 @@
 #!/bin/zsh
 
-# Setup completions
-fpath=(~/.zsh-complete $fpath)
-autoload -U compinit
-compinit
-
 # Set path
 export PATH=$HOME/Code/scripts:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
@@ -52,7 +47,7 @@ source ~/.aliases
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-. "/home/lars/.deno/env"
+
 # pnpm
 export PNPM_HOME="/home/lars/.local/share/pnpm"
 case ":$PATH:" in

@@ -4,6 +4,7 @@
 alias du="du -h" # Always show sizes in a human readable format
 alias up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y" # Upgrade and clean
 alias lsp="stat -c '%a %n' *" # Print the numeric access rights to all objects in a folder
+alias ls="eza"
 alias pa-restart="pulseaudio -k && pulseaudio --start" # Restart pulseaudio
 alias untar="tar -xavf" # Extract tar files based on their file extension
 alias mine="sudo chown $USER:$USER" # Make a object yours
@@ -11,6 +12,8 @@ alias localip='ip addr show | sed -n "/\(wl.\+\|en.\+\)state UP/,/valid_lft/p" |
 alias cdf='cd ~/ && cd $(rg --hidden --files --null | xargs -0 dirname | uniq | fzf)'
 alias \?="alias | rg"
 alias \?s="alias | fzf | sed \"s/=.*'//g\""
+alias notes="nvim $HOME/Documents/notes/2025"
+alias npm="pnpm"
 
 alias vim='nvim'
 alias evim='vim ~/Code/dotfiles/init.vim'

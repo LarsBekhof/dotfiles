@@ -29,6 +29,10 @@ vim.keymap.set("n", "<leader>n", ":bn<CR>")
 vim.keymap.set("n", "<leader>b", ":bp<CR>")
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, {})
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, {})
+vim.keymap.set("n", "<leader>fj", ":%! jq .<CR>")
+vim.keymap.set("n", "<leader>ft", ":retab!<CR>")
+vim.keymap.set("n", "<leader>u", ":Telescope<CR>")
+vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help, {})
 
 vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
 vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
@@ -176,17 +180,8 @@ require("Comment").setup {
 require('lualine').setup{
     sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {
-            {
-                'buffers',
-                buffers_color = {
-                    -- Same values as the general color option can be used here.
-                    active = 'lualine_a_normal',     -- Color for active buffer.
-                    inactive = 'lualine_c_inactive', -- Color for inactive buffer.
-                },
-            },
-        },
+        lualine_b = {'branch', 'diff'},
+        lualine_c = {'diagnostics'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
@@ -202,6 +197,7 @@ local vimgrep_arguments = { table.unpack(telescopeConfig.values.vimgrep_argument
 
 -- I want to search in hidden/dot files.
 table.insert(vimgrep_arguments, "--hidden")
+table.insert(vimgrep_arguments, "--no-ignore-vcs")
 -- I don't want to search in the `.git` directory.
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
@@ -239,7 +235,7 @@ telescope.setup({
     pickers = {
         find_files = {
             -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+            find_command = { "rg", "--files", "--hidden", "--no-ignore-vcs", "--glob", "!**/.git/*" },
         },
         buffers = {
             initial_mode = "normal",

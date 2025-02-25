@@ -181,7 +181,7 @@ require('lualine').setup{
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff'},
-        lualine_c = {'diagnostics'},
+        lualine_c = {'diagnostics', 'filename'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
@@ -231,6 +231,13 @@ telescope.setup({
     defaults = {
         -- `hidden = true` is not supported in text grep commands.
         vimgrep_arguments = vimgrep_arguments,
+        layout_config = {
+            horizontal = {
+                width = { padding = 0 },
+                height = { padding = 0 },
+                preview_width = 0.5,
+            },
+        },
     },
     pickers = {
         find_files = {

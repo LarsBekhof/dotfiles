@@ -5,6 +5,7 @@ alias du="du -h" # Always show sizes in a human readable format
 alias up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y" # Upgrade and clean
 alias lsp="stat -c '%a %n' *" # Print the numeric access rights to all objects in a folder
 alias ls="eza"
+alias cat="batcat"
 alias pa-restart="pulseaudio -k && pulseaudio --start" # Restart pulseaudio
 alias untar="tar -xavf" # Extract tar files based on their file extension
 alias mine="sudo chown $USER:$USER" # Make a object yours
@@ -16,11 +17,14 @@ alias notes="nvim $HOME/Documents/notes/2025"
 alias npm="pnpm"
 
 alias vim='nvim'
-alias evim='vim ~/Code/dotfiles/init.vim'
+alias evim='vim ~/Code/dotfiles/init.lua'
 
 # Git
-alias git-acp='git add -A && git commit -m "no message" && git pull && git push' # Git add, commit, pull and push because sometimes I can't be bothered
+alias gacp='git add -A && git commit -m "no message" && git pull && git push' # Git add, commit, pull and push because sometimes I can't be bothered
 alias gc='git checkout $(git branch | fzf)'
+alias guntracked='git status --porcelain=v1 | awk "{ print \$2 }"'
+alias gdiff='cat --diff --diff-context=5 $(guntracked | fzf -m)'
+alias gadd='git add $(guntracked | fzf -m)'
 
 # Docker
 alias dstart='docker start $(docker ps --all --filter status=exited --format "{{.Names}}" | fzf -m)'

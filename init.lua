@@ -112,6 +112,7 @@ require("lazy").setup{
         },
         config = function(_, opts) require'lsp_signature'.setup(opts) end
     },
+    "nanotee/sqls.nvim",
 }
 
 -- colorscheme

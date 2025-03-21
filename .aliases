@@ -14,7 +14,6 @@ alias cdf='cd ~/ && cd $(rg --hidden --files --null | xargs -0 dirname | uniq | 
 alias \?="alias | rg"
 alias \?s="alias | fzf | sed \"s/=.*'//g\""
 alias notes="nvim $HOME/Documents/notes/2025"
-alias npm="pnpm"
 
 alias vim='nvim'
 alias evim='vim ~/Code/dotfiles/init.lua'

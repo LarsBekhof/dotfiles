@@ -2,7 +2,6 @@
 
 # Aliases
 alias du="du -h" # Always show sizes in a human readable format
-alias up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y" # Upgrade and clean
 alias lsp="stat -c '%a %n' *" # Print the numeric access rights to all objects in a folder
 alias ls="eza"
 alias cat="batcat"

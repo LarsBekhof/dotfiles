@@ -19,6 +19,6 @@
 ln -sf $(pwd)/.aliases ~/
 ln -sf $(pwd)/.zshrc ~/
 ln -sf $(pwd)/.ignore ~/
-ln -sf $(pwd)/init.vim ~/.config/nvim/
+ln -sf $(pwd)/init.lua ~/.config/nvim/
 ln -sf $(pwd)/ghostty.conf ~/.config/ghostty/config
 ```

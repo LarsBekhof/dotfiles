@@ -34,10 +34,18 @@ vim.keymap.set("n", "<leader>ft", ":retab!<CR>")
 vim.keymap.set("n", "<leader>u", ":Telescope<CR>")
 vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help, {})
 
-vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
-vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
-vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+vim.diagnostic.config {
+    virtual_text = true,
+    float = true,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.INFO] = '',
+            [vim.diagnostic.severity.HINT] = '',
+        },
+    },
+}
 
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 
@@ -48,7 +56,7 @@ end
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({
         "git",
         "clone",
@@ -128,10 +136,7 @@ require("nvim-treesitter.configs").setup{
 
 -- LSP
 local cmp = require("cmp")
-local lspconfig = require('lspconfig')
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-cmp.setup{
+cmp.setup {
     mapping = cmp.mapping.preset.insert({
     }),
     sources = cmp.config.sources(
@@ -146,30 +151,74 @@ cmp.setup{
 
 require("mason").setup {}
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "ts_ls", "intelephense", "volar", "eslint", "typos_lsp", "tailwindcss" },
-}
-require("mason-lspconfig").setup_handlers {
-    -- The first entry (without a key) will be the default handler
-    -- and will be called for each installed server that doesn't have
-    -- a dedicated handler.
-    function (server_name) -- default handler (optional)
-        lspconfig[server_name].setup{
-            capabilities = lsp_capabilities,
-        }
-    end,
-}
-
-lspconfig.volar.setup({
-    filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
-    init_options = {
-        vue = {
-            hybridMode = false,
-        },
-        typescript = {
-            tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
-        },
+    ensure_installed = {
+        "lua_ls",
+        "ts_ls",
+        "intelephense",
+        "volar",
+        "eslint",
+        "typos_lsp",
+        "tailwindcss",
+        "json-lsp",
     },
-})
+    handlers = {
+        function (server_name)
+            require("lspconfig")[server_name].setup {}
+        end,
+        ['lua_ls'] = function ()
+            local lspconfig = require('lspconfig')
+            lspconfig.lua_ls.setup {
+              on_init = function(client)
+                if client.workspace_folders then
+                  local path = client.workspace_folders[1].name
+                  if path ~= vim.fn.stdpath('config') and (vim.uv.fs_stat(path..'/.luarc.json') or vim.uv.fs_stat(path..'/.luarc.jsonc')) then
+                    return
+                  end
+                end
+
+                client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                  runtime = {
+                    -- Tell the language server which version of Lua you're using
+                    -- (most likely LuaJIT in the case of Neovim)
+                    version = 'LuaJIT'
+                  },
+                  -- Make the server aware of Neovim runtime files
+                  workspace = {
+                    checkThirdParty = false,
+                    library = {
+                      vim.env.VIMRUNTIME,
+                      "${3rd}/luv/library",
+                      -- Depending on the usage, you might want to add additional paths here.
+                    }
+                  }
+                })
+              end,
+              settings = {
+                Lua = {}
+              }
+            }
+        end,
+        ["ts_ls"] = function ()
+            local lspconfig = require('lspconfig')
+            lspconfig.ts_ls.setup {
+                init_options = {
+                    plugins = {
+                        {
+                            name = "@vue/typescript-plugin",
+                            location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+                            languages = { "javascript", "typescript", "vue" },
+                        },
+                    },
+                },
+                filetypes = {
+                    "javascript",
+                    "typescript",
+                    "vue",
+                },
+            }
+        end,
+    },
+}
 
 -- Comment.nvim
 require("Comment").setup {

@@ -18,27 +18,32 @@ vim.opt.cursorline = true
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
+
+vim.o.updatetime = 300
 
 vim.keymap.set("n", "<Tab>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
-vim.keymap.set('n', '<C-p>', ":Telescope find_files<CR>")
-vim.keymap.set('n', '<C-a>', ":Telescope live_grep<CR>")
+vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>")
+vim.keymap.set("n", "<C-a>", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<C-b>", ":Telescope buffers<CR>")
+vim.keymap.set("n", "<leader>d", ":Telescope diagnostics<CR>")
+vim.keymap.set("n", "<leader>t", ":Telescope<CR>")
 vim.keymap.set("n", "<leader>c", ":bd<CR>")
 vim.keymap.set("n", "<leader>n", ":bn<CR>")
 vim.keymap.set("n", "<leader>b", ":bp<CR>")
-vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, {})
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, {})
-vim.keymap.set("n", "<leader>t", ":Telescope<CR>")
-vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help, {})
+vim.keymap.set("n", "<leader>N", function() vim.diagnostic.jump({ count = 1 }) end)
+vim.keymap.set("n", "<leader>B", function() vim.diagnostic.jump({ count = -1 }) end)
+vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help)
 
 local format_mappings = {
     { pattern = "*", command = ":retab!<CR>" },
     { pattern = "json", command = ":%! jq .<CR>" },
+    { pattern = {"javascript", "typescript"}, command = vim.lsp.buf.format },
 }
 
 for _, value in pairs(format_mappings) do
-    vim.api.nvim_create_autocmd('FileType', {
+    vim.api.nvim_create_autocmd("FileType", {
         pattern = value.pattern,
         callback = function()
             vim.keymap.set("n", "<leader>f", value.command, { buffer = true })
@@ -47,17 +52,24 @@ for _, value in pairs(format_mappings) do
 end
 
 vim.diagnostic.config {
-    virtual_text = true,
+    virtual_text = false,
     float = true,
     signs = {
         text = {
-            [vim.diagnostic.severity.ERROR] = '',
-            [vim.diagnostic.severity.WARN] = '',
-            [vim.diagnostic.severity.INFO] = '',
-            [vim.diagnostic.severity.HINT] = '',
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
         },
     },
 }
+
+vim.api.nvim_create_autocmd("CursorHold", {
+    pattern = "*",
+    callback = function()
+        vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+    end,
+})
 
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 
@@ -105,7 +117,7 @@ require("lazy").setup{
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
-        'windwp/nvim-autopairs',
+        "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = true
         -- use opts = {} for passing setup options
@@ -113,7 +125,7 @@ require("lazy").setup{
     },
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        dependencies = { "nvim-lua/plenary.nvim" },
     },
     "nvim-telescope/telescope-ui-select.nvim",
     {
@@ -130,7 +142,7 @@ require("lazy").setup{
                 border = "rounded",
             },
         },
-        config = function(_, opts) require'lsp_signature'.setup(opts) end
+        config = function(_, opts) require"lsp_signature".setup(opts) end
     },
 }
 
@@ -149,16 +161,17 @@ require("nvim-treesitter.configs").setup{
 -- LSP
 local cmp = require("cmp")
 cmp.setup {
-    mapping = cmp.mapping.preset.insert({
-    }),
-    sources = cmp.config.sources(
+    mapping = cmp.mapping.preset.insert{},
+    sources = cmp.config.sources{
+        { name = "nvim_lsp" },
         {
-            { name = "nvim_lsp" },
+            name = "buffer",
+            option = {
+                get_bufnrs = function () return vim.api.nvim_list_bufs() end,
+            },
         },
-        {
-            { name = "buffer" },
-        }
-    ),
+        { name = "path" },
+    },
 }
 
 require("mason").setup {}
@@ -177,22 +190,22 @@ require("mason-lspconfig").setup {
         function (server_name)
             require("lspconfig")[server_name].setup {}
         end,
-        ['lua_ls'] = function ()
-            local lspconfig = require('lspconfig')
+        ["lua_ls"] = function ()
+            local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup {
               on_init = function(client)
                 if client.workspace_folders then
                   local path = client.workspace_folders[1].name
-                  if path ~= vim.fn.stdpath('config') and (vim.uv.fs_stat(path..'/.luarc.json') or vim.uv.fs_stat(path..'/.luarc.jsonc')) then
+                  if path ~= vim.fn.stdpath("config") and (vim.uv.fs_stat(path.."/.luarc.json") or vim.uv.fs_stat(path.."/.luarc.jsonc")) then
                     return
                   end
                 end
 
-                client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
                   runtime = {
-                    -- Tell the language server which version of Lua you're using
+                    -- Tell the language server which version of Lua you"re using
                     -- (most likely LuaJIT in the case of Neovim)
-                    version = 'LuaJIT'
+                    version = "LuaJIT"
                   },
                   -- Make the server aware of Neovim runtime files
                   workspace = {
@@ -211,7 +224,7 @@ require("mason-lspconfig").setup {
             }
         end,
         ["ts_ls"] = function ()
-            local lspconfig = require('lspconfig')
+            local lspconfig = require("lspconfig")
             lspconfig.ts_ls.setup {
                 init_options = {
                     plugins = {
@@ -238,14 +251,14 @@ require("Comment").setup {
 }
 
 -- lualine.nvim
-require('lualine').setup{
+require("lualine").setup{
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff'},
-        lualine_c = {'diagnostics', 'filename'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_a = {"mode"},
+        lualine_b = {"branch", "diff"},
+        lualine_c = {"diagnostics", "filename"},
+        lualine_x = {"encoding", "fileformat", "filetype"},
+        lualine_y = {"progress"},
+        lualine_z = {"location"}
     },
 }
 
@@ -259,7 +272,7 @@ local vimgrep_arguments = { table.unpack(telescopeConfig.values.vimgrep_argument
 -- I want to search in hidden/dot files.
 table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--no-ignore-vcs")
--- I don't want to search in the `.git` directory.
+-- I don"t want to search in the `.git` directory.
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
 
@@ -307,7 +320,7 @@ telescope.setup({
     },
     pickers = {
         find_files = {
-            -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+            -- `hidden = true` will still show the inside of `.git/` as it"s not `.gitignore`d.
             find_command = { "rg", "--files", "--hidden", "--no-ignore-vcs", "--glob", "!**/.git/*" },
         },
         buffers = {
@@ -324,6 +337,6 @@ telescope.setup({
 telescope.load_extension("ui-select")
 telescope.load_extension("file_browser")
 
-require('gitsigns').setup()
+require("gitsigns").setup()
 
 require "lsp_signature".setup()

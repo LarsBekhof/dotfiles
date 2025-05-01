@@ -31,7 +31,6 @@ plugins=(
   docker-compose
   composer
   vi-mode
-  jsontools
   npm
   fzf
   kubectl

@@ -33,7 +33,7 @@ alias dexec='docker exec -it $(docker ps --format "{{.Names}}" | fzf) bash'
 alias dlogs='docker logs -f -n 100 $(docker ps --all --format "{{.Names}}" | fzf)'
 alias dkill='docker kill $(docker ps --format "{{.Names}}" | fzf -m)'
 alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}"'
-alias dcup='docker compose up -d --build api app integrations-service inventory-api data-api admin-panel-v3 multi-property importer importer-v2 maildev cache db postgres_16 proxy rabbitmq dashboard-v2 fdu reporting translations-api segmentation-api'
+alias dcup='docker compose up -d --build $(docker compose config --services | fzf -m)'
 
 # Kubernetes
 alias select-aws='aws eks update-kubeconfig --region eu-central-1 --name $(echo "oaky-staging-v3\noaky-production-v3" | fzf)'

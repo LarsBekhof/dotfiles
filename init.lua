@@ -23,16 +23,28 @@ vim.g.mapleader = ' '
 vim.keymap.set("n", "<Tab>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 vim.keymap.set('n', '<C-p>', ":Telescope find_files<CR>")
 vim.keymap.set('n', '<C-a>', ":Telescope live_grep<CR>")
-vim.keymap.set("n", "<leader>q", ":Telescope buffers<CR>")
+vim.keymap.set("n", "<C-b>", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>c", ":bd<CR>")
 vim.keymap.set("n", "<leader>n", ":bn<CR>")
 vim.keymap.set("n", "<leader>b", ":bp<CR>")
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, {})
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, {})
-vim.keymap.set("n", "<leader>fj", ":%! jq .<CR>")
-vim.keymap.set("n", "<leader>ft", ":retab!<CR>")
-vim.keymap.set("n", "<leader>u", ":Telescope<CR>")
+vim.keymap.set("n", "<leader>t", ":Telescope<CR>")
 vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help, {})
+
+local format_mappings = {
+    { pattern = "*", command = ":retab!<CR>" },
+    { pattern = "json", command = ":%! jq .<CR>" },
+}
+
+for _, value in pairs(format_mappings) do
+    vim.api.nvim_create_autocmd('FileType', {
+        pattern = value.pattern,
+        callback = function()
+            vim.keymap.set("n", "<leader>f", value.command, { buffer = true })
+        end,
+    })
+end
 
 vim.diagnostic.config {
     virtual_text = true,
@@ -285,6 +297,11 @@ telescope.setup({
                 width = { padding = 0 },
                 height = { padding = 0 },
                 preview_width = 0.5,
+            },
+        },
+        path_display = {
+            filename_first = {
+                reverse_directories = false,
             },
         },
     },

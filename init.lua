@@ -171,7 +171,7 @@ require("mason-lspconfig").setup {
         "eslint",
         "typos_lsp",
         "tailwindcss",
-        "json-lsp",
+        "jsonls",
     },
     handlers = {
         function (server_name)

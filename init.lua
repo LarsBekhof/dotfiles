@@ -80,17 +80,31 @@ end
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.uv.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
 vim.opt.rtp:prepend(lazypath)
+
+local installed_lsps = {
+    "lua_ls",
+    "ts_ls",
+    "intelephense",
+    "vue_ls",
+    "eslint",
+    "typos_lsp",
+    "tailwindcss",
+    "jsonls",
+}
 
 require("lazy").setup{
     {
@@ -99,14 +113,53 @@ require("lazy").setup{
         config = true,
     },
     "nvim-treesitter/nvim-treesitter",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/nvim-cmp",
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+        },
+        event = "InsertEnter",
+        config = function ()
+            local cmp = require("cmp")
+            cmp.setup {
+                mapping = cmp.mapping.preset.insert{},
+                sources = cmp.config.sources {
+                    { name = "nvim_lsp" },
+                    {
+                        name = "buffer",
+                        option = {
+                            get_bufnrs = function () return vim.api.nvim_list_bufs() end,
+                        },
+                    },
+                    { name = "path" },
+                },
+            }
+        end,
+    },
+    {
+        "mason-org/mason-lspconfig.nvim",
+        event = "BufReadPre",
+        config = function ()
+            local mason_lspconfig = require('mason-lspconfig')
+            local lspconfig = require("lspconfig")
+
+            for _, lsp in ipairs(installed_lsps) do
+                local config = lspconfig[lsp]
+                vim.lsp.config(lsp, config)
+            end
+
+            mason_lspconfig.setup({
+                ensure_installed = installed_lsps,
+            });
+        end,
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
+    },
     "JoosepAlviste/nvim-ts-context-commentstring",
     {
         "numToStr/Comment.nvim",
@@ -142,7 +195,7 @@ require("lazy").setup{
                 border = "rounded",
             },
         },
-        config = function(_, opts) require"lsp_signature".setup(opts) end
+        config = function(_, opts) require"lsp_signature".setup(opts) end,
     },
 }
 
@@ -156,95 +209,6 @@ vim.cmd("colorscheme gruvbox")
 require("nvim-treesitter.configs").setup{
     highlight = { enable = true },
     indent = { enable = true },
-}
-
--- LSP
-local cmp = require("cmp")
-cmp.setup {
-    mapping = cmp.mapping.preset.insert{},
-    sources = cmp.config.sources{
-        { name = "nvim_lsp" },
-        {
-            name = "buffer",
-            option = {
-                get_bufnrs = function () return vim.api.nvim_list_bufs() end,
-            },
-        },
-        { name = "path" },
-    },
-}
-
-require("mason").setup {}
-require("mason-lspconfig").setup {
-    ensure_installed = {
-        "lua_ls",
-        "ts_ls",
-        "intelephense",
-        "volar",
-        "eslint",
-        "typos_lsp",
-        "tailwindcss",
-        "jsonls",
-    },
-    handlers = {
-        function (server_name)
-            require("lspconfig")[server_name].setup {}
-        end,
-        ["lua_ls"] = function ()
-            local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup {
-              on_init = function(client)
-                if client.workspace_folders then
-                  local path = client.workspace_folders[1].name
-                  if path ~= vim.fn.stdpath("config") and (vim.uv.fs_stat(path.."/.luarc.json") or vim.uv.fs_stat(path.."/.luarc.jsonc")) then
-                    return
-                  end
-                end
-
-                client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-                  runtime = {
-                    -- Tell the language server which version of Lua you"re using
-                    -- (most likely LuaJIT in the case of Neovim)
-                    version = "LuaJIT"
-                  },
-                  -- Make the server aware of Neovim runtime files
-                  workspace = {
-                    checkThirdParty = false,
-                    library = {
-                      vim.env.VIMRUNTIME,
-                      "${3rd}/luv/library",
-                      -- Depending on the usage, you might want to add additional paths here.
-                    }
-                  }
-                })
-              end,
-              settings = {
-                Lua = {}
-              }
-            }
-        end,
-        ["ts_ls"] = function ()
-            local lspconfig = require("lspconfig")
-            lspconfig.ts_ls.setup {
-                init_options = {
-                    plugins = {
-                        {
-                            name = "@vue/typescript-plugin",
-                            location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-                            languages = { "javascript", "typescript", "javascript.jsx", "typescript.tsx", "vue" },
-                        },
-                    },
-                },
-                filetypes = {
-                    "javascript",
-                    "typescript",
-                    "javascript.jsx",
-                    "typescript.tsx",
-                    "vue",
-                },
-            }
-        end,
-    },
 }
 
 -- Comment.nvim

@@ -238,6 +238,8 @@ require("mason-lspconfig").setup {
                 filetypes = {
                     "javascript",
                     "typescript",
+                    "javascript.jsx",
+                    "typescript.tsx",
                     "vue",
                 },
             }

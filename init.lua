@@ -231,7 +231,7 @@ require("mason-lspconfig").setup {
                         {
                             name = "@vue/typescript-plugin",
                             location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-                            languages = { "javascript", "typescript", "vue" },
+                            languages = { "javascript", "typescript", "javascript.jsx", "typescript.tsx", "vue" },
                         },
                     },
                 },

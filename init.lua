@@ -14,6 +14,7 @@ vim.opt.listchars = {
     tab = "▸ ",
     trail = "·",
 }
+vim.opt.swapfile = false
 vim.opt.cursorline = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -298,7 +299,7 @@ require("lazy").setup {
             telescope.load_extension("file_browser")
         end,
     },
-    { "lewis6991/gitsigns.nvim", opts = true },
+    { "lewis6991/gitsigns.nvim", opts = {} },
     {
         "ray-x/lsp_signature.nvim",
         event = "InsertEnter",

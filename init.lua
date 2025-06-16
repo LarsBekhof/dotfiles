@@ -111,7 +111,11 @@ require("lazy").setup {
     {
         "ellisonleao/gruvbox.nvim",
         priority = 1000,
-        config = true,
+        opts = { transparent_mode = true },
+        init = function()
+            vim.o.background = "dark"
+            vim.cmd("colorscheme gruvbox")
+        end
     },
     {
         "nvim-treesitter/nvim-treesitter",
@@ -122,7 +126,12 @@ require("lazy").setup {
             vim.wo.foldmethod = "expr"
             vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
             vim.wo.foldlevel = 99
-        end
+        end,
+        opts = {
+            highlight = { enable = true },
+            indent = { enable = true },
+        },
+        auto_install = true,
     },
     {
         "hrsh7th/nvim-cmp",
@@ -167,29 +176,39 @@ require("lazy").setup {
             });
         end,
         dependencies = {
-            { "mason-org/mason.nvim", opts = {} },
+            { "mason-org/mason.nvim", opts = true },
             "neovim/nvim-lspconfig",
         },
     },
-    "JoosepAlviste/nvim-ts-context-commentstring",
+    {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        opts = true,
+    },
     {
         "numToStr/Comment.nvim",
-        lazy = false,
+        opts = true,
     },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            sections = {
+                lualine_a = { "mode" },
+                lualine_b = { "branch", "diff" },
+                lualine_c = { "diagnostics", "filename" },
+                lualine_x = { "encoding", "fileformat", "filetype" },
+                lualine_y = { "progress" },
+                lualine_z = { "location" }
+            },
+        }
     },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        config = true
-        -- use opts = {} for passing setup options
-        -- this is equalent to setup({}) function
+        opts = true,
     },
     {
         "nvim-telescope/telescope.nvim",
-        lazy = false,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
@@ -279,7 +298,7 @@ require("lazy").setup {
             telescope.load_extension("file_browser")
         end,
     },
-    "lewis6991/gitsigns.nvim",
+    { "lewis6991/gitsigns.nvim", opts = true },
     {
         "ray-x/lsp_signature.nvim",
         event = "InsertEnter",
@@ -289,40 +308,5 @@ require("lazy").setup {
                 border = "rounded",
             },
         },
-        config = function(_, opts) require "lsp_signature".setup(opts) end,
     },
 }
-
--- colorscheme
-vim.o.background = "dark"
-require("gruvbox").setup {
-    transparent_mode = true,
-}
-vim.cmd("colorscheme gruvbox")
-
--- treesitter
-require("nvim-treesitter.configs").setup {
-    highlight = { enable = true },
-    indent = { enable = true },
-}
-
--- Comment.nvim
-require("Comment").setup {
-    pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-}
-
--- lualine.nvim
-require("lualine").setup {
-    sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff" },
-        lualine_c = { "diagnostics", "filename" },
-        lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_y = { "progress" },
-        lualine_z = { "location" }
-    },
-}
-
-require("gitsigns").setup()
-
-require "lsp_signature".setup()

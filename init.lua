@@ -15,7 +15,6 @@ vim.opt.listchars = {
     trail = "·",
 }
 vim.opt.cursorline = true
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
@@ -37,9 +36,17 @@ vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help)
 
 local format_mappings = {
-    { pattern = "*", command = ":retab!<CR>" },
+    { pattern = "*",    command = ":retab!<CR>" },
     { pattern = "json", command = ":%! jq .<CR>" },
-    { pattern = {"javascript", "typescript", "vue"}, command = vim.lsp.buf.format },
+    {
+        pattern = {
+            "javascript",
+            "typescript",
+            "vue",
+            "lua",
+        },
+        command = vim.lsp.buf.format,
+    },
 }
 
 for _, value in pairs(format_mappings) do
@@ -81,17 +88,17 @@ end
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out,                            "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -106,13 +113,23 @@ local installed_lsps = {
     "jsonls",
 }
 
-require("lazy").setup{
+require("lazy").setup {
     {
         "ellisonleao/gruvbox.nvim",
-        priority = 1000 ,
+        priority = 1000,
         config = true,
     },
-    "nvim-treesitter/nvim-treesitter",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        branch = 'master',
+        lazy = false,
+        build = ":TSUpdate",
+        init = function()
+            vim.wo.foldmethod = 'expr'
+            vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+            vim.wo.foldlevel = 99
+        end
+    },
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -122,16 +139,16 @@ require("lazy").setup{
             "hrsh7th/cmp-cmdline",
         },
         event = "InsertEnter",
-        config = function ()
+        config = function()
             local cmp = require("cmp")
             cmp.setup {
-                mapping = cmp.mapping.preset.insert{},
+                mapping = cmp.mapping.preset.insert {},
                 sources = cmp.config.sources {
                     { name = "nvim_lsp" },
                     {
                         name = "buffer",
                         option = {
-                            get_bufnrs = function () return vim.api.nvim_list_bufs() end,
+                            get_bufnrs = function() return vim.api.nvim_list_bufs() end,
                         },
                     },
                     { name = "path" },
@@ -142,7 +159,7 @@ require("lazy").setup{
     {
         "mason-org/mason-lspconfig.nvim",
         event = "BufReadPre",
-        config = function ()
+        config = function()
             local mason_lspconfig = require('mason-lspconfig')
             local lspconfig = require("lspconfig")
 
@@ -195,19 +212,19 @@ require("lazy").setup{
                 border = "rounded",
             },
         },
-        config = function(_, opts) require"lsp_signature".setup(opts) end,
+        config = function(_, opts) require "lsp_signature".setup(opts) end,
     },
 }
 
 -- colorscheme
 vim.o.background = "dark"
-require("gruvbox").setup{
+require("gruvbox").setup {
     transparent_mode = true,
 }
 vim.cmd("colorscheme gruvbox")
 
 -- treesitter
-require("nvim-treesitter.configs").setup{
+require("nvim-treesitter.configs").setup {
     highlight = { enable = true },
     indent = { enable = true },
 }
@@ -218,14 +235,14 @@ require("Comment").setup {
 }
 
 -- lualine.nvim
-require("lualine").setup{
+require("lualine").setup {
     sections = {
-        lualine_a = {"mode"},
-        lualine_b = {"branch", "diff"},
-        lualine_c = {"diagnostics", "filename"},
-        lualine_x = {"encoding", "fileformat", "filetype"},
-        lualine_y = {"progress"},
-        lualine_z = {"location"}
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff" },
+        lualine_c = { "diagnostics", "filename" },
+        lualine_x = { "encoding", "fileformat", "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" }
     },
 }
 

@@ -267,7 +267,7 @@ require("lazy").setup {
             vim.keymap.set("n", "<C-a>", builtin.live_grep)
             vim.keymap.set("n", "C-b>", builtin.buffers)
             vim.keymap.set("n", "<leader>d", builtin.diagnostics)
-            vim.keymap.set("n", "<leader>t", builtin.find_files)
+            vim.keymap.set("n", "<leader>t", ":Telescope<CR>")
 
             -- I want to search in hidden/dot files.
             table.insert(vimgrep_arguments, "--hidden")

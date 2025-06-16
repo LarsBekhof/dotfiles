@@ -200,6 +200,7 @@ require("lazy").setup{
 }
 
 -- colorscheme
+vim.o.background = "dark"
 require("gruvbox").setup{
     transparent_mode = true,
 }

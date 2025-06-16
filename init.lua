@@ -21,12 +21,6 @@ vim.g.mapleader = " "
 
 vim.o.updatetime = 300
 
-vim.keymap.set("n", "<Tab>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
-vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>")
-vim.keymap.set("n", "<C-a>", ":Telescope live_grep<CR>")
-vim.keymap.set("n", "<C-b>", ":Telescope buffers<CR>")
-vim.keymap.set("n", "<leader>d", ":Telescope diagnostics<CR>")
-vim.keymap.set("n", "<leader>t", ":Telescope<CR>")
 vim.keymap.set("n", "<leader>c", ":bd<CR>")
 vim.keymap.set("n", "<leader>n", ":bn<CR>")
 vim.keymap.set("n", "<leader>b", ":bp<CR>")
@@ -121,12 +115,12 @@ require("lazy").setup {
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        branch = 'master',
+        branch = "master",
         lazy = false,
         build = ":TSUpdate",
         init = function()
-            vim.wo.foldmethod = 'expr'
-            vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+            vim.wo.foldmethod = "expr"
+            vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
             vim.wo.foldlevel = 99
         end
     },
@@ -160,7 +154,7 @@ require("lazy").setup {
         "mason-org/mason-lspconfig.nvim",
         event = "BufReadPre",
         config = function()
-            local mason_lspconfig = require('mason-lspconfig')
+            local mason_lspconfig = require("mason-lspconfig")
             local lspconfig = require("lspconfig")
 
             for _, lsp in ipairs(installed_lsps) do
@@ -195,12 +189,95 @@ require("lazy").setup {
     },
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
-    },
-    "nvim-telescope/telescope-ui-select.nvim",
-    {
-        "nvim-telescope/telescope-file-browser.nvim",
-        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+        lazy = false,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-ui-select.nvim",
+            "nvim-telescope/telescope-file-browser.nvim",
+        },
+        tag = "0.1.8",
+        config = function()
+            local telescope = require("telescope")
+            local actions = require('telescope.actions')
+            local fb_actions = require("telescope._extensions.file_browser.actions")
+            local telescope_config = require("telescope.config")
+            local vimgrep_arguments = { table.unpack(telescope_config.values.vimgrep_arguments) }
+
+            local builtin = require("telescope.builtin")
+            telescope.setup {
+                extensions = {
+                    ["ui-select"] = {
+                        require("telescope.themes").get_dropdown {
+                            layout_config = {
+                                width = 120,
+                                height = 40,
+                            },
+                        },
+                    },
+                    file_browser = {
+                        no_ignore = true,
+                        hidden = { file_browser = true, folder_browser = true },
+                        respect_gitignore = false,
+                        initial_mode = "normal",
+                        mappings = {
+                            ["n"] = {
+                                ["h"] = fb_actions.goto_parent_dir,
+                                ["l"] = fb_actions.change_cwd,
+                            },
+                        },
+                    },
+                },
+                defaults = {
+                    -- `hidden = true` is not supported in text grep commands.
+                    vimgrep_arguments = vimgrep_arguments,
+                    layout_config = {
+                        horizontal = {
+                            width = { padding = 0 },
+                            height = { padding = 0 },
+                            preview_width = 0.5,
+                        },
+                    },
+                    path_display = {
+                        filename_first = {
+                            reverse_directories = false,
+                        },
+                    },
+                },
+                pickers = {
+                    find_files = {
+                        -- `hidden = true` will still show the inside of `.git/` as it"s not `.gitignore`d.
+                        find_command = { "rg", "--files", "--hidden", "--no-ignore-vcs", "--glob", "!**/.git/*" },
+                    },
+                    buffers = {
+                        initial_mode = "normal",
+                        mappings = {
+                            ["n"] = {
+                                ["<leader>c"] = actions.delete_buffer
+                            },
+                        },
+                    },
+                },
+            }
+
+            -- I cannot find a way to get this into mappings
+            vim.keymap.set("n", "<Tab>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+
+            -- Vim bindings to open Telescope
+            vim.keymap.set("n", "<C-p>", builtin.find_files)
+            vim.keymap.set("n", "<C-a>", builtin.live_grep)
+            vim.keymap.set("n", "C-b>", builtin.buffers)
+            vim.keymap.set("n", "<leader>d", builtin.diagnostics)
+            vim.keymap.set("n", "<leader>t", builtin.find_files)
+
+            -- I want to search in hidden/dot files.
+            table.insert(vimgrep_arguments, "--hidden")
+            table.insert(vimgrep_arguments, "--no-ignore-vcs")
+            -- I don"t want to search in the `.git` directory.
+            table.insert(vimgrep_arguments, "--glob")
+            table.insert(vimgrep_arguments, "!**/.git/*")
+            telescope.load_extension("ui-select")
+            telescope.load_extension("file_browser")
+        end,
     },
     "lewis6991/gitsigns.nvim",
     {
@@ -245,81 +322,6 @@ require("lualine").setup {
         lualine_z = { "location" }
     },
 }
-
--- telescope.nvim
-local telescope = require("telescope")
-local telescopeConfig = require("telescope.config")
-
--- Clone the default Telescope configuration
-local vimgrep_arguments = { table.unpack(telescopeConfig.values.vimgrep_arguments) }
-
--- I want to search in hidden/dot files.
-table.insert(vimgrep_arguments, "--hidden")
-table.insert(vimgrep_arguments, "--no-ignore-vcs")
--- I don"t want to search in the `.git` directory.
-table.insert(vimgrep_arguments, "--glob")
-table.insert(vimgrep_arguments, "!**/.git/*")
-
-local actions = require("telescope.actions")
-local fb_actions = telescope.extensions.file_browser.actions
-
-telescope.setup({
-    extensions = {
-        ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-                layout_config = {
-                    width = 120,
-                    height = 40,
-                },
-            },
-        },
-        file_browser = {
-            no_ignore = true,
-            hidden = { file_browser = true, folder_browser = true },
-            respect_gitignore = false,
-            initial_mode = "normal",
-            mappings = {
-                ["n"] = {
-                    ["h"] = fb_actions.goto_parent_dir,
-                    ["l"] = fb_actions.change_cwd,
-                },
-            },
-        },
-    },
-    defaults = {
-        -- `hidden = true` is not supported in text grep commands.
-        vimgrep_arguments = vimgrep_arguments,
-        layout_config = {
-            horizontal = {
-                width = { padding = 0 },
-                height = { padding = 0 },
-                preview_width = 0.5,
-            },
-        },
-        path_display = {
-            filename_first = {
-                reverse_directories = false,
-            },
-        },
-    },
-    pickers = {
-        find_files = {
-            -- `hidden = true` will still show the inside of `.git/` as it"s not `.gitignore`d.
-            find_command = { "rg", "--files", "--hidden", "--no-ignore-vcs", "--glob", "!**/.git/*" },
-        },
-        buffers = {
-            initial_mode = "normal",
-            mappings = {
-                ["n"] = {
-                    ["<leader>c"] = actions.delete_buffer
-                },
-            },
-        },
-    },
-})
-
-telescope.load_extension("ui-select")
-telescope.load_extension("file_browser")
 
 require("gitsigns").setup()
 

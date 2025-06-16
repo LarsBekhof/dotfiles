@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help)
 local format_mappings = {
     { pattern = "*", command = ":retab!<CR>" },
     { pattern = "json", command = ":%! jq .<CR>" },
-    { pattern = {"javascript", "typescript"}, command = vim.lsp.buf.format },
+    { pattern = {"javascript", "typescript", "vue"}, command = vim.lsp.buf.format },
 }
 
 for _, value in pairs(format_mappings) do

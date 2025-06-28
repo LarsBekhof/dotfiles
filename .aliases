@@ -4,7 +4,6 @@
 alias du="du -h" # Always show sizes in a human readable format
 alias lsp="stat -c '%a %n' *" # Print the numeric access rights to all objects in a folder
 alias ls="eza"
-alias cat="batcat"
 alias pa-restart="pulseaudio -k && pulseaudio --start" # Restart pulseaudio
 alias untar="tar -xavf" # Extract tar files based on their file extension
 alias mine="sudo chown $USER:$USER" # Make a object yours

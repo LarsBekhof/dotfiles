@@ -16,7 +16,7 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --null --sort-files | xargs -0 dirname | sort -u"
 export FZF_DEFAULT_OPTS="--preview 'batcat\ --color=always\ {}' --preview-window hidden"
 
-export SSH_AUTH_SOCK=~/.1password/agent.sock
+export SSH_AUTH_SOCK=/home/lars/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
 
 # Default editor
 export EDITOR=nvim

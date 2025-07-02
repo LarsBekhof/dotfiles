@@ -285,7 +285,7 @@ require("lazy").setup {
             -- Vim bindings to open Telescope
             vim.keymap.set("n", "<C-p>", builtin.find_files)
             vim.keymap.set("n", "<C-a>", builtin.live_grep)
-            vim.keymap.set("n", "C-b>", builtin.buffers)
+            vim.keymap.set("n", "<C-b>", builtin.buffers)
             vim.keymap.set("n", "<leader>d", builtin.diagnostics)
             vim.keymap.set("n", "<leader>t", ":Telescope<CR>")
 

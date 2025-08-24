@@ -16,6 +16,7 @@ vim.opt.listchars = {
 }
 vim.opt.swapfile = false
 vim.opt.cursorline = true
+vim.opt.smartcase = true;
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
@@ -29,6 +30,7 @@ vim.keymap.set("n", "<leader>N", function() vim.diagnostic.jump({ count = 1 }) e
 vim.keymap.set("n", "<leader>B", function() vim.diagnostic.jump({ count = -1 }) end)
 vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help)
+vim.keymap.set("n", "<leader>%", ":%s///g<Left><Left><Left>")
 
 local format_mappings = {
     { pattern = "*",    command = ":retab!<CR>" },
@@ -102,6 +104,7 @@ local installed_lsps = {
     "ts_ls",
     "intelephense",
     "vue_ls",
+    "vtsls",
     "eslint",
     "typos_lsp",
     "tailwindcss",
@@ -162,20 +165,9 @@ require("lazy").setup {
     },
     {
         "mason-org/mason-lspconfig.nvim",
-        event = "BufReadPre",
-        config = function()
-            local mason_lspconfig = require("mason-lspconfig")
-            local lspconfig = require("lspconfig")
-
-            for _, lsp in ipairs(installed_lsps) do
-                local config = lspconfig[lsp]
-                vim.lsp.config(lsp, config)
-            end
-
-            mason_lspconfig.setup({
-                ensure_installed = installed_lsps,
-            });
-        end,
+        opts = {
+            ensure_installed = installed_lsps,
+        },
         dependencies = {
             { "mason-org/mason.nvim", opts = true },
             "neovim/nvim-lspconfig",

@@ -35,7 +35,7 @@ alias dps='docker ps --format="table {{.ID}}\t{{.Names}}\t{{.Status}}"'
 alias dcup='docker compose up -d --build $(docker compose config --services | fzf -m)'
 
 # Kubernetes
-alias select-aws='aws eks update-kubeconfig --region eu-central-1 --name $(echo "oaky-staging-v3\noaky-production-v3" | fzf)'
+alias select-aws='kubectl config set-context $(echo "staging\noaky-production-v3" | fzf)'
 alias select-k8s-env='K8S_ENV=$(echo "accp-1\naccp-2\naccp-3\naccp-4\naccp-5\n" | fzf)'
 alias select-k8s-pod='select-k8s-env && K8S_POD=$(kubectl get po -n $K8S_ENV --no-headers -o custom-columns=":metadata.name" | fzf)'
 alias kube-ps='select-k8s-env && kubectl get po -n $K8S_ENV'

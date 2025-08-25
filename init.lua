@@ -39,6 +39,7 @@ local format_mappings = {
             "typescript",
             "vue",
             "lua",
+            "go",
         },
         command = vim.lsp.buf.format,
     },
@@ -106,6 +107,7 @@ local installed_lsps = {
     "typos_lsp",
     "tailwindcss",
     "jsonls",
+    "gopls",
 }
 
 require("lazy").setup {

@@ -7,7 +7,7 @@
 - `eza`
 - `bat` | `batcat`
 - `rg`
-- `docker` | `podman`
+- `docker` | `podman podman-docker`
 - `aws`
 - `kubectl`
 

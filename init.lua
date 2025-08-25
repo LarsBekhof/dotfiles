@@ -71,7 +71,15 @@ vim.diagnostic.config {
 vim.api.nvim_create_autocmd("CursorHold", {
     pattern = "*",
     callback = function()
-        vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+        vim.diagnostic.open_float(nil, {
+            focus = false,
+            scope = "cursor",
+            close_events = {
+                "BufLeave",
+                "CursorMoved",
+                "InsertEnter",
+            }
+        })
     end,
 })
 

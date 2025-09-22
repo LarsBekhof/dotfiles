@@ -131,7 +131,7 @@ require("lazy").setup {
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        branch = "master",
+        branch = "main",
         lazy = false,
         build = ":TSUpdate",
         init = function()
@@ -215,7 +215,6 @@ require("lazy").setup {
             "nvim-telescope/telescope-ui-select.nvim",
             "nvim-telescope/telescope-file-browser.nvim",
         },
-        tag = "0.1.8",
         config = function()
             local telescope = require("telescope")
             local actions = require('telescope.actions')

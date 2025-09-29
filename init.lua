@@ -34,7 +34,6 @@ vim.keymap.set("n", "<leader>%", ":%s///g<Left><Left><Left>")
 
 local format_mappings = {
     { pattern = "*",    command = ":retab!<CR>" },
-    { pattern = "json", command = ":%! jq .<CR>" },
     {
         pattern = {
             "javascript",
@@ -42,6 +41,7 @@ local format_mappings = {
             "vue",
             "lua",
             "go",
+            "json",
         },
         command = vim.lsp.buf.format,
     },
